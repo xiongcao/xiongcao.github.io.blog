@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="css,伪类选择器," />
 
 
 
@@ -111,16 +111,22 @@
 
 
 
-<meta name="description" content="知识在世界的某个角落等你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。">
+<meta name="keywords" content="css,伪类选择器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css3伪类选择器nth-child和nth-of-type的区别">
+<meta property="og:url" content="http://yoursite.com/2017/06/10/ss3伪类选择器nth-child和nth-of-type的区别/index.html">
 <meta property="og:site_name" content="安妮的小熊">
-<meta property="og:description" content="知识在世界的某个角落等你">
-<meta property="og:updated_time" content="2017-06-05T12:14:15.341Z">
+<meta property="og:description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。">
+<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/hl1lJccBCj.png?imageslim">
+<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/5kG378GEBE.png?imageslim">
+<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/h346LeKK59.png?imageslim">
+<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/5kG378GEBE.png?imageslim">
+<meta property="og:updated_time" content="2017-06-10T09:52:59.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="知识在世界的某个角落等你">
+<meta name="twitter:title" content="css3伪类选择器nth-child和nth-of-type的区别">
+<meta name="twitter:description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。">
+<meta name="twitter:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/hl1lJccBCj.png?imageslim">
 
 
 
@@ -148,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/10/ss3伪类选择器nth-child和nth-of-type的区别/"/>
 
 
 
 
 
-  <title>categories | 安妮的小熊</title>
+  <title>css3伪类选择器nth-child和nth-of-type的区别 | 安妮的小熊</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -341,25 +347,345 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/10/ss3伪类选择器nth-child和nth-of-type的区别/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="熊 超">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xiaoxiong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安妮的小熊">
+    </span>
 
     
-    
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 2 个分类
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css3伪类选择器nth-child和nth-of-type的区别</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-10T16:35:00+08:00">
+                2017-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/06/10/ss3伪类选择器nth-child和nth-of-type的区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/10/ss3伪类选择器nth-child和nth-of-type的区别/" class="leancloud_visitors" data-flag-title="css3伪类选择器nth-child和nth-of-type的区别">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  432 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">2</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h3 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h3><p>之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。</p>
+<a id="more"></a>
+<h3 id="1-用法效果相同的情况"><a href="#1-用法效果相同的情况" class="headerlink" title="1.用法效果相同的情况"></a>1.用法效果相同的情况</h3><h5 id="示例一："><a href="#示例一：" class="headerlink" title="示例一："></a>示例一：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># HTML代码</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>one<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>two<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>three<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>要实现的效果：将two变红</p>
+<blockquote>
+<ul>
+<li>nth-child()的方式:</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># <span class="selector-tag">CSS</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-child(2)</span>&#123;<span class="attribute">color</span>:red;&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>nth-of-type()的方式:</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># <span class="selector-tag">CSS</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type(2)</span>&#123;<span class="attribute">color</span>:red;&#125;</div></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://or87vteh1.bkt.clouddn.com/blog/170610/hl1lJccBCj.png?imageslim" alt="mark"></p>
+<p>在同辈元素都相同的情况下两个用法效果一样</p>
+<h3 id="2-用法相同效果不同的情况"><a href="#2-用法相同效果不同的情况" class="headerlink" title="2.用法相同效果不同的情况"></a>2.用法相同效果不同的情况</h3><h5 id="示例二："><a href="#示例二：" class="headerlink" title="示例二："></a>示例二：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># HTML代码</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>one<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>two<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>three<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>要实现的效果：同样将two变红</p>
+<blockquote>
+<ul>
+<li>先看nth-of-type()的方式:</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># <span class="selector-tag">CSS</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type(2)</span>&#123;<span class="attribute">color</span>:red;&#125;</div></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://or87vteh1.bkt.clouddn.com/blog/170610/5kG378GEBE.png?imageslim" alt="mark"></p>
+<blockquote>
+<ul>
+<li>再来看nth-child()的方式:</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># <span class="selector-tag">CSS</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-child(2)</span>&#123;<span class="attribute">color</span>:red;&#125;</div></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://or87vteh1.bkt.clouddn.com/blog/170610/h346LeKK59.png?imageslim" alt="mark"></p>
+<h3 id="3-用法不同效果相同的情况"><a href="#3-用法不同效果相同的情况" class="headerlink" title="3.用法不同效果相同的情况"></a>3.用法不同效果相同的情况</h3><h5 id="示例三："><a href="#示例三：" class="headerlink" title="示例三："></a>示例三：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># HTML代码</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>one<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>two<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>three<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>要实现的效果：同样将two变红</p>
+<blockquote>
+<ul>
+<li>先看nth-of-type()的方式:</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># <span class="selector-tag">CSS</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type(2)</span>&#123;<span class="attribute">color</span>:red;&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>再来看nth-child()的方式:</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># <span class="selector-tag">CSS</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-child(3)</span>&#123;<span class="attribute">color</span>:red;&#125;</div></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://or87vteh1.bkt.clouddn.com/blog/170610/5kG378GEBE.png?imageslim" alt="mark"></p>
+<h3 id="用法总结"><a href="#用法总结" class="headerlink" title="用法总结"></a>用法总结</h3><p>从以上三个示例可以看出：</p>
+<ul>
+<li>1.在所有子元素都相同的情况下，两种用法效果相同；</li>
+<li>2.在子元素不同的情况下，:nth-of-type选择的是相同（同种元素）元素中的第几个，而:nth-child选择的其父辈元素下面的第几个子元素；</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="熊 超 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="熊 超 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+<style type="text/css">
+  #rewardButton {
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    border-radius: 100%;
+    padding: 0;
+    margin: 0;
+    letter-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+  }
+  #rewardButton span {
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    font-stretch: normal;
+    font-size: 18px;
+    font-family: "Microsoft Yahei";
+    background: #f44336;
+  }
+  #rewardButton span:hover {
+    background: #f7877f;
+  }
+  #QR {
+    padding-top: 20px;
+  }
+  #QR a {
+    border: 0;
+  }
+  #QR img {
+    width: 180px;
+    max-width: 100%;
+    display: inline-block;
+    margin: 0.8em 2em 0 2em;
+  }
+</style>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/伪类选择器/" rel="tag"># 伪类选择器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/10/Jquery-Dom元素Index-方法的使用/" rel="next" title="Jquery Dom元素Index()方法的使用">
+                <i class="fa fa-chevron-left"></i> Jquery Dom元素Index()方法的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
@@ -393,8 +719,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/xiaoxiong.png"
@@ -520,6 +855,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用误区"><span class="nav-number">1.</span> <span class="nav-text">使用误区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-用法效果相同的情况"><span class="nav-number">2.</span> <span class="nav-text">1.用法效果相同的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示例一："><span class="nav-number">2.0.1.</span> <span class="nav-text">示例一：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-用法相同效果不同的情况"><span class="nav-number">3.</span> <span class="nav-text">2.用法相同效果不同的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示例二："><span class="nav-number">3.0.1.</span> <span class="nav-text">示例二：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-用法不同效果相同的情况"><span class="nav-number">4.</span> <span class="nav-text">3.用法不同效果相同的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示例三："><span class="nav-number">4.0.1.</span> <span class="nav-text">示例三：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法总结"><span class="nav-number">5.</span> <span class="nav-text">用法总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -649,10 +1000,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 

@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用gulp自动化构建前端项目]]></title>
+    <url>%2F2017%2F07%2F09%2F%E4%BD%BF%E7%94%A8gulp%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[gulp简介：&ensp;&ensp;&ensp;&ensp;gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成，从而大大提高我们的工作效率。&ensp;&ensp;&ensp;&ensp;gulp是基于Nodejs的自动任务运行器,她能自动化地完成javascript、coffee、sass、less、html、image、css 等文件的的测试、检查、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。 环境搭建：1.安装nodeJS1.gulp是基于nodejs，所以需要安装nodejs。2.自己去node官网下载nodejs安装。 2.npm工具说明：npm（node package manager）nodejs的包管理器，用于node插件管理（包括安装、卸载、管理依赖等）； 使用npm安装插件：npm install &lt;name&gt; [-g] [–save-dev]；1.name: node插件名称。例：npm install gulp-sass –save-dev； 2.-g: 全局安装,可以通过命令行在任何地方调用它。如果不写-g则使非全局安装，将安装在定位目录的node_modules文件夹下，通过require()调用； 3.–save: 将保存配置信息至package.json（package.json是nodejs项目配置文件）； 4.-dev: 保存至package.json的devDependencies节点，不指定-dev将保存至dependencies节点； 3.安装gulp1.npm install gulp -g； 4.新建package.json文件1.说明：package.json是基于nodejs项目必不可少的配置文件，它是存放在项目根目录的普通json文件； 2.通过命令行新建：npm init， 创建过程中会提示让输入各种信息，可以一直回车忽略它。 5.新建gulpfile.js文件1.说明：gulpfile.js是gulp项目的配置文件，是位于项目根目录的普通js文件2.新建gulpfile.js文件示例12345678910111213141516171819202122232425//导入工具包 require('node_modules里对应模块')var gulp = require('gulp'); //本地安装gulp所用到的地方var sass = require('gulp-sass');var minifycss = require('gulp-minify-css');//压缩css插件var cleancss = require('gulp-clean-css');//压缩css插件 //定义一个sass任务（自定义任务名称）gulp.task('sass', function () &#123; gulp.src('./sass/**/*.scss') //该任务针对的文件 .pipe(sass()) //该任务调用的模块 .pipe(cleancss(&#123; advanced: false,//类型：Boolean 默认：true [是否开启高级优化（合并选择器等）] compatibility: 'ie7',//保留ie7及以下兼容写法 类型：String 默认：''or'*' [启用兼容模式； 'ie7'：IE7兼容模式，'ie8'：IE8兼容模式，'*'：IE9+兼容模式] keepBreaks: true,//类型：Boolean 默认：false [是否保留换行] keepSpecialComments: '*' //保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀 &#125;)) .pipe(gulp.dest('./css')); //将会在css文件夹下生成index.css（复制文件目录及文件）&#125;); gulp.task('default',['sass']); //定义默认任务 //gulp.task(name[, deps], fn) 定义任务 name：任务名称 deps：依赖任务名称 fn：回调函数//gulp.src(globs[, options]) 执行任务处理的文件 globs：处理的文件路径(字符串或者字符串数组) //gulp.dest(path[, options]) 处理完后文件生成路径 6.运行gulp1.gulp [name]: gulpfile.js里面定义的模块的名称 例如:gulp sass。2.gulp default: 如果定义了默认任务gulp.task(‘default’,[‘sass’])可直接执行gulp命令。 &ensp;&ensp;&ensp;&ensp;到此为止使用gulp自动化构建前端项目的环境已经配置完成了，接下来就是我们自己去安装相应的插件来完善项目了。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>gulp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[css3伪类选择器nth-child和nth-of-type的区别]]></title>
     <url>%2F2017%2F06%2F10%2Fss3%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8nth-child%E5%92%8Cnth-of-type%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。 1.用法效果相同的情况示例一：123456# HTML代码&lt;div class="main"&gt; &lt;p&gt;one&lt;/p&gt; &lt;p&gt;two&lt;/p&gt; &lt;p&gt;three&lt;/p&gt;&lt;/div&gt; 要实现的效果：将two变红 nth-child()的方式: 12# CSSp:nth-child(2)&#123;color:red;&#125; nth-of-type()的方式: 12# CSSp:nth-of-type(2)&#123;color:red;&#125; 效果： 在同辈元素都相同的情况下两个用法效果一样 2.用法相同效果不同的情况示例二：1234567# HTML代码&lt;div class="main"&gt; &lt;p&gt;one&lt;/p&gt; &lt;div&gt;div&lt;/div&gt; &lt;p&gt;two&lt;/p&gt; &lt;p&gt;three&lt;/p&gt;&lt;/div&gt; 要实现的效果：同样将two变红 先看nth-of-type()的方式: 12# CSSp:nth-of-type(2)&#123;color:red;&#125; 效果： 再来看nth-child()的方式: 12# CSSp:nth-child(2)&#123;color:red;&#125; 效果： 3.用法不同效果相同的情况示例三：1234567# HTML代码&lt;div class="main"&gt; &lt;p&gt;one&lt;/p&gt; &lt;div&gt;div&lt;/div&gt; &lt;p&gt;two&lt;/p&gt; &lt;p&gt;three&lt;/p&gt;&lt;/div&gt; 要实现的效果：同样将two变红 先看nth-of-type()的方式: 12# CSSp:nth-of-type(2)&#123;color:red;&#125; 再来看nth-child()的方式: 12# CSSp:nth-child(3)&#123;color:red;&#125; 效果： 用法总结从以上三个示例可以看出： 1.在所有子元素都相同的情况下，两种用法效果相同； 2.在子元素不同的情况下，:nth-of-type选择的是相同（同种元素）元素中的第几个，而:nth-child选择的其父辈元素下面的第几个子元素；]]></content>
       <categories>
         <category>笔记</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>css</tag>
@@ -18,6 +30,7 @@
     <content type="text"><![CDATA[前言作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。 jquery获取元素索引值index()方法使用误区 由于对index()方法理解不是很深，所以在做项目时就遇到了有的页面获取的索引是正常的有的页面获取的索引总是大了2个，然后为了让最后的结果正常我就直接减2，并在后面注释”//这里不知道为什么总是多了2，但其他页面又是正常的”，结果组长偶然一次机会看到了我这个注释就批评我说“哪有人这么写代码的”。唉，糗事就不多说了，以后写代码再也不敢这样了。 jquery获取元素索引值index()方法作用用法一：$(select).index(); 示例一： 123456# html代码:&lt;div class="main"&gt; &lt;div class="box"&gt;Milk&lt;/div&gt; &lt;div class="box"&gt;Tea&lt;/div&gt; &lt;div class="box"&gt;Coffee&lt;/div&gt; &lt;/div&gt; 1234# js代码：$(".box").on("click",function()&#123; $(this).index();//结果：如果点击的Milk则返回 0&#125;); 这个示例看起来是获取的自己在与自己相同元素中的位置，那么看实例二 示例二： 1234567# html代码:&lt;div class="main"&gt; &lt;p&gt;Soda&lt;/p&gt; &lt;div class="box"&gt;Milk&lt;/div&gt; &lt;div class="box"&gt;Tea&lt;/div&gt; &lt;div class="box"&gt;Coffee&lt;/div&gt; &lt;/div&gt; 1234# js代码：$(".box").on("click",function()&#123; $(this).index();//结果：如果点击的Milk则返回 1&#125;); 从以上两个示例可以看出$(select).index()即使在没有参数的情况下也是相对用法，这个相对用法是相对其父元素中的位置，而不是获取自己在相同元素中的位置 用法二：$(select1).index(select2); 示例： 12345678# html代码:&lt;p class="box"&gt;Tea&lt;/p&gt;&lt;div class="main"&gt; &lt;p&gt;Soda&lt;/p&gt; &lt;div class="box"&gt;Milk&lt;/div&gt; &lt;div class="box" id="box2"&gt;Tea&lt;/div&gt; &lt;div class="box"&gt;Coffee&lt;/div&gt;&lt;/div&gt; 12# js代码:$(".box").index($("#box2"));//结果: 2 通过这个示例可以看出$(select1).index(select2)的用法是选择器select2相对于选择器select1的位置索引，跟同辈元素和其父辈元素都无关。 总结虽然index()的用法比较简单，但是理解不深的话在项目中运用出了问题还是麻烦的，特别是对于我这个前端菜鸟出现果过这种尴尬的事情还是记录下来比较好，以免以后再跳进同一个坑。]]></content>
       <categories>
         <category>笔记</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>jquery</tag>

@@ -111,21 +111,21 @@
 
 
 
-<meta name="description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。">
+<meta name="description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。 1.用法效果相同的情况示例一：123456# HTML代码&amp;lt;div class=&quot;main&quot;&amp;gt;  &amp;lt;p&amp;gt;one&amp;lt;/p&amp;gt;  &amp;">
 <meta name="keywords" content="css,伪类选择器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css3伪类选择器nth-child和nth-of-type的区别">
 <meta property="og:url" content="http://yoursite.com/2017/06/10/ss3伪类选择器nth-child和nth-of-type的区别/index.html">
 <meta property="og:site_name" content="安妮的小熊">
-<meta property="og:description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。">
+<meta property="og:description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。 1.用法效果相同的情况示例一：123456# HTML代码&amp;lt;div class=&quot;main&quot;&amp;gt;  &amp;lt;p&amp;gt;one&amp;lt;/p&amp;gt;  &amp;">
 <meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/hl1lJccBCj.png?imageslim">
 <meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/5kG378GEBE.png?imageslim">
 <meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/h346LeKK59.png?imageslim">
 <meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/5kG378GEBE.png?imageslim">
-<meta property="og:updated_time" content="2017-07-09T04:12:18.427Z">
+<meta property="og:updated_time" content="2018-07-19T04:10:07.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3伪类选择器nth-child和nth-of-type的区别">
-<meta name="twitter:description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。">
+<meta name="twitter:description" content="使用误区之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。 1.用法效果相同的情况示例一：123456# HTML代码&amp;lt;div class=&quot;main&quot;&amp;gt;  &amp;lt;p&amp;gt;one&amp;lt;/p&amp;gt;  &amp;">
 <meta name="twitter:image" content="http://or87vteh1.bkt.clouddn.com/blog/170610/hl1lJccBCj.png?imageslim">
 
 
@@ -507,8 +507,8 @@
       
         <hr>
 <h3 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h3><p>之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。</p>
-<a id="more"></a>
 <h3 id="1-用法效果相同的情况"><a href="#1-用法效果相同的情况" class="headerlink" title="1.用法效果相同的情况"></a>1.用法效果相同的情况</h3><h4 id="示例一："><a href="#示例一：" class="headerlink" title="示例一："></a>示例一：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># HTML代码</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>one<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>two<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>three<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>要实现的效果：将two变红</p>
 <blockquote>
 <ul>

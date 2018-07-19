@@ -111,17 +111,17 @@
 
 
 
-<meta name="description" content="前言作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。 jquery获取元素索引值index()方法使用误区">
+<meta name="description" content="前言作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。 jquery获取元素索引值index()方法使用误区由于对index()方法理解不是很深，所以在做项目时就遇到了有的页面获取的索引是正常的有的页面获取的索引总是大了2个，然后为了让最后的结果正常我就直接减2，并在后面注释">
 <meta name="keywords" content="index jquery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jquery Dom元素Index()方法的使用">
 <meta property="og:url" content="http://yoursite.com/2017/06/10/Jquery-Dom元素Index-方法的使用/index.html">
 <meta property="og:site_name" content="安妮的小熊">
-<meta property="og:description" content="前言作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。 jquery获取元素索引值index()方法使用误区">
-<meta property="og:updated_time" content="2017-07-09T03:51:47.777Z">
+<meta property="og:description" content="前言作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。 jquery获取元素索引值index()方法使用误区由于对index()方法理解不是很深，所以在做项目时就遇到了有的页面获取的索引是正常的有的页面获取的索引总是大了2个，然后为了让最后的结果正常我就直接减2，并在后面注释">
+<meta property="og:updated_time" content="2018-07-19T04:09:47.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jquery Dom元素Index()方法的使用">
-<meta name="twitter:description" content="前言作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。 jquery获取元素索引值index()方法使用误区">
+<meta name="twitter:description" content="前言作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。 jquery获取元素索引值index()方法使用误区由于对index()方法理解不是很深，所以在做项目时就遇到了有的页面获取的索引是正常的有的页面获取的索引总是大了2个，然后为了让最后的结果正常我就直接减2，并在后面注释">
 
 
 
@@ -502,9 +502,9 @@
       
         <hr>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。</p>
-<h3 id="jquery获取元素索引值index-方法使用误区"><a href="#jquery获取元素索引值index-方法使用误区" class="headerlink" title="jquery获取元素索引值index()方法使用误区"></a>jquery获取元素索引值index()方法使用误区</h3><a id="more"></a>
-<p>由于对index()方法理解不是很深，所以在做项目时就遇到了有的页面获取的索引是正常的有的页面获取的索引总是大了2个，然后为了让最后的结果正常我就直接减2，并在后面注释”//这里不知道为什么总是多了2，但其他页面又是正常的”，结果组长偶然一次机会看到了我这个注释就批评我说“哪有人这么写代码的”。唉，糗事就不多说了，以后写代码再也不敢这样了。</p>
-<h3 id="jquery获取元素索引值index-方法作用"><a href="#jquery获取元素索引值index-方法作用" class="headerlink" title="jquery获取元素索引值index()方法作用"></a>jquery获取元素索引值index()方法作用</h3><h4 id="用法一：-select-index"><a href="#用法一：-select-index" class="headerlink" title="用法一：$(select).index();"></a>用法一：$(select).index();</h4><blockquote>
+<h3 id="jquery获取元素索引值index-方法使用误区"><a href="#jquery获取元素索引值index-方法使用误区" class="headerlink" title="jquery获取元素索引值index()方法使用误区"></a>jquery获取元素索引值index()方法使用误区</h3><p>由于对index()方法理解不是很深，所以在做项目时就遇到了有的页面获取的索引是正常的有的页面获取的索引总是大了2个，然后为了让最后的结果正常我就直接减2，并在后面注释”//这里不知道为什么总是多了2，但其他页面又是正常的”，结果组长偶然一次机会看到了我这个注释就批评我说“哪有人这么写代码的”。唉，糗事就不多说了，以后写代码再也不敢这样了。</p>
+<h3 id="jquery获取元素索引值index-方法作用"><a href="#jquery获取元素索引值index-方法作用" class="headerlink" title="jquery获取元素索引值index()方法作用"></a>jquery获取元素索引值index()方法作用</h3><a id="more"></a>
+<h4 id="用法一：-select-index"><a href="#用法一：-select-index" class="headerlink" title="用法一：$(select).index();"></a>用法一：$(select).index();</h4><blockquote>
 <ul>
 <li>示例一：</li>
 </ul>

@@ -494,6 +494,8 @@
       
         
           <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>&ensp;&ensp;&ensp;&ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。</p>
+<h2 id="一：Date-对象方法示例："><a href="#一：Date-对象方法示例：" class="headerlink" title="一：Date()对象方法示例："></a>一：Date()对象方法示例：</h2><h3 id="Date-：返回当日的日期和时间。"><a href="#Date-：返回当日的日期和时间。" class="headerlink" title="Date()：返回当日的日期和时间。"></a>Date()：返回当日的日期和时间。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Date</span>()	<span class="comment">//Thu Jul 19 2018 10:46:06 GMT+0800 (中国标准时间)</span></div></pre></td></tr></table></figure>
+<h3 id="getDay-：从-Date-对象返回一周中的某一天-0-6-。"><a href="#getDay-：从-Date-对象返回一周中的某一天-0-6-。" class="headerlink" title="getDay()：从 Date 对象返回一周中的某一天 (0 ~ 6)。"></a>getDay()：从 Date 对象返回一周中的某一天 (0 ~ 6)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getDay();		<span class="comment">//4 今天是星期四</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/19/js-Date对象的详细使用/#more" rel="contents">
@@ -697,6 +699,7 @@
         
           <hr>
 <h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>&ensp;&ensp;&ensp;&ensp;gulp有着丰富的插件库，她能自动化地完成javascript、coffee、sass、less、html、image、css 等文件的的测试、检查、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤，能快速提高我们项目的开发效率。</p>
+<h2 id="1-gulpfile-js基本配置示例："><a href="#1-gulpfile-js基本配置示例：" class="headerlink" title="1.gulpfile.js基本配置示例："></a>1.gulpfile.js基本配置示例：</h2><p>&ensp;&ensp;&ensp;&ensp;通过此配置示例可以让我们快速编写js,css代码并打包压缩文件，减少文件资源大小。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/16/使用gulp插件快速开发项目/#more" rel="contents">
@@ -899,7 +902,8 @@
       
         
           <hr>
-<h3 id="gulp简介："><a href="#gulp简介：" class="headerlink" title="gulp简介："></a>gulp简介：</h3><p>&ensp;&ensp;&ensp;&ensp;gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成，从而大大提高我们的工作效率。<br><br>
+<h3 id="gulp简介："><a href="#gulp简介：" class="headerlink" title="gulp简介："></a>gulp简介：</h3><p>&ensp;&ensp;&ensp;&ensp;gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成，从而大大提高我们的工作效率。<br></p>
+<p>&ensp;&ensp;&ensp;&ensp;gulp是基于Nodejs的自动任务运行器,她能自动化地完成javascript、coffee、sass、less、html、image、css 等文件的的测试、检查、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/09/使用gulp自动化构建前端项目/#more" rel="contents">
@@ -1103,6 +1107,7 @@
         
           <hr>
 <h3 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h3><p>之前在做项目时一直是:nth-child和:nth-of-type混着用，第一个不行就用第二个，当时就觉得能实现效果就行，后来这样的情况遇到多了，每次用的时候就感觉效果是试出来的，特别浪费时间，现在就来研究一下这两个用法的区别。</p>
+<h3 id="1-用法效果相同的情况"><a href="#1-用法效果相同的情况" class="headerlink" title="1.用法效果相同的情况"></a>1.用法效果相同的情况</h3><h4 id="示例一："><a href="#示例一：" class="headerlink" title="示例一："></a>示例一：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># HTML代码</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>one<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>two<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>three<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/10/ss3伪类选择器nth-child和nth-of-type的区别/#more" rel="contents">
@@ -1306,7 +1311,8 @@
         
           <hr>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一个做后端java开发的被强行拉到前端组的菜鸟，前端知识略懂皮毛的我对于jquery很多常用方法都有误区，比如我现在要说的jquery DOM元素的index()方法。</p>
-<h3 id="jquery获取元素索引值index-方法使用误区"><a href="#jquery获取元素索引值index-方法使用误区" class="headerlink" title="jquery获取元素索引值index()方法使用误区"></a>jquery获取元素索引值index()方法使用误区</h3>
+<h3 id="jquery获取元素索引值index-方法使用误区"><a href="#jquery获取元素索引值index-方法使用误区" class="headerlink" title="jquery获取元素索引值index()方法使用误区"></a>jquery获取元素索引值index()方法使用误区</h3><p>由于对index()方法理解不是很深，所以在做项目时就遇到了有的页面获取的索引是正常的有的页面获取的索引总是大了2个，然后为了让最后的结果正常我就直接减2，并在后面注释”//这里不知道为什么总是多了2，但其他页面又是正常的”，结果组长偶然一次机会看到了我这个注释就批评我说“哪有人这么写代码的”。唉，糗事就不多说了，以后写代码再也不敢这样了。</p>
+<h3 id="jquery获取元素索引值index-方法作用"><a href="#jquery获取元素索引值index-方法作用" class="headerlink" title="jquery获取元素索引值index()方法作用"></a>jquery获取元素索引值index()方法作用</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/10/Jquery-Dom元素Index-方法的使用/#more" rel="contents">

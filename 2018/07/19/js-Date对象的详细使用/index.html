@@ -111,17 +111,17 @@
 
 
 
-<meta name="description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。">
+<meta name="description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。 一：Date()对象方法示例：Date()：返回当日的日期和时间。1Date()	//Thu Jul 19 2018 10:46:">
 <meta name="keywords" content="js,date">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js Date对象的详细使用">
 <meta property="og:url" content="http://yoursite.com/2018/07/19/js-Date对象的详细使用/index.html">
 <meta property="og:site_name" content="安妮的小熊">
-<meta property="og:description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。">
-<meta property="og:updated_time" content="2018-07-19T04:06:52.343Z">
+<meta property="og:description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。 一：Date()对象方法示例：Date()：返回当日的日期和时间。1Date()	//Thu Jul 19 2018 10:46:">
+<meta property="og:updated_time" content="2018-07-19T04:08:49.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js Date对象的详细使用">
-<meta name="twitter:description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。">
+<meta name="twitter:description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。 一：Date()对象方法示例：Date()：返回当日的日期和时间。1Date()	//Thu Jul 19 2018 10:46:">
 
 
 
@@ -490,9 +490,9 @@
 
       
         <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>&ensp;&ensp;&ensp;&ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。</p>
-<a id="more"></a>
 <h2 id="一：Date-对象方法示例："><a href="#一：Date-对象方法示例：" class="headerlink" title="一：Date()对象方法示例："></a>一：Date()对象方法示例：</h2><h3 id="Date-：返回当日的日期和时间。"><a href="#Date-：返回当日的日期和时间。" class="headerlink" title="Date()：返回当日的日期和时间。"></a>Date()：返回当日的日期和时间。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Date</span>()	<span class="comment">//Thu Jul 19 2018 10:46:06 GMT+0800 (中国标准时间)</span></div></pre></td></tr></table></figure>
 <h3 id="getDay-：从-Date-对象返回一周中的某一天-0-6-。"><a href="#getDay-：从-Date-对象返回一周中的某一天-0-6-。" class="headerlink" title="getDay()：从 Date 对象返回一周中的某一天 (0 ~ 6)。"></a>getDay()：从 Date 对象返回一周中的某一天 (0 ~ 6)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getDay();		<span class="comment">//4 今天是星期四</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="getFullYear-：从-Date-对象以四位数字返回年份。"><a href="#getFullYear-：从-Date-对象以四位数字返回年份。" class="headerlink" title="getFullYear()：从 Date 对象以四位数字返回年份。"></a>getFullYear()：从 Date 对象以四位数字返回年份。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getFullYear();		<span class="comment">//2018</span></div></pre></td></tr></table></figure>
 <h3 id="getMonth-：从-Date-对象返回月份-0-11-。"><a href="#getMonth-：从-Date-对象返回月份-0-11-。" class="headerlink" title="getMonth()：从 Date 对象返回月份 (0 ~ 11)。"></a>getMonth()：从 Date 对象返回月份 (0 ~ 11)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getMonth();		<span class="comment">//6</span></div></pre></td></tr></table></figure>
 <h3 id="getDate-：从-Date-对象返回一个月中的某一天-1-31-。"><a href="#getDate-：从-Date-对象返回一个月中的某一天-1-31-。" class="headerlink" title="getDate()：从 Date 对象返回一个月中的某一天 (1 ~ 31)。"></a>getDate()：从 Date 对象返回一个月中的某一天 (1 ~ 31)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getDate();		<span class="comment">//19</span></div></pre></td></tr></table></figure>

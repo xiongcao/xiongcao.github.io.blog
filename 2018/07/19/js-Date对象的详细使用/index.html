@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js,date," />
 
 
 
@@ -111,16 +111,17 @@
 
 
 
-<meta name="description" content="知识在世界的某个角落等你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。">
+<meta name="keywords" content="js,date">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js Date对象的详细使用">
+<meta property="og:url" content="http://yoursite.com/2018/07/19/js-Date对象的详细使用/index.html">
 <meta property="og:site_name" content="安妮的小熊">
-<meta property="og:description" content="知识在世界的某个角落等你">
-<meta property="og:updated_time" content="2017-06-05T12:14:15.341Z">
+<meta property="og:description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。">
+<meta property="og:updated_time" content="2018-07-19T04:06:52.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="知识在世界的某个角落等你">
+<meta name="twitter:title" content="js Date对象的详细使用">
+<meta name="twitter:description" content="前言：&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。">
 
 
 
@@ -148,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/19/js-Date对象的详细使用/"/>
 
 
 
 
 
-  <title>categories | 安妮的小熊</title>
+  <title>js Date对象的详细使用 | 安妮的小熊</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -341,25 +342,306 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/js-Date对象的详细使用/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="熊 超">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xiaoxiong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安妮的小熊">
+    </span>
 
     
-    
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 5 个分类
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js Date对象的详细使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-19T11:44:00+08:00">
+                2018-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2018/07/19/js-Date对象的详细使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/19/js-Date对象的详细使用/" class="leancloud_visitors" data-flag-title="js Date对象的详细使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  535 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/构建工具/">构建工具</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/前端/">前端</a><span class="category-list-count">2</span></li></ul></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>&ensp;&ensp;&ensp;&ensp;最近发现Date对象在项目中真的是无处不在，几乎做过的所有项目中都有Date的各种用法，然而每次要使用的时候都是各种百度，自己既没有掌握Date的详细用法，也使得每次做项目都浪费很多时间，所以特此研究一下记录下来。</p>
+<a id="more"></a>
+<h2 id="一：Date-对象方法示例："><a href="#一：Date-对象方法示例：" class="headerlink" title="一：Date()对象方法示例："></a>一：Date()对象方法示例：</h2><h3 id="Date-：返回当日的日期和时间。"><a href="#Date-：返回当日的日期和时间。" class="headerlink" title="Date()：返回当日的日期和时间。"></a>Date()：返回当日的日期和时间。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Date</span>()	<span class="comment">//Thu Jul 19 2018 10:46:06 GMT+0800 (中国标准时间)</span></div></pre></td></tr></table></figure>
+<h3 id="getDay-：从-Date-对象返回一周中的某一天-0-6-。"><a href="#getDay-：从-Date-对象返回一周中的某一天-0-6-。" class="headerlink" title="getDay()：从 Date 对象返回一周中的某一天 (0 ~ 6)。"></a>getDay()：从 Date 对象返回一周中的某一天 (0 ~ 6)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getDay();		<span class="comment">//4 今天是星期四</span></div></pre></td></tr></table></figure>
+<h3 id="getFullYear-：从-Date-对象以四位数字返回年份。"><a href="#getFullYear-：从-Date-对象以四位数字返回年份。" class="headerlink" title="getFullYear()：从 Date 对象以四位数字返回年份。"></a>getFullYear()：从 Date 对象以四位数字返回年份。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getFullYear();		<span class="comment">//2018</span></div></pre></td></tr></table></figure>
+<h3 id="getMonth-：从-Date-对象返回月份-0-11-。"><a href="#getMonth-：从-Date-对象返回月份-0-11-。" class="headerlink" title="getMonth()：从 Date 对象返回月份 (0 ~ 11)。"></a>getMonth()：从 Date 对象返回月份 (0 ~ 11)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getMonth();		<span class="comment">//6</span></div></pre></td></tr></table></figure>
+<h3 id="getDate-：从-Date-对象返回一个月中的某一天-1-31-。"><a href="#getDate-：从-Date-对象返回一个月中的某一天-1-31-。" class="headerlink" title="getDate()：从 Date 对象返回一个月中的某一天 (1 ~ 31)。"></a>getDate()：从 Date 对象返回一个月中的某一天 (1 ~ 31)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getDate();		<span class="comment">//19</span></div></pre></td></tr></table></figure>
+<h3 id="getHours-：返回-Date-对象的小时-0-23-。"><a href="#getHours-：返回-Date-对象的小时-0-23-。" class="headerlink" title="getHours()：返回 Date 对象的小时 (0 ~ 23)。"></a>getHours()：返回 Date 对象的小时 (0 ~ 23)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getHours();		<span class="comment">//10</span></div></pre></td></tr></table></figure>
+<h3 id="getMinutes-：返回-Date-对象的分钟-0-59-。"><a href="#getMinutes-：返回-Date-对象的分钟-0-59-。" class="headerlink" title="getMinutes()：返回 Date 对象的分钟 (0 ~ 59)。"></a>getMinutes()：返回 Date 对象的分钟 (0 ~ 59)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getMinutes();		<span class="comment">//53</span></div></pre></td></tr></table></figure>
+<h3 id="getSeconds-：返回-Date-对象的秒数-0-59-。"><a href="#getSeconds-：返回-Date-对象的秒数-0-59-。" class="headerlink" title="getSeconds()：返回 Date 对象的秒数 (0 ~ 59)。"></a>getSeconds()：返回 Date 对象的秒数 (0 ~ 59)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getSeconds();		<span class="comment">//5</span></div></pre></td></tr></table></figure>
+<h3 id="getMilliseconds-：返回-Date-对象的毫秒-0-999-。"><a href="#getMilliseconds-：返回-Date-对象的毫秒-0-999-。" class="headerlink" title="getMilliseconds()：返回 Date 对象的毫秒(0 ~ 999)。"></a>getMilliseconds()：返回 Date 对象的毫秒(0 ~ 999)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getMilliseconds();		<span class="comment">//522</span></div></pre></td></tr></table></figure>
+<h3 id="getTime-：返回-1970-年-1-月-1-日至今的毫秒数。"><a href="#getTime-：返回-1970-年-1-月-1-日至今的毫秒数。" class="headerlink" title="getTime()：返回 1970 年 1 月 1 日至今的毫秒数。"></a>getTime()：返回 1970 年 1 月 1 日至今的毫秒数。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.getTime();		<span class="comment">//1531968785522</span></div></pre></td></tr></table></figure>
+<h3 id="setFullYear-：设置-Date-对象中的年份（四位数字）。"><a href="#setFullYear-：设置-Date-对象中的年份（四位数字）。" class="headerlink" title="setFullYear()：设置 Date 对象中的年份（四位数字）。"></a>setFullYear()：设置 Date 对象中的年份（四位数字）。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setFullYear(<span class="number">1995</span>); <span class="comment">//1531968785522</span></div></pre></td></tr></table></figure>
+<h3 id="setMonth-：设置-Date-对象中月份-0-11-。"><a href="#setMonth-：设置-Date-对象中月份-0-11-。" class="headerlink" title="setMonth()：设置 Date 对象中月份 (0 ~ 11)。"></a>setMonth()：设置 Date 对象中月份 (0 ~ 11)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setMonth(<span class="number">8</span>); <span class="comment">//Wed Sep 19 2018 11:51:48 GMT+0800 (中国标准时间)</span></div></pre></td></tr></table></figure>
+<h3 id="setDate-：设置-Date-对象中月的某一天-1-31-。"><a href="#setDate-：设置-Date-对象中月的某一天-1-31-。" class="headerlink" title="setDate()：设置 Date 对象中月的某一天 (1 ~ 31)。"></a>setDate()：设置 Date 对象中月的某一天 (1 ~ 31)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setDate(<span class="number">25</span>); <span class="comment">//Wed Jul 25 2018 11:52:15 GMT+0800 (中国标准时间)</span></div></pre></td></tr></table></figure>
+<h3 id="setTime-：以毫秒设置-Date-对象。"><a href="#setTime-：以毫秒设置-Date-对象。" class="headerlink" title="setTime()：以毫秒设置 Date 对象。"></a>setTime()：以毫秒设置 Date 对象。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//向 1970/01/01 添加 77771564221 毫秒，并显示新的日期和时间：</span></div><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setTime(<span class="number">77771564221</span>); </div><div class="line"><span class="built_in">console</span>.log(date) <span class="comment">//Mon Jun 19 1972 11:12:44 GMT+0800 (中国标准时间)</span></div></pre></td></tr></table></figure>
+<h3 id="toTimeString-：把-Date-对象的时间部分转换为字符串。"><a href="#toTimeString-：把-Date-对象的时间部分转换为字符串。" class="headerlink" title="toTimeString()：把 Date 对象的时间部分转换为字符串。"></a>toTimeString()：把 Date 对象的时间部分转换为字符串。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.toTimeString(); =&gt; <span class="number">11</span>:<span class="number">58</span>:<span class="number">45</span> GMT+<span class="number">0800</span> (中国标准时间)</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">### toDateString()：把 Date 对象的日期部分转换为字符串。</div><div class="line">`<span class="string">``</span>js</div><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="built_in">console</span>.log(date.toDateString()); =&gt; Thu Jul <span class="number">19</span> <span class="number">2018</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="熊 超 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="熊 超 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+<style type="text/css">
+  #rewardButton {
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    border-radius: 100%;
+    padding: 0;
+    margin: 0;
+    letter-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+  }
+  #rewardButton span {
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    font-stretch: normal;
+    font-size: 18px;
+    font-family: "Microsoft Yahei";
+    background: #f44336;
+  }
+  #rewardButton span:hover {
+    background: #f7877f;
+  }
+  #QR {
+    padding-top: 20px;
+  }
+  #QR a {
+    border: 0;
+  }
+  #QR img {
+    width: 180px;
+    max-width: 100%;
+    display: inline-block;
+    margin: 0.8em 2em 0 2em;
+  }
+</style>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/date/" rel="tag"># date</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/16/使用gulp插件快速开发项目/" rel="next" title="使用gulp插件快速开发项目">
+                <i class="fa fa-chevron-left"></i> 使用gulp插件快速开发项目
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
@@ -393,8 +675,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/xiaoxiong.png"
@@ -520,6 +811,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一：Date-对象方法示例："><span class="nav-number">2.</span> <span class="nav-text">一：Date()对象方法示例：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Date-：返回当日的日期和时间。"><span class="nav-number">2.1.</span> <span class="nav-text">Date()：返回当日的日期和时间。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getDay-：从-Date-对象返回一周中的某一天-0-6-。"><span class="nav-number">2.2.</span> <span class="nav-text">getDay()：从 Date 对象返回一周中的某一天 (0 ~ 6)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getFullYear-：从-Date-对象以四位数字返回年份。"><span class="nav-number">2.3.</span> <span class="nav-text">getFullYear()：从 Date 对象以四位数字返回年份。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getMonth-：从-Date-对象返回月份-0-11-。"><span class="nav-number">2.4.</span> <span class="nav-text">getMonth()：从 Date 对象返回月份 (0 ~ 11)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getDate-：从-Date-对象返回一个月中的某一天-1-31-。"><span class="nav-number">2.5.</span> <span class="nav-text">getDate()：从 Date 对象返回一个月中的某一天 (1 ~ 31)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getHours-：返回-Date-对象的小时-0-23-。"><span class="nav-number">2.6.</span> <span class="nav-text">getHours()：返回 Date 对象的小时 (0 ~ 23)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getMinutes-：返回-Date-对象的分钟-0-59-。"><span class="nav-number">2.7.</span> <span class="nav-text">getMinutes()：返回 Date 对象的分钟 (0 ~ 59)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getSeconds-：返回-Date-对象的秒数-0-59-。"><span class="nav-number">2.8.</span> <span class="nav-text">getSeconds()：返回 Date 对象的秒数 (0 ~ 59)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getMilliseconds-：返回-Date-对象的毫秒-0-999-。"><span class="nav-number">2.9.</span> <span class="nav-text">getMilliseconds()：返回 Date 对象的毫秒(0 ~ 999)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getTime-：返回-1970-年-1-月-1-日至今的毫秒数。"><span class="nav-number">2.10.</span> <span class="nav-text">getTime()：返回 1970 年 1 月 1 日至今的毫秒数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setFullYear-：设置-Date-对象中的年份（四位数字）。"><span class="nav-number">2.11.</span> <span class="nav-text">setFullYear()：设置 Date 对象中的年份（四位数字）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setMonth-：设置-Date-对象中月份-0-11-。"><span class="nav-number">2.12.</span> <span class="nav-text">setMonth()：设置 Date 对象中月份 (0 ~ 11)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setDate-：设置-Date-对象中月的某一天-1-31-。"><span class="nav-number">2.13.</span> <span class="nav-text">setDate()：设置 Date 对象中月的某一天 (1 ~ 31)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setTime-：以毫秒设置-Date-对象。"><span class="nav-number">2.14.</span> <span class="nav-text">setTime()：以毫秒设置 Date 对象。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toTimeString-：把-Date-对象的时间部分转换为字符串。"><span class="nav-number">2.15.</span> <span class="nav-text">toTimeString()：把 Date 对象的时间部分转换为字符串。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -649,10 +956,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 

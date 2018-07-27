@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[js经典排序算法]]></title>
+    <url>%2F2018%2F07%2F27%2Fjs%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[1.冒泡排序（Bubble Sort）冒泡排序动图演示： 123定义： 比较相邻的前后二个数据，如果前面数据大于后面的数据，就将二个 数据交换。对数组的第0个数据到N-1个数据进行一次遍历后，最大的一个数据就“沉”到数组第N-1个位置。N=N-1，如果N不为0就重复前面二步，否则排序完成。 123456789101112function bubbleSort(arr)&#123; var len = arr.length; for(var i = 0;i &lt; len;i++)&#123; for(var j = 0;j &lt; len - 1 - i;j++)&#123; if(arr[j]&gt;arr[j+1])&#123; var temp = arr[j]; arr[j+1] = arr[j]; arr[j] = temp; &#125; &#125; &#125;&#125; 2.选择排序（Selection Sort）选择排序动图演示： 12345678910111213141516171819202122/*** 比如在一个长度为N的无序数组中，在第一趟遍历N个数据，找出其中最小的数值与* 第一个元素交换，第二趟遍历剩下的N-1个数据，找出其中最小的数值与第二个元* 素交换……第N-1趟遍历剩下的2个数据，找出其中最小的数值与第N-1个元素交换，* 至此选择排序完成。*/function selectSort(arr)&#123; var min,temp; for(var i=0;i&lt;arr.length-1;i++)&#123; min=i; for(var j=i+1;j&lt;arr.length;j++)&#123; if(arr[j]&lt;arr[min])&#123; min = j; &#125; &#125; temp=arr[i]; arr[i]=arr[min]; arr[min]=temp; &#125; return arr;&#125; 3.插入排序（Insertion Sort）插入排序动图演示： 123456从第一个元素开始，该元素可以认为已经被排序； 取出下一个元素，在已经排序的元素序列中从后向前扫描； 如果该元素（已排序）大于新元素，将该元素移到下一位置； 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置； 将新元素插入到该位置后； 重复步骤2~5。 1234567891011121314function insertionSort(arr) &#123; var len = arr.length; var preIndex, current; for (var i = 1; i &lt; len; i++) &#123; preIndex = i - 1; current = arr[i]; while(preIndex &gt;= 0 &amp;&amp; arr[preIndex] &gt; current) &#123; arr[preIndex+1] = arr[preIndex]; preIndex--; &#125; arr[preIndex+1] = current; &#125; return arr;&#125; 4.快速排序（Quick Sort）快速排序动图演示： 123先从数列中取出一个数作为基准数。分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。再对左右区间重复第二步，直到各区间只有一个数。 1234567891011121314function quickSort(arr)&#123; if(arr.length&lt;2)&#123; return arr &#125; var left=[],right=[],mid=arr.splice(Math.floor(arr.length/2),1); for(var i=0;i&lt;arr.length;i++)&#123; if(arr[i]&lt;mid)&#123; left.push(arr[i]); &#125;else &#123; right.push(arr[i]) &#125; &#125; return bubbleSort(left).concat(mid,bubbleSort(right)) &#125;]]></content>
+      <categories>
+        <category>前端</category>
+        <category>javascript</category>
+        <category>排序</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>sort</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[js 将对象数组中具有相同值的对象取出组成新的数组]]></title>
     <url>%2F2018%2F07%2F26%2Fjs-%E5%B0%86%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%B7%E6%9C%89%E7%9B%B8%E5%90%8C%E5%80%BC%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%8F%96%E5%87%BA%E7%BB%84%E6%88%90%E6%96%B0%E7%9A%84%E6%95%B0%E7%BB%84%2F</url>
     <content type="text"><![CDATA[实现方法：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273let arr = [ &#123; "id": 577, "name": "艾杜纱 毛孔洁净洗面奶", "skuName": "125mL", "image": "commodityImage/haZW5gLF.jpg", "price": 122.32, "store": 327, "status": 1, "brandId": 18, "categoryId": 32 &#125;, &#123; "id": 536, "name": "心机彩妆 星魅霓光唇膏", "skuName": "BE300", "image": "commodityImage/ibg54OOx.jpg", "price": 273.65, "store": 50, "status": 1, "brandId": 17, "categoryId": 33 &#125;, &#123; "id": 546, "name": "心机彩妆 炫眉膏", "skuName": "77", "image": "commodityImage/356LBmxe.jpg", "price": 160.68, "store": 20, "status": 1, "brandId": 17, "categoryId": 20 &#125;]console.log(arr,'原始数组');console.log(sortArr(arr, 'brandId'),'转化后的数组');/*** arr 要转化的数组* key 根据某一键转化*/function sortArr(arr, key) &#123; let newArr = [], tempArr = [], temp; // 按照特定的参数将数组排序，将具有相同值的排在一起 arr = arr.sort(function(a, b) &#123; let s = a[key], t = b[key]; return s &lt; t ? -1 : 1; &#125;); console.log(arr,"排序之后的数组"); if ( arr.length )&#123; temp = arr[0][key]; &#125; // 将相同类别的对象添加到统一个数组 for (let i in arr) &#123; if ( arr[i][key] === temp )&#123; tempArr.push( arr[i] ); &#125; else &#123; temp = arr[i][key]; newArr.push(tempArr); tempArr = [arr[i]]; &#125; &#125; // 将最后的内容推出新数组 newArr.push(tempArr); return newArr;&#125; 结果：]]></content>
       <categories>
         <category>前端</category>
-        <category>Javascript</category>
+        <category>javascript</category>
         <category>算法</category>
       </categories>
       <tags>

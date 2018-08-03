@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="git," />
 
 
 
@@ -111,15 +111,22 @@
 
 
 
-<meta name="description" content="知识在世界的某个角落等你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="安妮的小熊">
-<meta property="og:url" content="http://yoursite.com/tags/伪类选择器/index.html">
+<meta name="description" content="git的工作原理图解： 将指定文件添加到暂存区(stage)   将暂存区的所有内容提交到当前分支">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/07/08/git常用命令/index.html">
 <meta property="og:site_name" content="安妮的小熊">
-<meta property="og:description" content="知识在世界的某个角落等你">
+<meta property="og:description" content="git的工作原理图解： 将指定文件添加到暂存区(stage)   将暂存区的所有内容提交到当前分支">
+<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808030937_27.png">
+<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808030941_860.png">
+<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808031105_462.png">
+<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808031106_416.png">
+<meta property="og:updated_time" content="2018-08-03T03:50:20.863Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安妮的小熊">
-<meta name="twitter:description" content="知识在世界的某个角落等你">
+<meta name="twitter:title" content="git常用命令">
+<meta name="twitter:description" content="git的工作原理图解： 将指定文件添加到暂存区(stage)   将暂存区的所有内容提交到当前分支">
+<meta name="twitter:image" content="http://or87vteh1.bkt.clouddn.com/201808030937_27.png">
 
 
 
@@ -147,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/伪类选择器/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/08/git常用命令/"/>
 
 
 
 
 
-  <title>标签: 伪类选择器 | 安妮的小熊</title>
+  <title>git常用命令 | 安妮的小熊</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -211,7 +218,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -339,44 +346,342 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>伪类选择器<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/git常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="熊 超">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xiaoxiong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安妮的小熊">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git常用命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-08T14:12:00+08:00">
+                2018-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2018/07/08/git常用命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/08/git常用命令/" class="leancloud_visitors" data-flag-title="git常用命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  829 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h3 id="git的工作原理图解："><a href="#git的工作原理图解：" class="headerlink" title="git的工作原理图解："></a>git的工作原理图解：</h3><ul>
+<li>将指定文件添加到暂存区(stage)<br><img src="http://or87vteh1.bkt.clouddn.com/201808030937_27.png" alt=""></li>
+</ul>
+<ul>
+<li>将暂存区的所有内容提交到当前分支<br><img src="http://or87vteh1.bkt.clouddn.com/201808030941_860.png" alt=""></li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>分支的创建与合并<br><img src="http://or87vteh1.bkt.clouddn.com/201808031105_462.png" alt=""><br><img src="http://or87vteh1.bkt.clouddn.com/201808031106_416.png" alt=""></li>
+</ul>
+<h3 id="git的使用步骤："><a href="#git的使用步骤：" class="headerlink" title="git的使用步骤："></a>git的使用步骤：</h3><h5 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">git add . <span class="comment">//如果有删除的文件则：git add -A</span></div><div class="line"></div><div class="line">git commit -m<span class="string">"first commit"</span></div><div class="line"></div><div class="line"><span class="comment">//这一步可能会进入一个奇怪的窗口，需执行 ESC :wq</span></div><div class="line">git pull --rebase origin master</div><div class="line"></div><div class="line"><span class="comment">//如果有冲突则解决冲突，然后执行第一步，最后执行以下命令</span></div><div class="line">git rebase --<span class="keyword">continue</span></div><div class="line"></div><div class="line">git push origin master</div><div class="line"></div><div class="line"><span class="comment">//push时有可能会提示没有change-id</span></div><div class="line"><span class="comment">//复制提示中的"gitdir=$(git rev-parse --git-dir); scp -p -P 29418 </span></div><div class="line"><span class="comment">//xiongchao@192.168.1.192:hooks/commit-msg $&#123;gitdir&#125;/hooks/"</span></div><div class="line">git commit -amend</div></pre></td></tr></table></figure>
+<h5 id="如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令"><a href="#如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令" class="headerlink" title="如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令"></a>如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git stash</div><div class="line"></div><div class="line">git pull</div><div class="line"></div><div class="line">git stash pop <span class="comment">//可能有冲突，改冲突，可直接运行项目</span></div></pre></td></tr></table></figure>
+<h5 id="cherry-pick用法（A分支的内容添加到B分支-此操作是在B分支上）"><a href="#cherry-pick用法（A分支的内容添加到B分支-此操作是在B分支上）" class="headerlink" title="cherry-pick用法（A分支的内容添加到B分支,此操作是在B分支上）"></a>cherry-pick用法（A分支的内容添加到B分支,此操作是在B分支上）</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git reflog</div><div class="line"></div><div class="line"><span class="comment">//复制要cherry-pick的commit id（有说明的那一行）</span></div><div class="line">git cherry-pick commitid</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<h3 id="git的常用命令解释："><a href="#git的常用命令解释：" class="headerlink" title="git的常用命令解释："></a>git的常用命令解释：</h3><h5 id="git-status"><a href="#git-status" class="headerlink" title="$ git status"></a>$ git status</h5><p>查看工作区状态；</p>
+<h5 id="git-add-readme-txt"><a href="#git-add-readme-txt" class="headerlink" title="$ git add readme.txt"></a>$ git add readme.txt</h5><p>将指定文件添加到暂存区(stage);反复多次使用，添加多个文件；</p>
+<h5 id="git-add"><a href="#git-add" class="headerlink" title="$ git add ."></a>$ git add .</h5><p>将所有文件添加到Git仓库暂存区；</p>
+<h5 id="git-commit-m-“wrote-a-readme-file”"><a href="#git-commit-m-“wrote-a-readme-file”" class="headerlink" title="$ git commit -m “wrote a readme file”"></a>$ git commit -m “wrote a readme file”</h5><p>将暂存区的所有内容提交到当前分支；</p>
+<h5 id="git-checkout-–-readme-txt”"><a href="#git-checkout-–-readme-txt”" class="headerlink" title="$ git checkout – readme.txt”"></a>$ git checkout – readme.txt”</h5><p>把<strong> readme.txt </strong>文件在工作区的修改全部撤销，这里有两种情况：<br><!--
+--><font size="2">一种是<strong>readme.txt</strong>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</font><br><!--
+--><font size="2">一种是<strong>readme.txt</strong>已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</font><br>总之，就是让这个文件回到最近一次git commit或git add时的状态。</p>
+<h5 id="rm-test-txt”"><a href="#rm-test-txt”" class="headerlink" title="$ rm test.txt”"></a>$ rm test.txt”</h5><p>从版本库暂存区中删除该文件；</p>
+<h5 id="git-push-origin-master"><a href="#git-push-origin-master" class="headerlink" title="$ git push origin master"></a>$ git push origin master</h5><p>把当前分支<strong>master</strong>的内容推送到远程库；</p>
+<h5 id="git-pull-–rebase-origin-master"><a href="#git-pull-–rebase-origin-master" class="headerlink" title="$ git pull –rebase origin master"></a>$ git pull –rebase origin master</h5><p>拉取远程库<strong>master</strong>分支的内容到本地仓库；</p>
+<h5 id="git-reset-HEAD"><a href="#git-reset-HEAD" class="headerlink" title="$ git reset HEAD~"></a>$ git reset HEAD~</h5><p>将前版本回退到上一个版本；上上一个版本就是HEAD~~，上100个版本写成HEAD~100；</p>
+<h5 id="git-reset-–hard-1094a"><a href="#git-reset-–hard-1094a" class="headerlink" title="$ git reset –hard 1094a"></a>$ git reset –hard 1094a</h5><p>将前版本回退到指定版本；</p>
+<h5 id="git-stash"><a href="#git-stash" class="headerlink" title="$ git stash"></a>$ git stash</h5><p>将你当前未提交（包括暂存的和非暂存的）到本地（和服务器）的代码推入到Git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的,需要说明一点，stash是本地的，不会通过git push命令上传到git server上；</p>
+<h5 id="git-stash-pop"><a href="#git-stash-pop" class="headerlink" title="$ git stash pop"></a>$ git stash pop</h5><p>将缓存堆栈中的第一个stash删除，并将对应修改应用到当前的工作目录下；</p>
+<h5 id="git-stash-list"><a href="#git-stash-list" class="headerlink" title="$ git stash list"></a>$ git stash list</h5><p>查看现有stash；</p>
+<h5 id="git-stash-drop"><a href="#git-stash-drop" class="headerlink" title="$ git stash drop"></a>$ git stash drop</h5><p>移除stash；或者使用git stash clear命令，删除所有缓存的stash；</p>
+<h5 id="git-branch-dev"><a href="#git-branch-dev" class="headerlink" title="$ git branch dev"></a>$ git branch dev</h5><p>创建dev分支；</p>
+<h5 id="git-checkout-dev"><a href="#git-checkout-dev" class="headerlink" title="$ git checkout dev"></a>$ git checkout dev</h5><p>切换到dev分支；</p>
+<h5 id="git-branch"><a href="#git-branch" class="headerlink" title="$ git branch"></a>$ git branch</h5><p>查看当前分支；</p>
+<h5 id="git-merge-dev"><a href="#git-merge-dev" class="headerlink" title="$ git merge dev"></a>$ git merge dev</h5><p>把dev分支的工作成果合并到master分支上；</p>
+<h5 id="git-branch-d-dev"><a href="#git-branch-d-dev" class="headerlink" title="$ git branch -d dev"></a>$ git branch -d dev</h5><p>删除dev分支；</p>
+<h5 id="git-clone"><a href="#git-clone" class="headerlink" title="$ git clone"></a>$ git clone</h5><p>将远程仓库克隆到本地；</p>
+<h5 id="git-log"><a href="#git-log" class="headerlink" title="$ git log"></a>$ git log</h5><p>查看提交日志；</p>
+<h5 id="git-reflog"><a href="#git-reflog" class="headerlink" title="$ git reflog"></a>$ git reflog</h5><p>记录你的每一次命令；</p>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/06/10/ss3伪类选择器nth-child和nth-of-type的区别/" itemprop="url">
-              
-                <span itemprop="name">css3伪类选择器nth-child和nth-of-type的区别</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="熊 超 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="熊 超 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-10T16:35:00+08:00"
-              content="2017-06-10" >
-          06-10
-        </time>
-      </div>
+<style type="text/css">
+  #rewardButton {
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    border-radius: 100%;
+    padding: 0;
+    margin: 0;
+    letter-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+  }
+  #rewardButton span {
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    font-stretch: normal;
+    font-size: 18px;
+    font-family: "Microsoft Yahei";
+    background: #f44336;
+  }
+  #rewardButton span:hover {
+    background: #f7877f;
+  }
+  #QR {
+    padding-top: 20px;
+  }
+  #QR a {
+    border: 0;
+  }
+  #QR img {
+    width: 180px;
+    max-width: 100%;
+    display: inline-block;
+    margin: 0.8em 2em 0 2em;
+  }
+</style>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/02/Qiniu-image-tool-实现图片一键上传七牛云/" rel="next" title="Qiniu-image-tool-实现图片一键上传七牛云">
+                <i class="fa fa-chevron-left"></i> Qiniu-image-tool-实现图片一键上传七牛云
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/19/js Date对象的详细使用/" rel="prev" title="js Date对象的详细使用">
+                js Date对象的详细使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -384,6 +689,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
 
         </div>
         
@@ -403,8 +714,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/xiaoxiong.png"
@@ -530,6 +850,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git的工作原理图解："><span class="nav-number">1.</span> <span class="nav-text">git的工作原理图解：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git的使用步骤："><span class="nav-number">2.</span> <span class="nav-text">git的使用步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本使用"><span class="nav-number">2.0.1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令"><span class="nav-number">2.0.2.</span> <span class="nav-text">如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cherry-pick用法（A分支的内容添加到B分支-此操作是在B分支上）"><span class="nav-number">2.0.3.</span> <span class="nav-text">cherry-pick用法（A分支的内容添加到B分支,此操作是在B分支上）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git的常用命令解释："><span class="nav-number">3.</span> <span class="nav-text">git的常用命令解释：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#git-status"><span class="nav-number">3.0.1.</span> <span class="nav-text">$ git status</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-add-readme-txt"><span class="nav-number">3.0.2.</span> <span class="nav-text">$ git add readme.txt</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-add"><span class="nav-number">3.0.3.</span> <span class="nav-text">$ git add .</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-commit-m-“wrote-a-readme-file”"><span class="nav-number">3.0.4.</span> <span class="nav-text">$ git commit -m “wrote a readme file”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-checkout-–-readme-txt”"><span class="nav-number">3.0.5.</span> <span class="nav-text">$ git checkout – readme.txt”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rm-test-txt”"><span class="nav-number">3.0.6.</span> <span class="nav-text">$ rm test.txt”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-push-origin-master"><span class="nav-number">3.0.7.</span> <span class="nav-text">$ git push origin master</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-pull-–rebase-origin-master"><span class="nav-number">3.0.8.</span> <span class="nav-text">$ git pull –rebase origin master</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-reset-HEAD"><span class="nav-number">3.0.9.</span> <span class="nav-text">$ git reset HEAD~</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-reset-–hard-1094a"><span class="nav-number">3.0.10.</span> <span class="nav-text">$ git reset –hard 1094a</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-stash"><span class="nav-number">3.0.11.</span> <span class="nav-text">$ git stash</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-stash-pop"><span class="nav-number">3.0.12.</span> <span class="nav-text">$ git stash pop</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-stash-list"><span class="nav-number">3.0.13.</span> <span class="nav-text">$ git stash list</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-stash-drop"><span class="nav-number">3.0.14.</span> <span class="nav-text">$ git stash drop</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-branch-dev"><span class="nav-number">3.0.15.</span> <span class="nav-text">$ git branch dev</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-checkout-dev"><span class="nav-number">3.0.16.</span> <span class="nav-text">$ git checkout dev</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-branch"><span class="nav-number">3.0.17.</span> <span class="nav-text">$ git branch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-merge-dev"><span class="nav-number">3.0.18.</span> <span class="nav-text">$ git merge dev</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-branch-d-dev"><span class="nav-number">3.0.19.</span> <span class="nav-text">$ git branch -d dev</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-clone"><span class="nav-number">3.0.20.</span> <span class="nav-text">$ git clone</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-log"><span class="nav-number">3.0.21.</span> <span class="nav-text">$ git log</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-reflog"><span class="nav-number">3.0.22.</span> <span class="nav-text">$ git reflog</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -659,10 +995,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 

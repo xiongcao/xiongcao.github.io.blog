@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sessionStorage,localStorage," />
 
 
 
@@ -111,15 +111,17 @@
 
 
 
-<meta name="description" content="知识在世界的某个角落等你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="安妮的小熊">
-<meta property="og:url" content="http://yoursite.com/tags/gulp/index.html">
+<meta name="description" content="HTML5的本地存储HTML5中与本地存储相关的两个重要内容：Web Storage与本地数据库。其中，Web Storage存储机制是对HTML4中cookie存储机制的一个改善。由于cookie存储机制有很多缺点，HTML5不再使用它，转而使用改良后的Web Storage存储机制。本地数据库是HTML5中新增的一个功能，使用它可以在客户端本地建立一个数据库，原本必须保存在服务器端数据库中的内">
+<meta name="keywords" content="sessionStorage,localStorage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sessionStorage和localStorage解释及区别">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/essionStorage和localStorage解释及区别/index.html">
 <meta property="og:site_name" content="安妮的小熊">
-<meta property="og:description" content="知识在世界的某个角落等你">
+<meta property="og:description" content="HTML5的本地存储HTML5中与本地存储相关的两个重要内容：Web Storage与本地数据库。其中，Web Storage存储机制是对HTML4中cookie存储机制的一个改善。由于cookie存储机制有很多缺点，HTML5不再使用它，转而使用改良后的Web Storage存储机制。本地数据库是HTML5中新增的一个功能，使用它可以在客户端本地建立一个数据库，原本必须保存在服务器端数据库中的内">
+<meta property="og:updated_time" content="2018-08-07T07:06:49.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安妮的小熊">
-<meta name="twitter:description" content="知识在世界的某个角落等你">
+<meta name="twitter:title" content="sessionStorage和localStorage解释及区别">
+<meta name="twitter:description" content="HTML5的本地存储HTML5中与本地存储相关的两个重要内容：Web Storage与本地数据库。其中，Web Storage存储机制是对HTML4中cookie存储机制的一个改善。由于cookie存储机制有很多缺点，HTML5不再使用它，转而使用改良后的Web Storage存储机制。本地数据库是HTML5中新增的一个功能，使用它可以在客户端本地建立一个数据库，原本必须保存在服务器端数据库中的内">
 
 
 
@@ -147,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/gulp/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/07/essionStorage和localStorage解释及区别/"/>
 
 
 
 
 
-  <title>标签: gulp | 安妮的小熊</title>
+  <title>sessionStorage和localStorage解释及区别 | 安妮的小熊</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -211,7 +213,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -339,72 +341,324 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>gulp<small>标签</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/16/使用gulp插件快速开发项目/" itemprop="url">
-              
-                <span itemprop="name">使用gulp插件快速开发项目</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-16T00:15:00+08:00"
-              content="2017-07-16" >
-          07-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/09/使用gulp自动化构建前端项目/" itemprop="url">
-              
-                <span itemprop="name">使用gulp自动化构建前端项目</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-09T10:30:00+08:00"
-              content="2017-07-09" >
-          07-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/essionStorage和localStorage解释及区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="熊 超">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xiaoxiong.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安妮的小熊">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sessionStorage和localStorage解释及区别</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-07T14:33:00+08:00">
+                2018-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2018/08/07/essionStorage和localStorage解释及区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/07/essionStorage和localStorage解释及区别/" class="leancloud_visitors" data-flag-title="sessionStorage和localStorage解释及区别">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,315 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="HTML5的本地存储"><a href="#HTML5的本地存储" class="headerlink" title="HTML5的本地存储"></a>HTML5的本地存储</h3><p>HTML5中与本地存储相关的两个重要内容：Web Storage与本地数据库。其中，Web Storage存储机制是对HTML4中cookie存储机制的一个改善。由于cookie存储机制有很多缺点，HTML5不再使用它，转而使用改良后的Web Storage存储机制。本地数据库是HTML5中新增的一个功能，使用它可以在客户端本地建立一个数据库，原本必须保存在服务器端数据库中的内容现在可以直接保存在客户端本地了，这大大减轻了服务器端的负担，同时也加快了访问数据的速度。</p>
+<h4 id="本文主要来讲解Web-Storage"><a href="#本文主要来讲解Web-Storage" class="headerlink" title="本文主要来讲解Web Storage"></a>本文主要来讲解Web Storage</h4><a id="more"></a>
+<p>我们知道，在HTML4中可以使用cookie在客户端保存诸如用户名等简单的用户信息，但是，通过长期的使用，你会发现，用cookie存储永久数据存在以下几个问题：</p>
+<p>1.大小：cookie的大小被限制在4KB。</p>
+<p>2.带宽：cookie是随HTTP事务一起被发送的，因此会浪费一部分发送cookie时使用的带宽。</p>
+<p>3.复杂性：要正确的操纵cookie是很困难的。</p>
+<p>针对这些问题，在HTML5中，重新提供了一种在客户端本地保存数据的功能，它就是Web Storage。</p>
+<h4 id="具体来说，Web-Storage又分为两种："><a href="#具体来说，Web-Storage又分为两种：" class="headerlink" title="具体来说，Web Storage又分为两种："></a>具体来说，Web Storage又分为两种：</h4><p>1.sessionStorage：将数据保存在session对象中。所谓session，是指用户在浏览某个网站时，从进入网站到浏览器关闭所经过的这段时间，也就是用户浏览这个网站所花费的时间。session对象可以用来保存在这段时间内所要求保存的任何数据。</p>
+<p>2.localStorage：将数据保存在客户端本地的硬件设备(通常指硬盘，也可以是其他硬件设备)中，即使浏览器被关闭了，该数据仍然存在，下次打开浏览器访问网站时仍然可以继续使用。</p>
+<p>这两者的区别在于，sessionStorage为临时保存，而localStorage为永久保存。</p>
+<h4 id="到目前为止，Firefox3-6以上、Chrome6以上、Safari-5以上、Pera10-50以上、IE8以上版本的浏览器支持sessionStorage与localStorage的使用。"><a href="#到目前为止，Firefox3-6以上、Chrome6以上、Safari-5以上、Pera10-50以上、IE8以上版本的浏览器支持sessionStorage与localStorage的使用。" class="headerlink" title="到目前为止，Firefox3.6以上、Chrome6以上、Safari 5以上、Pera10.50以上、IE8以上版本的浏览器支持sessionStorage与localStorage的使用。"></a>到目前为止，Firefox3.6以上、Chrome6以上、Safari 5以上、Pera10.50以上、IE8以上版本的浏览器支持sessionStorage与localStorage的使用。</h4><p>WebStorage的目的是克服由cookie所带来的一些限制，当数据需要被严格控制在客户端时，不需要持续的将数据发回服务器。</p>
+<h4 id="WebStorage两个主要目标："><a href="#WebStorage两个主要目标：" class="headerlink" title="WebStorage两个主要目标："></a>WebStorage两个主要目标：</h4><p>（1）提供一种在cookie之外存储会话数据的路径。<br>（2）提供一种存储大量可以跨会话存在的数据的机制。</p>
+<h4 id="HTML5的WebStorage提供了两种API：localStorage（本地存储）和sessionStorage（会话存储）。"><a href="#HTML5的WebStorage提供了两种API：localStorage（本地存储）和sessionStorage（会话存储）。" class="headerlink" title="HTML5的WebStorage提供了两种API：localStorage（本地存储）和sessionStorage（会话存储）。"></a>HTML5的WebStorage提供了两种API：localStorage（本地存储）和sessionStorage（会话存储）。</h4><p>1、生命周期：localStorage:localStorage的生命周期是永久的，关闭页面或浏览器之后localStorage中的数据也不会消失。localStorage除非主动删除数据，否则数据永远不会消失。<br>　　sessionStorage的生命周期是在仅在当前会话下有效。sessionStorage引入了一个“浏览器窗口”的概念，sessionStorage是在同源的窗口中始终存在的数据。只要这个浏览器窗口没有关闭，即使刷新页面或者进入同源另一个页面，数据依然存在。但是sessionStorage在关闭了浏览器窗口后就会被销毁。同时独立的打开同一个窗口同一个页面，sessionStorage也是不一样的。</p>
+<p>2、存储大小：localStorage和sessionStorage的存储数据大小一般都是：5MB</p>
+<p>3、存储位置：localStorage和sessionStorage都保存在客户端，不与服务器进行交互通信。</p>
+<p>4、存储内容类型：localStorage和sessionStorage只能存储字符串类型，对于复杂的对象可以使用ECMAScript提供的JSON对象的stringify和parse来处理</p>
+<p>5、获取方式：localStorage：window.localStorage;；sessionStorage：window.sessionStorage;</p>
+<p>6、应用场景：localStoragese：常用于长期登录（+判断用户是否已登录），适合长期保存在本地的数据。sessionStorage：敏感账号一次性登录；</p>
+<h4 id="WebStorage的优点："><a href="#WebStorage的优点：" class="headerlink" title="WebStorage的优点："></a>WebStorage的优点：</h4><p>（1）存储空间更大：cookie为4KB，而WebStorage是5MB；</p>
+<p>（2）节省网络流量：WebStorage不会传送到服务器，存储在本地的数据可以直接获取，也不会像cookie一样每次请求都会传送到服务器，所以减少了客户端和服务器端的交互，节省了网络流量；</p>
+<p>（3）对于那种只需要在用户浏览一组页面期间保存而关闭浏览器后就可以丢弃的数据，sessionStorage会非常方便；</p>
+<p>（4）快速显示：有的数据存储在WebStorage上，再加上浏览器本身的缓存。获取数据时可以从本地获取会比从服务器端获取快得多，所以速度更快；</p>
+<p>（5）安全性：WebStorage不会随着HTTP header发送到服务器端，所以安全性相对于cookie来说比较高一些，不会担心截获，但是仍然存在伪造问题；</p>
+<p>（6）WebStorage提供了一些方法，数据操作比cookie方便；</p>
+<p>　　setItem (key, value) ——  保存数据，以键值对的方式储存信息。</p>
+<pre><code>getItem (key) ——  获取数据，将键值传入，即可获取到对应的value值。
+
+removeItem (key) ——  删除单个数据，根据键值移除对应的信息。
+
+clear () ——  删除所有的数据
+
+key (index) —— 获取某个索引的key
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="熊 超 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="熊 超 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+<style type="text/css">
+  #rewardButton {
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    border-radius: 100%;
+    padding: 0;
+    margin: 0;
+    letter-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+  }
+  #rewardButton span {
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    font-stretch: normal;
+    font-size: 18px;
+    font-family: "Microsoft Yahei";
+    background: #f44336;
+  }
+  #rewardButton span:hover {
+    background: #f7877f;
+  }
+  #QR {
+    padding-top: 20px;
+  }
+  #QR a {
+    border: 0;
+  }
+  #QR img {
+    width: 180px;
+    max-width: 100%;
+    display: inline-block;
+    margin: 0.8em 2em 0 2em;
+  }
+</style>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sessionStorage/" rel="tag"># sessionStorage</a>
+          
+            <a href="/tags/localStorage/" rel="tag"># localStorage</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/31/js跳出循环总结/" rel="next" title="js跳出循环总结">
+                <i class="fa fa-chevron-left"></i> js跳出循环总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -412,6 +666,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
 
         </div>
         
@@ -431,8 +691,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/xiaoxiong.png"
@@ -558,6 +827,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5的本地存储"><span class="nav-number">1.</span> <span class="nav-text">HTML5的本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文主要来讲解Web-Storage"><span class="nav-number">1.1.</span> <span class="nav-text">本文主要来讲解Web Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体来说，Web-Storage又分为两种："><span class="nav-number">1.2.</span> <span class="nav-text">具体来说，Web Storage又分为两种：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#到目前为止，Firefox3-6以上、Chrome6以上、Safari-5以上、Pera10-50以上、IE8以上版本的浏览器支持sessionStorage与localStorage的使用。"><span class="nav-number">1.3.</span> <span class="nav-text">到目前为止，Firefox3.6以上、Chrome6以上、Safari 5以上、Pera10.50以上、IE8以上版本的浏览器支持sessionStorage与localStorage的使用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WebStorage两个主要目标："><span class="nav-number">1.4.</span> <span class="nav-text">WebStorage两个主要目标：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5的WebStorage提供了两种API：localStorage（本地存储）和sessionStorage（会话存储）。"><span class="nav-number">1.5.</span> <span class="nav-text">HTML5的WebStorage提供了两种API：localStorage（本地存储）和sessionStorage（会话存储）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WebStorage的优点："><span class="nav-number">1.6.</span> <span class="nav-text">WebStorage的优点：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -687,10 +972,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 

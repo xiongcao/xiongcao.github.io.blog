@@ -111,19 +111,19 @@
 
 
 
-<meta name="description" content="什么是 XMLHttpRequest 对象XMLHttpRequest 对象用于在后台与服务器交换数据。XMLHttpRequest 对象是开发者的梦想，因为您能够：  在不重新加载页面的情况下更新网页 在页面已加载后从服务器请求数据 在页面已加载后从服务器接收数据 在后台向服务器发送数据所有现代的浏览器都支持 XMLHttpRequest 对象，XMLHttpRequest在 Ajax 编程中被">
+<meta name="description" content="什么是 XMLHttpRequest 对象XMLHttpRequest 对象用于在后台与服务器交换数据。XMLHttpRequest 对象是开发者的梦想，因为您能够：  在不重新加载页面的情况下更新网页 在页面已加载后从服务器请求数据 在页面已加载后从服务器接收数据 在后台向服务器发送数据  所有现代的浏览器都支持 XMLHttpRequest 对象，XMLHttpRequest在 Ajax 编程">
 <meta name="keywords" content="ajax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript封装XMLHttpRequest请求">
 <meta property="og:url" content="http://yoursite.com/2018/08/16/JavaScript封装XMLHttpRequest请求/index.html">
 <meta property="og:site_name" content="安妮的小熊">
-<meta property="og:description" content="什么是 XMLHttpRequest 对象XMLHttpRequest 对象用于在后台与服务器交换数据。XMLHttpRequest 对象是开发者的梦想，因为您能够：  在不重新加载页面的情况下更新网页 在页面已加载后从服务器请求数据 在页面已加载后从服务器接收数据 在后台向服务器发送数据所有现代的浏览器都支持 XMLHttpRequest 对象，XMLHttpRequest在 Ajax 编程中被">
+<meta property="og:description" content="什么是 XMLHttpRequest 对象XMLHttpRequest 对象用于在后台与服务器交换数据。XMLHttpRequest 对象是开发者的梦想，因为您能够：  在不重新加载页面的情况下更新网页 在页面已加载后从服务器请求数据 在页面已加载后从服务器接收数据 在后台向服务器发送数据  所有现代的浏览器都支持 XMLHttpRequest 对象，XMLHttpRequest在 Ajax 编程">
 <meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808161403_227.png">
 <meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808161408_351.png">
-<meta property="og:updated_time" content="2018-08-16T07:41:16.924Z">
+<meta property="og:updated_time" content="2018-08-16T07:43:49.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript封装XMLHttpRequest请求">
-<meta name="twitter:description" content="什么是 XMLHttpRequest 对象XMLHttpRequest 对象用于在后台与服务器交换数据。XMLHttpRequest 对象是开发者的梦想，因为您能够：  在不重新加载页面的情况下更新网页 在页面已加载后从服务器请求数据 在页面已加载后从服务器接收数据 在后台向服务器发送数据所有现代的浏览器都支持 XMLHttpRequest 对象，XMLHttpRequest在 Ajax 编程中被">
+<meta name="twitter:description" content="什么是 XMLHttpRequest 对象XMLHttpRequest 对象用于在后台与服务器交换数据。XMLHttpRequest 对象是开发者的梦想，因为您能够：  在不重新加载页面的情况下更新网页 在页面已加载后从服务器请求数据 在页面已加载后从服务器接收数据 在后台向服务器发送数据  所有现代的浏览器都支持 XMLHttpRequest 对象，XMLHttpRequest在 Ajax 编程">
 <meta name="twitter:image" content="http://or87vteh1.bkt.clouddn.com/201808161403_227.png">
 
 
@@ -498,8 +498,9 @@
 <li>在不重新加载页面的情况下更新网页</li>
 <li>在页面已加载后从服务器请求数据</li>
 <li>在页面已加载后从服务器接收数据</li>
-<li>在后台向服务器发送数据<br>所有现代的浏览器都支持 XMLHttpRequest 对象，XMLHttpRequest在 Ajax 编程中被大量使用。</li>
+<li>在后台向服务器发送数据</li>
 </ul>
+<p>所有现代的浏览器都支持 XMLHttpRequest 对象，XMLHttpRequest在 Ajax 编程中被大量使用。</p>
 <h3 id="原生javascript（ES5）封装XMLHttpRequest对象"><a href="#原生javascript（ES5）封装XMLHttpRequest对象" class="headerlink" title="原生javascript（ES5）封装XMLHttpRequest对象"></a>原生javascript（ES5）封装XMLHttpRequest对象</h3><a id="more"></a>
 <p>1.创建ajax.js</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ajax</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"></div><div class="line">Ajax.prototype.ajax = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="comment">//创建xmlhttprequest对象</span></div><div class="line">    <span class="keyword">var</span> xhr;</div><div class="line">    <span class="keyword">try</span>&#123;</div><div class="line">        xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    &#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line">        xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    xhr.timeout = <span class="number">5000</span>;</div><div class="line">    xhr.ontimeout = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"请求超时"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    xhr.responseType = obj.dataType;</div><div class="line"></div><div class="line">    xhr.open(obj.type,obj.url,obj.async||<span class="literal">true</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(obj.headers&amp;&amp;obj.headers[<span class="string">"Content-Type"</span>])&#123;</div><div class="line">        xhr.setRequestHeader(<span class="string">"Content-Type"</span>,obj.headers[<span class="string">"Content-Type"</span>]);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        xhr.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//xhr.readyState 4:完成，XMLHttpRequest对象读取服务器响应结束</span></div><div class="line">        <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>)&#123; </div><div class="line">            <span class="comment">//xhr.status HTTP状态码 2XX表示有效响应 304意味着是从缓存读取</span></div><div class="line">            <span class="keyword">if</span>(xhr.status &gt;= <span class="number">200</span> &amp;&amp; (xhr.status &lt; <span class="number">300</span> || xhr.status == <span class="number">304</span>))&#123;  </div><div class="line">                obj.success(xhr.response)</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                obj.error(xhr.status)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(obj.data)&#123;</div><div class="line">        <span class="keyword">var</span> params = [];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj.data) &#123;</div><div class="line">            <span class="keyword">if</span> (obj.data.hasOwnProperty(key)) &#123;</div><div class="line">                params.push(<span class="built_in">encodeURIComponent</span>(key) + <span class="string">"="</span> + <span class="built_in">encodeURIComponent</span>(obj.data[key]))            </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> postData = params.join(<span class="string">'&amp;'</span>);</div><div class="line">        xhr.send(postData);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        xhr.send();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -624,6 +625,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/08/30/css常用奇淫技巧-不断更新/" rel="prev" title="css常用奇淫技巧(不定期更新)">
+                css常用奇淫技巧(不定期更新) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -702,7 +707,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -724,7 +729,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -862,7 +867,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共14.9k字</span>
+  <span class="post-count">共15.4k字</span>
 </div>
 
 

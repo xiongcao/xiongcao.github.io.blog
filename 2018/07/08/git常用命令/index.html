@@ -118,15 +118,15 @@
 <meta property="og:url" content="http://yoursite.com/2018/07/08/git常用命令/index.html">
 <meta property="og:site_name" content="安妮的小熊">
 <meta property="og:description" content="git的工作原理图解： 将指定文件添加到暂存区(stage)   将暂存区的所有内容提交到当前分支">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808030937_27.png">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808030941_860.png">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808031105_462.png">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808031106_416.png">
-<meta property="og:updated_time" content="2018-08-08T10:07:38.580Z">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/201808030937_27.png">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/201808030941_860.png">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/201808031105_462.png">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/201808031106_416.png">
+<meta property="og:updated_time" content="2019-03-22T02:36:17.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常用命令">
 <meta name="twitter:description" content="git的工作原理图解： 将指定文件添加到暂存区(stage)   将暂存区的所有内容提交到当前分支">
-<meta name="twitter:image" content="http://or87vteh1.bkt.clouddn.com/201808030937_27.png">
+<meta name="twitter:image" content="http://www.xiongchao.win/blogImage/201808030937_27.png">
 
 
 
@@ -496,14 +496,14 @@
 
       
         <h3 id="git的工作原理图解："><a href="#git的工作原理图解：" class="headerlink" title="git的工作原理图解："></a>git的工作原理图解：</h3><ul>
-<li>将指定文件添加到暂存区(stage)<br><img src="http://or87vteh1.bkt.clouddn.com/201808030937_27.png" alt=""></li>
+<li>将指定文件添加到暂存区(stage)<br><img src="http://www.xiongchao.win/blogImage/201808030937_27.png" alt=""></li>
 </ul>
 <ul>
-<li>将暂存区的所有内容提交到当前分支<br><img src="http://or87vteh1.bkt.clouddn.com/201808030941_860.png" alt=""></li>
+<li>将暂存区的所有内容提交到当前分支<br><img src="http://www.xiongchao.win/blogImage/201808030941_860.png" alt=""></li>
 </ul>
 <a id="more"></a>
 <ul>
-<li>分支的创建与合并<br><img src="http://or87vteh1.bkt.clouddn.com/201808031105_462.png" alt=""><br><img src="http://or87vteh1.bkt.clouddn.com/201808031106_416.png" alt=""></li>
+<li>分支的创建与合并<br><img src="http://www.xiongchao.win/blogImage/201808031105_462.png" alt=""><br><img src="http://www.xiongchao.win/blogImage/201808031106_416.png" alt=""></li>
 </ul>
 <h3 id="git的使用步骤："><a href="#git的使用步骤：" class="headerlink" title="git的使用步骤："></a>git的使用步骤：</h3><h5 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">git add . <span class="comment">//如果有删除的文件则：git add -A</span></div><div class="line"></div><div class="line">git commit -m<span class="string">"first commit"</span></div><div class="line"></div><div class="line"><span class="comment">//这一步可能会进入一个奇怪的窗口，需执行 ESC :wq</span></div><div class="line">git pull --rebase origin master</div><div class="line"></div><div class="line"><span class="comment">//如果有冲突则解决冲突，然后执行第一步，最后执行以下命令</span></div><div class="line">git rebase --<span class="keyword">continue</span></div><div class="line"></div><div class="line">git push origin master</div><div class="line"></div><div class="line"><span class="comment">//push时有可能会提示没有change-id</span></div><div class="line"><span class="comment">//复制提示中的"gitdir=$(git rev-parse --git-dir); scp -p -P 29418 </span></div><div class="line"><span class="comment">//xiongchao@192.168.1.192:hooks/commit-msg $&#123;gitdir&#125;/hooks/"</span></div><div class="line">git commit -amend</div></pre></td></tr></table></figure>
 <h5 id="如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令"><a href="#如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令" class="headerlink" title="如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令"></a>如果你正在完成某一个功能不能提交代码，然后又需要用到远程仓库中同事刚提交的代码，则只需要执行以下命令</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git stash</div><div class="line"></div><div class="line">git pull</div><div class="line"></div><div class="line">git stash pop <span class="comment">//可能有冲突，改冲突，可直接运行项目</span></div></pre></td></tr></table></figure>

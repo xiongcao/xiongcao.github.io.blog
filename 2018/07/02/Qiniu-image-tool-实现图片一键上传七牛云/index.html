@@ -118,16 +118,16 @@
 <meta property="og:url" content="http://yoursite.com/2018/07/02/Qiniu-image-tool-实现图片一键上传七牛云/index.html">
 <meta property="og:site_name" content="安妮的小熊">
 <meta property="og:description" content="&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;写博客当然少不了云储存了，那为什么推荐使用七牛云呢，当然是因为七牛云储存提供10G的免费空间,以及每月10G的流量，存放个人博客外链图片最好不过了，七牛云储存还有各种图形处理功能、缩略图、视频存放速度也给力。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;qiniu-image-tool是一个提升 markdown 贴图体验的实用小工具，支持wind">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/local.gif">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/screenshot.gif">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/file.gif">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808021402_157.png">
-<meta property="og:image" content="http://or87vteh1.bkt.clouddn.com/201808021405_405.png">
-<meta property="og:updated_time" content="2018-08-08T10:08:23.156Z">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/local.gif">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/screenshot.gif">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/file.gif">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/201808021402_157.png">
+<meta property="og:image" content="http://www.xiongchao.win/blogImage/201808021405_405.png">
+<meta property="og:updated_time" content="2019-03-22T02:36:48.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qiniu-image-tool-实现图片一键上传七牛云">
 <meta name="twitter:description" content="&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;写博客当然少不了云储存了，那为什么推荐使用七牛云呢，当然是因为七牛云储存提供10G的免费空间,以及每月10G的流量，存放个人博客外链图片最好不过了，七牛云储存还有各种图形处理功能、缩略图、视频存放速度也给力。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;qiniu-image-tool是一个提升 markdown 贴图体验的实用小工具，支持wind">
-<meta name="twitter:image" content="http://or87vteh1.bkt.clouddn.com/local.gif">
+<meta name="twitter:image" content="http://www.xiongchao.win/blogImage/local.gif">
 
 
 
@@ -503,18 +503,18 @@
 <li>切换到编辑器，ctrl+alt+v便可以看到图片链接自动粘贴到当前编辑器的光标处（同时链接也会保存在粘贴板里）</li>
 </ol>
 <h3 id="预览效果图："><a href="#预览效果图：" class="headerlink" title="预览效果图："></a>预览效果图：</h3><ul>
-<li><p>本地图片文件上传<br><img src="http://or87vteh1.bkt.clouddn.com/local.gif" alt=""></p>
+<li><p>本地图片文件上传<br><img src="http://www.xiongchao.win/blogImage/local.gif" alt=""></p>
 </li>
-<li><p>截图上传<br><img src="http://or87vteh1.bkt.clouddn.com/screenshot.gif" alt=""></p>
+<li><p>截图上传<br><img src="http://www.xiongchao.win/blogImage/screenshot.gif" alt=""></p>
 </li>
-<li><p>其它文件上传<br><img src="http://or87vteh1.bkt.clouddn.com/file.gif" alt=""></p>
+<li><p>其它文件上传<br><img src="http://www.xiongchao.win/blogImage/file.gif" alt=""></p>
 </li>
 </ul>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>首先从 github 下载release版本（有两个版本：2.0 正式版和1.0 正式版，推荐使用2.0 正式版）并解压到任意目录</p>
-<p>目录结构应如下：<br><img src="http://or87vteh1.bkt.clouddn.com/201808021402_157.png" alt=""></p>
+<p>目录结构应如下：<br><img src="http://www.xiongchao.win/blogImage/201808021402_157.png" alt=""></p>
 <p>其中dump-clipboard-png.ps1是保存截图的powershell脚本，qiniu-image-upload.ahk 即完成文件上传的AutoHotkey脚本。</p>
 <h3 id="配置脚本"><a href="#配置脚本" class="headerlink" title="配置脚本"></a>配置脚本</h3><p>打开settings.ini文件，右键选择编辑脚本使脚本在编辑器中打开，找到下面这段代码:</p>
-<p><img src="http://or87vteh1.bkt.clouddn.com/201808021405_405.png" alt=""></p>
+<p><img src="http://www.xiongchao.win/blogImage/201808021405_405.png" alt=""></p>
 <p>修改这里的五个配置项的值，其中前四个配置项都与七牛账号相关：</p>
 <p>ACCESS_KEY &amp; SECRET_KEY<br>这是qshell操作个人账号的账号凭证，登陆七牛账号后在个人面板-&gt;密钥管理中查看，或者直接访问查看。</p>
 <p>BUCKET_NAME &amp; BUCKET_DOMAIN<br>在对象存储-&gt;存储空间列表中选择或新建一个存储空间即bucket，点击该bucket在右边看到一个测试域名，该域名即bucketDomain是图片上传后的访问域名。这里要特别注意域名不要少了前面的 <strong><em>http头 </em></strong> 和最后的那个 斜杠。</p>

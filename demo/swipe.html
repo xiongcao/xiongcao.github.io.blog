@@ -103,15 +103,16 @@
       for (let i = 0; i < dot.length; i++) {
         dot[i].classList.remove('active')
       }
-      dot[index].setAttribute('class', 'dot active')
+      dot[index].setAttribute('class', 'dot active') // 为当前角标添加活跃状态
       if (left === -300 * 4) {
         img.style.transform = 'translateX(' + -left + 'px)'
         left = 0
+        // 第一张图滑走的前几秒（图片2马上出现，但此时他俩不在一起），立即使页面结构回复到初始状态
         timerout = setTimeout(() => {
           box.style.transitionDuration = '0ms'
           box.style.transform = 'translateX(0)'
-          clearTimeout(timerout)
-        }, 2000 - 10);
+          clearTimeout(timerout) // 记得清理计时器哟
+        }, 2000 - 20);
       }
     }, 2000)
   }

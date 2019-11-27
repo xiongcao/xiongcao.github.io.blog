@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>拖拽</title>
+  <style>
+    #box1 {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      left: 50%;
+      margin-left: -100px;
+    }
+    #box1 #child_box {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: yellowgreen;
+      /* border: 1px solid yellowgreen; */
+      cursor: move;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box1">
+    <div id="child_box" draggable="true">我是被拖动的块</div>
+  </div>
+  <script>
+    /******** 固定容器内拖拽 *******/
+    let container = document.getElementById('box1')
+    let child_box = document.getElementById('child_box')
+    let start_offsetX = 0, start_offsetY = 0 // 移动的横向，纵向距离
+    let target_left = 0, target_top = 0 // 目标元素的坐标
+    // 放置目标时
+    child_box.ondragover = function (e) {
+      e.preventDefault()
+    }
+    // 开始拖动
+    child_box.ondragstart = function (e) {
+      start_offsetX = e.offsetX
+      start_offsetY = e.offsetY
+    }
+    // 正在拖动
+    child_box.ondrag = function (e) {
+      e.preventDefault()
+      e.target.style.visibility = 'hidden';
+      e.target.style.cursor = 'move';
+      // e.target.style.pointerEvents = 'none';
+    }
+    // 拖动结束
+    child_box.ondragend = function (e) {
+      e.preventDefault()
+      if (e.offsetX !== start_offsetX) {
+        target_left += e.offsetX - start_offsetX
+      }
+      if (e.offsetY !== start_offsetY) {
+        target_top += e.offsetY - start_offsetY
+      }
+      if (target_left > container.clientWidth - e.target.clientWidth) { // 横向溢出
+        target_left = container.clientWidth - e.target.clientWidth
+      } else if (target_left < 0) {
+        target_left = 0
+      }
+      if (target_top > container.clientHeight - e.target.clientHeight) { // 纵向溢出
+        target_top = container.clientHeight - e.target.clientHeight
+      } else if (target_top < 0) {
+        target_top = 0
+      }
+      e.target.style.left = target_left + 'px'
+      e.target.style.top = target_top + 'px'
+      e.target.style.visibility = 'visible';
+    }
+    
+  </script>
+
+</body>
+
+</html>

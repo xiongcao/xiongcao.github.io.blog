@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  #box1 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    left: 50%;
+    margin-left: -100px;
+  }
+  #box1 #child_box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: yellowgreen;
+    cursor: move;
+    box-sizing: border-box;
+  }
+</style>
+<body>
+  <div id="box1">
+    <div id="child_box" draggable="false">我是被拖动的块</div>
+  </div>
+  <script>
+    let child_box = document.getElementById('child_box')
+    let container = document.getElementById('box1')
+    let start_offsetX = 0, start_offsetY = 0 // 鼠标按下时的坐标
+    let end_target_x = 0, end_target_y = 0 // 鼠标松开时目标元素的坐标
+    let drag = false // 是否允许被拖拽
+    /**
+    * 鼠标按下，并记录下此时光标的坐标
+    */
+    document.onmousedown = function (e) {
+      drag = true
+      start_offsetX = e.clientX
+      start_offsetY = e.clientY
+    }
+
+    /**
+    * 目标正在被拖拽，将此时光标的坐标减初始光标的坐标即可得到div移动的x,y的距离
+    */
+    document.onmousemove = function (e) {
+      if (drag) {
+        let mouse_left = 0, mouse_top = 0 // 鼠标移动的距离
+        mouse_left = end_target_x + e.clientX - start_offsetX // 横向位移
+        mouse_top = end_target_y + e.clientY - start_offsetY // 纵向位移
+        if (mouse_left > container.clientWidth - child_box.clientWidth) { // 横向溢出
+          mouse_left = container.clientWidth - child_box.clientWidth
+        } else if (mouse_left < 0) {
+          mouse_left = 0
+        }
+        if (mouse_top > container.clientHeight - child_box.clientHeight) { // 横向溢出
+          mouse_top = container.clientHeight - child_box.clientHeight
+        } else if (mouse_top < 0) {
+          mouse_top = 0
+        }
+        child_box.style.left = mouse_left + 'px'
+        child_box.style.top = mouse_top + 'px'
+      }
+    }
+
+    /**
+    * 鼠标松开，禁止元素被拖拽
+    **/
+    document.onmouseup = function (e) {
+      end_target_x = child_box.offsetLeft
+      end_target_y = child_box.offsetTop
+      drag = false
+    }
+  </script>
+</body>
+</html>

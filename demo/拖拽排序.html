@@ -1,40 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style type="text/css">
-    #box1, #box2 {
-      width: 300px;
+    html,
+    body {
+      min-height: 100%;
       overflow: hidden;
+    }
+
+    #box1,
+    #box2 {
+      width: 300px;
       float: left;
       margin-right: 20px;
       padding: 10px;
       border: 1px solid #dcdee2;
+      position: relative;
     }
+
     p {
       cursor: pointer;
       padding: 10px;
       border: 1px solid #dcdee2;
-    }
-
-    p:hover {
-      box-shadow: 0 1px 6px rgba(0,0,0,.2);
-      border-color: #eee;
+      background: #ffffff;
+      user-select: none;
     }
   </style>
 </head>
+
 <body>
-  <div id="box1">
-    <p draggable="true">1、clientX、clientY点击位置距离当前body可视区域的x，y坐标</p>
-    <p draggable="true">2、pageX、pageY对于整个页面来说，包括了被卷去的body部分的长度</p>
-    <p draggable="true">3、screenX、screenY点击位置距离当前电脑屏幕的x，y坐标</p>
-  </div>
-  <div id="box2">
-    <p draggable="true">4、offsetX、offsetY相对于带有定位的父盒子的x，y坐标</p>
-    <p draggable="true">5、x、y和screenX、screenY一样</p>
-  </div>
+  <div id="box1"></div>
+  <div id="box2"></div>
+  <script>
+    let left_list = ['1、clientX、clientY点击位置距离当前body可视区域的x，y坐标', '2、pageX、pageY对于整个页面来说，包括了被卷去的body部分的长度', '3、screenX、screenY点击位置距离当前电脑屏幕的x，y坐标', '4、offsetX、offsetY相对于带有定位的父盒子的x，y坐标', '5、x、y和screenX、screenY一样']
+    let right_list = ['6、offsetWidth、offsetHeight元素外尺寸，是指元素内容+内边距+边框，不包括外边距和滚动条部分', '7、clientHeight、clientWidth元素内尺寸，是指元素内容+内边距 大小，不包括边框（IE下实际包括）、外边距、滚动条部分', '8、clientLeft、clientTop返回内边距的边缘和边框的外边缘之间的水平和垂直距离，也就是左，上边框宽度', '9、offsetLeft、offsetTop表示该元素的左上角（边框外边缘）与已定位的父容器（offsetParent对象）左上角的距离']
+    let box1 = document.getElementById('box1')
+    let box2 = document.getElementById('box2')
+    let task1 = document.createElement('div') // 移动时被拖拽元素的占位块
+    let task2 = document.createElement('div')
+    renderHtmlData()
+    let drag = false
+    let current_p, current_p_w, current_p_h // 当前拖拽元素、元素的宽、高
+    let start_mouse_x, start_mouse_y // 鼠标按下光标的起始坐标
+    let current_p_x, current_p_y // 目标元素的起始坐标
+    let over_target_p // 鼠标滑入的元素
+    let pre_over_target_p // 鼠标上一次滑入的元素
+    // 鼠标按下
+    document.onmousedown = function (e) {
+      if (e.target.getAttribute('class') == 'drag') {
+        drag = true
+        current_p = e.target // 当前拖拽元素
+        current_p_w = e.target.offsetWidth // 拖拽元素的宽度
+        current_p_h = e.target.offsetHeight // 拖拽元素的高度
+        start_mouse_x = e.clientX
+        start_mouse_y = e.clientY
+        current_p_x = getLeft(e.target)
+        current_p_y = getTop(e.target)
+      }
+    }
+
+    // 正在移动
+    document.onmousemove = function (e) {
+      if (drag) {
+        document.body.style.cursor = 'pointer'
+        // 将目标元素浮起，设置其样式
+        current_p.style.position = 'fixed'
+        current_p.style.width = current_p_w + 'px'
+        current_p.style.height = current_p_h + 'px'
+        current_p.style.boxSizing = 'border-box'
+        current_p.style.cursor = 'pointer'
+        current_p.style.zIndex = 100
+        // 设置站位盒子，让页面不至于坍塌
+        let current_p_margin = computedStyle(current_p).margin
+        let parentNode = current_p.parentNode;
+        if (!document.getElementById('task1')) {
+          task1.style.width = current_p_w + 'px'
+          task1.style.height = current_p_h + 'px'
+          task1.style.margin = current_p_margin
+          task1.style.visibility = 'hidden'
+          task1.setAttribute('id', 'task1')
+          insertAfter(task1, current_p)
+        }
+        current_p.style.margin = 0 // 避免定位元素出现错位
+        // 移动目标元素
+        current_p.style.left = current_p_x + 'px'
+        current_p.style.top = current_p_y + 'px'
+        let x = e.clientX - start_mouse_x + 'px'
+        let y = e.clientY - start_mouse_y + 'px'
+        current_p.style.transform = 'translate(' + x + ',' + y + ')'
+        current_p.style.pointerEvents = 'none'
+      }
+    }
+
+    // 鼠标滑过列表其他元素时，判断是否进入元素内部，如若是，则重新排序
+    document.onmouseover = function (e) {
+      if (drag) {
+        let current_p_margin = computedStyle(current_p).margin
+        if (!document.getElementById('task2')) {
+          task2.style.width = current_p_w + 'px'
+          task2.style.height = current_p_h + 'px'
+          task2.style.margin = current_p_margin
+          task2.style.visibility = 'hidden'
+          task2.setAttribute('id', 'task2')
+        }
+        if (e.target.getAttribute('class') == 'drag') { // 接触到p标签
+          over_target_p = e.target
+          if (e.target.parentNode.getAttribute('id') === current_p.parentNode.getAttribute('id')) { // 在同一边, 直接更改排序
+            let x = getLeft(e.target), y = getTop(e.target) // 元素坐标
+            let width = e.target.offsetWidth, height = e.target.offsetHeight // 元素宽高
+            let mouse_x = e.clientX, mouse_y = e.clientY // 鼠标坐标
+            
+            // 将B移入到A原始位置，并把占位块移动到B的初始位置
+            e.target.style.transform = 'translate(' + (current_p_x - x) + 'px, ' + (current_p_y - y) + 'px)'
+            e.target.style.transition = 'transform 0.2s';
+            task1.style.transform = 'translate(' + (x - current_p_x) + 'px, ' + (y - current_p_y) + 'px)'
+          } else { // 不在同一边，先增加删除元素，后排序
+            e.target.parentNode.insertBefore(task2, e.target);
+          }
+        } else if (e.target.getAttribute('id') !== current_p.parentNode.getAttribute('id') && (e.target.getAttribute('id') === 'box1' || e.target.getAttribute('id') === 'box2')) { // 只是接触到容器
+          over_target_p = e.target.firstChild
+          e.target.insertBefore(task2, e.target.firstChild);
+        }
+      }
+    }
+
+    // 鼠标离开下层元素，此时换位动画已完成
+    document.onmouseout = function (e) {
+      pre_over_target_p = over_target_p
+    }
+
+    // 鼠标松开, 禁止移动，并使页面所有元素回到初始状态
+    document.onmouseup = function (e) {
+      if (drag) {
+        drag = false
+        if (over_target_p) {
+          let index1 = current_p.getAttribute('index'), index2 = over_target_p.getAttribute('index')
+          if (current_p.parentNode.getAttribute('id') === 'box1' && over_target_p.parentNode.getAttribute('id') === 'box1') { // 左边排序
+            left_list.splice(index2, 1, ...left_list.splice(index1, 1, left_list[index2]));
+          }
+          if (current_p.parentNode.getAttribute('id') === 'box2' && over_target_p.parentNode.getAttribute('id') === 'box2') { // 右边排序
+            right_list.splice(index2, 1, ...right_list.splice(index1, 1, right_list[index2]));
+          }
+          if (current_p.parentNode.getAttribute('id') === 'box1' && over_target_p.parentNode.getAttribute('id') === 'box2') { // 移入右边
+            right_list.splice(index2, 0, left_list.splice(index1, 1))
+          }
+          if (current_p.parentNode.getAttribute('id') === 'box2' && over_target_p.parentNode.getAttribute('id') === 'box1') { // 移入左边
+            left_list.splice(index2, 0, right_list.splice(index1, 1))
+          }
+          document.body.style.cursor = 'default'
+          box1.innerHTML = ''
+          box2.innerHTML = ''
+          renderHtmlData()
+        } else {
+          current_p.style = ''
+          task1.parentNode && task1.parentNode.removeChild(task1)
+        }
+        over_target_p = null
+      }
+    }
+
+    // 渲染列表内容
+    function renderHtmlData() {
+      box1.innerHTML = ''
+      box2.innerHTML = ''
+      left_list.forEach((o, i) => {
+        let p = document.createElement('p')
+        p.setAttribute('class', 'drag')
+        p.setAttribute('index', i)
+        let text = document.createTextNode(o)
+        p.appendChild(text)
+        box1.appendChild(p)
+      })
+      right_list.forEach((o, i) => {
+        let p = document.createElement('p')
+        p.setAttribute('class', 'drag')
+        p.setAttribute('index', i)
+        let text = document.createTextNode(o)
+        p.appendChild(text)
+        box2.appendChild(p)
+      })
+    }
+
+    // 获取元素样式
+    function computedStyle(element) {
+      let computedStyle
+      if (window.getComputedStyle) {
+        computedStyle = getComputedStyle(element, null)
+      } else {
+        computedStyle = element.currentStyle // 兼容IE的写法
+      }
+      return computedStyle
+    }
+
+    // 在指定元素后插入节点
+    function insertAfter(newElement, targetElement) {
+      let parent = targetElement.parentNode;
+      if (parent.lastChild == targetElement) {
+        parent.appendChild(newElement);
+      } else {
+        parent.insertBefore(newElement, targetElement.nextSibling);
+      }
+    }
+
+    // 获取元素纵坐标
+    function getTop(e) {
+      let offset = e.offsetTop;
+      if (e.offsetParent != null) offset += getTop(e.offsetParent);
+      return offset;
+    }
+
+    function getLeft(e) {
+      let offset = e.offsetLeft;
+      if (e.offsetParent != null) offset += getLeft(e.offsetParent);
+      return offset;
+    }
+  </script>
 </body>
+
 </html>

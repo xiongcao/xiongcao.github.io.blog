@@ -47,8 +47,9 @@
     let drag = false
     let current_p, current_p_w, current_p_h // 当前拖拽元素、元素的宽、高
     let start_mouse_x, start_mouse_y // 鼠标按下光标的起始坐标
-    let current_p_x, current_p_y // 目标元素的起始坐标
+    let current_p_x, current_p_y // 当前拖拽元素的起始坐标
     let over_target_p // 鼠标滑入的元素
+    let over_target_p_x, over_target_p_y, temp_over_target_p_y // 鼠标滑入元素的平移数
     let pre_over_target_p // 鼠标上一次滑入的元素
     // 鼠标按下
     document.onmousedown = function (e) {
@@ -112,13 +113,28 @@
           over_target_p = e.target
           if (e.target.parentNode.getAttribute('id') === current_p.parentNode.getAttribute('id')) { // 在同一边, 直接更改排序
             let x = getLeft(e.target), y = getTop(e.target) // 元素坐标
-            let width = e.target.offsetWidth, height = e.target.offsetHeight // 元素宽高
-            let mouse_x = e.clientX, mouse_y = e.clientY // 鼠标坐标
-            
-            // 将B移入到A原始位置，并把占位块移动到B的初始位置
-            e.target.style.transform = 'translate(' + (current_p_x - x) + 'px, ' + (current_p_y - y) + 'px)'
-            e.target.style.transition = 'transform 0.2s';
-            task1.style.transform = 'translate(' + (x - current_p_x) + 'px, ' + (y - current_p_y) + 'px)'
+            if (pre_over_target_p && over_target_p.getAttribute('index') === pre_over_target_p.getAttribute('index')) { // 此次滑入的和上一次相同
+              let top
+              if (over_target_p_y !== 0) {
+                temp_over_target_p_y = over_target_p_y
+                top = 0
+                over_target_p_y = 0
+              } else {
+                over_target_p_y = temp_over_target_p_y
+                top = over_target_p_y
+                temp_over_target_p_y = 0
+              }
+              e.target.style.transform = 'translate(0px, ' + top + 'px)'
+              e.target.style.transition = 'transform 0.2s';
+              task1.style.transform = 'translate(0px, ' + (current_p_y - y) + 'px)'
+            } else {
+              // 将B移入到A原始位置，并把占位块移动到B的初始位置
+              over_target_p_x = current_p_x - x
+              over_target_p_y = current_p_y - y
+              e.target.style.transform = 'translate(' + over_target_p_x + 'px, ' + over_target_p_y + 'px)'
+              e.target.style.transition = 'transform 0.2s';
+              task1.style.transform = 'translate(' + (-over_target_p_x) + 'px, ' + (over_target_p_y) + 'px)'
+            }
           } else { // 不在同一边，先增加删除元素，后排序
             e.target.parentNode.insertBefore(task2, e.target);
           }
@@ -129,7 +145,7 @@
       }
     }
 
-    // 鼠标离开下层元素，此时换位动画已完成
+    // 鼠标离开下层元素，记录上一次滑入的元素
     document.onmouseout = function (e) {
       pre_over_target_p = over_target_p
     }
@@ -161,6 +177,7 @@
           task1.parentNode && task1.parentNode.removeChild(task1)
         }
         over_target_p = null
+        pre_over_target_p = null
       }
     }
 

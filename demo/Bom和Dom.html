@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js深度指南之BOM与DOM</title>
+</head>
+
+<body>
+  <span>111<span>222</span></span>
+  <a>hhhh<a>xxxx</a></a>
+  <div><a href="">333</a><span>444</span></div>
+  <div><h2>555</h2><span>666</span></div>
+  <script>
+    /****************** DOM 对象 Begin ***************/
+    // DOM -> Document Object Model 文档对象模型
+
+    // DOM 对象 -> 宿主对象
+
+    // JavaScript 3种对象
+    // 1、本地对象： Native Object
+
+    //    Object Function Array String Number Boolean Error EvalError SyntaxError RangeError ReferenceError TypeError URIError Date RegExp
+
+    // 2、内置对象 Built-in Object
+    //    Global Math
+    //    ECMA -> isNaN() parseInt() Number() decodeURI() encodeURI()
+    //    Infinity NaN undefined
+    // 本地对象和内置对象都是ES的内置对象
+
+    // 3、宿主对象 Host Object
+    // 执行JS脚本的环境提供的对象，浏览器对象，兼容性问题
+
+    // 浏览器对象windwo(BOM)和document(BOM) -> w3c -> DOM: 通过浏览器提供的这一套方法表示或者操作HTML和XML
+
+    /******************** DOM 对象 End ***************/
+
+    /********************* BOM 事件 Begin ***************/
+    // 事件绑定 -> 元素本身具有事件属性，绑定事件的处理函数
+
+    // onclick 是句柄的方式，此方式有诸多弊端，为同一元素绑定click事件的处理函数会被覆盖掉
+
+    // addEventListener('type', fn, flase)
+    // 事件监听的方式，w3cg标准，但是IE9以下不支持
+
+    // IE8及以下的绑定方法
+    // elem.attachEvent('on' + type, fn)
+
+    // 打印两个‘1’
+    // 使用addEventListener可以为一个元素绑定不同的事件处理函数
+    // div.addEventListener('click', function () {
+    //   console.log(1)
+    // }, false)
+    // div.addEventListener('click', function () {
+    //   console.log(1)
+    // }, false)
+    
+    // 打印一个‘1’
+    // 此种方式绑定的是同一个事件处理函数
+    // div.addEventListener('click', test, false)
+    // div.addEventListener('click', test, false)
+    // function test () {
+    //   console.log(1)
+    // }
+
+    // 事件处理程序的运行环境 -> this
+    // elem.onclick = function () {
+    //   console.log(this) -> elem 本身
+    // }
+
+    // elem.addEventListener('click', function () {
+    //   console.log(this) -> elem 本身
+    // }, false)
+
+    // elem.attachEvent('onclick', function(){
+    //   console.log(this) -> window
+    //    可以使用test.call(elem)将this指向elem
+    // })
+
+
+    // 事件冒泡：点击子元素，事件一层一层向父元素传递的现象
+    // elem.addEventListener('click', test, false) 事件从子元素传递到父元素
+
+    // 事件捕获：点击子元素，事件由父元素(嵌套关系最顶层)一层一层向子元素传递的现象
+    // elem.addEventListener('click', test, true) 事件由父元素向子元素传递
+
+    // 事件优先级：先捕获，后冒泡；当作用在事件源上时，按照函数绑定顺序进行
+
+
+    // IE以及老版的其他浏览器都没有事件捕获
+
+    // 取消冒泡，w3c: e.stopPropagation()，IE: e.cancelBuble = true;
+
+    // 取消默认事件，w3c: e.preventDefault() w3c标准IE9以下基本都不兼容，IE：e.returnValue = false
+
+
+    // <a href="javascript:;"></a> 或者 <a href="javascript:void(0);"></a>
+
+    // 事件流：描述从页面中接收事件的顺序 冒泡 捕获
+    // IE 提出的 事件冒泡流 (Event Bubling)
+    // Netscape 提出了 事件捕获流 (Event Capturing)
+
+    // index = Array.prototype.indexOf.call(oLi, target) Array.prototype.indexOf.call(DOM对象集合, 事件源)
+
+    /********************** BOM 事件 End ***************/
+  </script>
+</body>
+
+</html>

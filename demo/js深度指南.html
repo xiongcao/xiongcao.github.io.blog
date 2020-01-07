@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="bdsharebuttonbox">
+    <button onclick="call()">通用分享</button>
+    <button onclick="call('wechatFriend')">微信好友</button>
+    <button onclick="call('wechatTimeline')">朋友圈</button>
+    <button onclick="call('qqFriend')">QQ</button>
+    <button onclick="call('qZone')">QQ空间</button>
+    <button onclick="call('weibo')">微博</button>
+  </div>
+  <p>html</p>
+  <p>js</p>
+  <p>css</p> -->
+  <script type="text/html" id="tpl">
+    <div>
+      <h2>{{name}}</h2>
+      <p>{{age}}</p>
+      <p>{{province}} {{city}} {{area}}</p>
+    <div>
+  </script>
+  <script type="text/javascript">
+    /****************** 数组 Begin ********************/
+    // const button = document.querySelectorAll('button')
+    // const b = document.getElementsByTagName('button')
+    // console.log(button, b, 'button')
+    // console.log(Array.from(button))
+    // Array.from(button).map(o => {
+    //   console.log(o, 'botton')
+    // })
+    // Array.from(b).map(o => {
+    //   console.log(o)
+    // })
+
+    // let obj = { name: 'js', code: 1, age: 18 }
+    // console.log(obj.lenght)
+    // console.log(Array.from(obj))
+    // let p_dom_list = document.querySelectorAll('p')
+    // let arr = Array.from(p_dom_list) // [p, p, p]
+    // arr.forEach(p => {
+    //   console.log(p) // output: <p>html</p>, <p>js</p>, <p>css</p>
+    // })
+
+    // const arr = [1, 2, 3, 4]
+    // arr.push(5, 6, 7)
+    // let [one, two] = [...arr]
+    // let [, , ...three] = [...arr]
+    // function test (...args){
+    //   console.log(args)
+    // }
+    // test(...arr)
+
+    // let arr = [1, 2, 3, 4]
+    // // let [one, two] = [...arr]
+    // // console.log(one, two) // output: 1, 2
+    // let [a, ...b] = [...arr]
+    // console.log(a, b) // output: 1, [2,3,4]
+    // function test (args){
+    //   console.log(args) // output: 1
+    // }
+    // function test (...args){
+    //   console.log(args) // output: [1, 2, 3, 4]
+    // }
+    // test(...arr)
+    // console.log([...arr, 5, 6]) // output: [1, 2, 3, 4, 5, 6]
+
+
+    // const arr = new Array(3)
+    // arr.fill('后盾人') // ["后盾人", "后盾人", "后盾人"]
+    // arr.fill('js', 1, 2)
+    // console.log(arr) // ["后盾人", "js", "后盾人"]
+
+
+    // let arr = [1, 2, 3]
+
+    // // console.log(arr.slice(1, 3)) // output: [2, 3]    
+
+    // // 添加元素
+    // arr.splice(0, 0, 'js', 'css') // ["js", "css", 1, 2, 3]
+
+    // // 删除元素
+    // arr.splice(0, 1) // ["css", 1, 2, 3]
+
+    // // 修改元素
+    // arr.splice(0, 1, 'html') // ["html", 1, 2, 3]
+    // console.log(arr)
+
+    // let arr = [1, 2, 3, 4]
+    // let hd = arr
+    // arr = [] // 开辟了一个新的内存空间，不影响hd
+    // console.log(hd, arr)
+
+    // let arr = [1, 2, 3, 4]
+    // let hd = arr
+    // hd = []
+    // arr.push(5)
+    // console.log(hd, arr)
+
+    // let arr = [1, 2, 3]
+    // console.log(arr.indexOf(2))
+    // console.log(arr.includes(4))
+
+    // let arr = [1, 2, 4]
+    // let res = arr.find(item => {
+    //   // return item == 2 // output: 2
+    //   // return item > 2 // output: 4
+    //   return item == 100 // output: undefined
+    // })
+    // console.log(res)
+
+    // let lessons = [{ name: 'js' }, { name: 'css' }, { name: 'mysql' }]
+    // let obj = lessons.find(item => {
+    //   return item.name == 'css'
+    // })
+    // console.log(obj) // 解决includes不能查找引用类型的缺点
+
+    // let index = lessons.findIndex(item => { // 查找索引
+    //   return item.name == 'mysql'
+    // })
+    // console.log(index)
+
+    // const str = 'abcdefg'
+    // // let list = [...str]
+    // let list = str.split(',')
+    // console.log(list)
+
+    // let str = 'Banana,Orange,Apple,Mango'
+    // let list = str.split(',') // "Banana", "Orange", "Apple", "Mango"]
+    // console.log(list)
+
+    // let list = ["Banana", "Orange", "Apple", "Mango"]
+
+    // console.log(list.join('-'))
+
+    // let arr_1 = [1, 2]
+    // let arr_2 = ['js', 'css']
+    // let arr_3 = [4, 5]
+    // // console.log(arr_1.concat(arr_2, arr_3))
+    // console.log([...arr_1, ...arr_2, ...arr_3])
+
+    // sort 排序
+    // let arr = [1, 5, 4, 2, 3]
+    // arr.sort((a, b) => {
+    //   if (a > b) {
+    //     return -1
+    //   }
+    //   if (a < b) {
+    //     return 1
+    //   }
+    //   return 0
+
+    //   // return a - b // 对数字的排序也可以直接使用
+    // }) // 
+    // console.log(arr)
+
+    // let arr = ['Google', 'apple', 'Microsoft'];
+    // arr.sort((s1, s2) => {
+    //   x1 = s1.toUpperCase();
+    //   x2 = s2.toUpperCase();
+    //   if (x1 < x2) {
+    //     return -1;
+    //   }
+    //   if (x1 > x2) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // });
+    // console.log(arr)
+
+    // sort方法的简单实现
+    // let arr = [1, 5, 4, 2, 3]
+    // function sort(array, callback) {
+    //   for (const n in array) {
+    //     for (const m in array) {
+    //       if (callback(array[n], array[m]) < 0) {
+    //         const temp = array[n]
+    //         array[n] = array[m]
+    //         array[m] = temp
+    //       }
+    //     }
+    //   }
+    //   return array
+    // }
+    // sort(arr, (a, b) => {
+    //   return a - b
+    // })
+    // console.log(arr)
+
+    // 检测数值元素的每个元素是否都符合条件，只有当所有元素都满足设定条件才返回true，否则返回false
+    // let arr = [98, 80, 59]
+    // // let flag = arr.every((o) => {
+    // //   return o >= 60
+    // // })
+    // let flag = arr.some(o => {
+    //   return o <= 60
+    // })
+    // console.log(flag) // true
+
+    // let arr = [1, 2, 3, 4]
+    // // let list = arr.map(x => x * x)
+    // // let list = arr.filter(x => {
+    // //   return x
+    // // })
+    // let list = arr.reduce((x, y) => {
+    //   return x + y
+    // })
+
+    // let product = arr.reduce((x, y) => {
+    //   return x * y
+    // })
+    // console.log(product)
+
+    // let arr = [1,2,1,3,1,5]
+    // function arrayCount(array, key) {
+    //   let sum = array.reduce((total, cur) => {
+    //     return total += key === cur ? 1 : 0
+    //   }, 0)
+    // }
+    // arrayCount(arr, 1)
+
+    // let arr = [1, 2, 5, 3, 9]
+    // function arrayMax(array) {
+    //   return array.reduce((pre, cur) => {
+    //     return pre > cur ? pre : cur
+    //   })
+    // }
+    // arrayMax(arr)
+    /****************** 数组 End ********************/
+
+    /***************** 函数 Begin *******************/
+    // let x = 1
+    // function test(a, b) {
+    //   a = 4
+    //   console.log(arguments[0])
+    //   arguments[0] = 5
+    //   console.log(a)
+    //   console.log(x)
+    // }
+    // test(x, 2, 3)
+    // if (0) {
+    //   var c
+    // }
+    // console.log(x)
+    // console.log(c)
+    /****************** 函数 End ********************/
+
+    /**************** 作用域 Begin ******************/
+    // a = 1
+    // function test (e) {
+    //   function e () {}
+    //   arguments[0] = 2
+    //   console.log(e)
+    //   if(a) {
+    //     var b = 3
+    //   }
+    //   var c
+    //   a = 4
+    //   var a
+    //   console.log(b)
+    //   f = 5
+    //   console.log(c)
+    //   console.log(a)
+    // }
+    // var a
+    // test(1)
+    // console.log(a)
+    // console.log(f)
+    // GO = {
+    //   a: undefined -> 1,
+    //   test: function test(){}
+    //   f: 5
+    // }
+    // AO = {
+    //   e: undefined
+    //     1
+    //     funtion e () {}
+    //     2,
+    //   b: undefined,
+    //   c: undefined,
+    //   a: undefined -> 4
+    // }
+
+    // 1.函数创建时，生成的一个JS内部的隐式属性
+    // 2.函数存储作用域链的容器，作用域链AO/GO
+    //   AO：函数的执行期上下文
+    //   GO：全局的执行期上下文
+    //   函数执行完成以后，AO是要销毁的，AO是一个即时的存储容器
+
+    // Top END 
+    // function a() {
+    //   function b(){
+    //     var b = 2
+    //   }
+    //   var a = 1
+    //   b()
+    // }
+    // var c = 3
+    // a()
+    // 当a函数被定义时：系统生成[scope]属性，[scope]保存该函数的作用域链，该作用域链的第0位存储当前环境下的全局执行期上下文GO，GO里存储全局下的所有对象，其中包含函数a和全局变量c
+
+    // 当a函数被执行时（前一刻）：
+    // 作用域链的顶端（第0位）存储a函数生成的函数执行期上下文AO，同时第1位存储GO。查找变量是到a函数存储的作用域链中从顶端开始一次向下查找。
+
+    // 当b函数被定义时：
+    // 是在a函数环境下，所以b函数这时的作用域链就是a函数被执行期的作用域链。
+
+    // 当b函数被执行时（前一刻）：
+    // 生成函数b的【scope】,存储函数b的作用域链，顶端第0位存储b函数的AO，a函数的AO和全局的GO一次向下排列
+
+    // 当b函数被执行结束后，b函数的AO被销毁，回归被定义时的状态
+
+    // 当a函数被执行结束时，a函数的AO被销毁的同时，b函数的【scope】也将不存在。a函数回归到被定义时的状态。
+    // Top END
+
+    // 全局执行的前一刻 GO -> 函数声明已经定义
+    // 预编译：变量声明、函数声明
+
+    /***************** 作用域 End *******************/
+
+    /***************** 闭包 Begin *******************/
+    // function 2() {
+    //   function test2(){
+    //     var b = 2
+    //     console.log(a)
+    //   }
+    //   var a = 1
+    //   return test2
+    // }
+    // var c = 3
+    // var test3 = test1()
+    // test3()
+    // 当内部函数被返回到外部并保存时，一定会产生闭包，闭包会产生原来的租用域链不释放，过度的闭包可能会导致内存泄漏，或加载过慢。
+
+    // function test1() {
+    //   var n = 100
+    //   function add() {
+    //     n++
+    //     console.log(n)
+    //   }
+
+    //   function reduce () {
+    //     n--
+    //     console.log(n)
+    //   }
+    //   return [add, reduce]
+    // }
+    // var arr = test1()
+    // arr[0]() // 99
+    // arr[1]() // 100
+    // arr[0]() // 101
+    // arr[0]() // 102
+
+    // function breadMgr(num) {
+    //   var breadNum = num || 10
+    //   function supply() {
+    //     breadNum += 10
+    //     console.log(breadNum)
+    //   }
+
+    //   function sale(){
+    //     breadNum--
+    //     console.log(breadNum)
+    //   }
+    //   return [supply, sale]
+    // }
+    // var breadMgr = breadMgr(50)
+    // breadMgr[0]()
+    // breadMgr[1]()
+    // breadMgr[1]()
+    // breadMgr[1]()
+
+    // function sunSched(){
+    //   var sunSched = ''
+    //   var operation = {
+    //     setSched: function (thing) {
+    //       sunSched = thing
+    //     },
+    //     showSched: function () {
+    //       console.log(`My schedule on sunday is ` + sunSched)
+    //     }
+    //   }
+    //   return operation
+    // }
+    // var sunSched = sunSched()
+    // sunSched.setSched('studing');
+    // sunSched.setSched('walking');
+    // sunSched.showSched();
+    /***************** 闭包 End *******************/
+
+    /***************** 预编译、递归 Begin *******************/
+    // 递归要点：1.找到规律 2.找出口
+
+    // 预编译:
+    // 1.检查通篇的语法错误
+    // 1.5预编译的过程
+    // 2.解释一行，执行一行
+    // 函数声明整体提升、变量只有赋值时不提升
+
+    // 暗示全局变量 imply global variable
+
+    // function test(a){
+    //   console.log(a)
+    //   var a = 1
+    //   console.log(a)
+    //   function a() {}
+    //   console.log(a)
+    //   var b = function () {}
+    //   console.log(b)
+    //   function d(){}
+    // }
+    // test(2) 
+    // AO: activation object 活跃对象，函数上下文
+    // 1.寻找形参和变量声明
+    // 2.实参值赋值给形参
+    // 3.找函数声明
+    // 4.执行，赋值
+    // AO = {
+    //   a: undefined ->
+    //       2 ->
+    //       function a(){} ->
+    //       1,
+    //   b: undefined -> function (){},
+    //   d: function d() {}
+    // }
+
+    // function test(a,b) {
+    //   console.log(a);
+    //   c = 0;
+    //   var c;
+    //   a = 5;
+    //   b = 6;
+    //   console.log(b)
+    //   function b(){}
+    //   function d(){}
+    //   console.log(b)
+    // }
+    // test(1)
+    // AO = {
+    //   a: undefined ->
+    //      1 ->
+    //      5,
+    //   b: undefined ->
+    //      function b(){} ->
+    //      6,
+    //   c: undefined ->
+    //      0,
+    //   d: function d(){}
+    // }
+    // Top END
+
+    // var a = 1;
+    // function a(){
+    //   console.log(2)
+    // }
+    // console.log(a)
+    // GO global object 全局上下文
+    // 1.找变量声明
+    // 2.找函数声明
+    // 3.执行，赋值
+    // GO = {
+    //   a: undefined ->
+    //      function a(){} ->
+    //      1
+    // }
+
+    // console.log(a, b)
+    // function a() { }
+    // var b = function () { }
+    // GO = {
+    //   b: undefined,
+    //   a: function a() { }
+    // }
+
+    // function test(){
+    //   var a = b = 1;
+    //   console.log(b)
+    // }
+    // test()
+    // GO = {
+    //   b: 1
+    // }
+    // AO = {
+    //   a: undefined -> 1
+    // }
+
+    // var b = 3;
+    // console.log(a)
+    // function a(a) {
+    //   console.log(a)
+    //   var a = 2
+    //   console.log(a)
+    //   function a() {}
+    //   var b = 5;
+    //   console.log(b)
+    // }
+    // a(1)
+    // GO = {
+    //   b: undefined -> 3
+    //   a: function a(a) {}
+    // }
+    // AO-a = {
+    //   a: undefined ->
+    //       1 ->
+    //       function a() {} ->
+    //       2
+    //   b: undefined -> 5
+    // }
+
+    // a = 1;
+    // function test() {
+    //   console.log(a);
+    //   a = 2;
+    //   console.log(a);
+    //   var a = 3;
+    //   console.log(a)
+    // }
+    // test()
+    // var a;
+    // GO = {
+    //   a: undefined -> 1,
+    //   test: function test() {}
+    // }
+    // AO = {
+    //   a: undefined -> undefined -> 2 -> 3
+    // }
+
+    // function test(){
+    //   console.log(b);
+    //   if(a){
+    //     var b = 2;
+    //   }
+    //   c = 3;
+    //   console.log(c)
+    // }
+    // var a;
+    // test();
+    // a = 1;
+    // console.log(a)
+    // GO = {
+    //   a: undefined -> 1
+    //   test: function test(){},
+    //   c: 3
+    // }
+    // AO = {
+    //   b: undefined
+    // }
+
+    // 三题作业
+    // function test(){
+    //   return a;
+    //   a = 1;
+    //   function a(){}
+    //   var a = 2;
+    // }
+    // console.log(test())
+    // AO = {
+    //   a: undefined -> function a(){}
+    // }
+
+    // function test() {
+    //   a = 1;
+    //   function a(){}
+    //   var a =2;
+    //   return a
+    // }
+    // console.log(test())
+    // AO = {
+    //   a: undefined -> function a(){} -> 2
+    // }
+
+    // a = 1;
+    // function test(e){
+    //   function e(){}
+    //   arguments[0] = 2;
+    //   console.log(e); // 2
+    //   if(a){
+    //     var b = 3
+    //   }
+    //   var c;
+    //   a = 4;
+    //   var a;
+    //   console.log(b); // undefined
+    //   f = 5;
+    //   console.log(c); // undefined
+    //   console.log(a); // 4
+    // }
+    // var a;
+    // test(1)
+    // GO = {
+    //   a: undefined,
+    //   test: function test(e){...}
+    //   f: 5
+    // }
+    // AO = {
+    //   a: undefined -> 4,
+    //   b: undefined,
+    //   c: undefined,
+    //   e: 1 -> function e(){} -> 2
+    // }
+    // Top END
+
+    /***************** 预编译、递归 End *******************/
+
+
+    /**************** 隐士转换面试题 Begin *****************/
+    // var a = false + 1;
+    // console.log(a)
+
+    // var b = false == 1;
+    // console.log(b)
+
+    // if(typeof(a) && (-true) + (+undefined) + ''){
+    //   console.log('通过了')
+    // } else {
+    //   console.log('没通过')
+    // }
+
+    // if (1 + 5 * '3' === 16) {
+    //   console.log('通过了')
+    // } else {
+    //   console.log('未通过')
+    // }
+
+    // console.log(!!' ' + !!'' - !!false || '通过了')
+
+    // window.a || (window.a = '1');
+    // console.log(window.a)
+    /**************** 隐士转换面试题 End ******************/
+
+
+    /************** 立即执行函数、闭包深入 Begin ************/
+    // 自动执行，执行完成以后立即释放
+    // 立即执行函数 - 初始化函数
+    // 一定是表达式才能被执行符号执行
+    // (function test1(){
+    //   console.log(1)
+    // })()
+
+    // var test2 = function () {
+    //   console.log(1)
+    // }()
+
+    // function test3(){ // 语法错误
+    //   console.log(1)
+    // }()
+
+    // 加了参数之后js引擎默认认为该函数是表达式
+    // function test(a){
+    //   console.log(1)
+    // }(6)
+
+    // 0 || function test(){
+    //   console.log(1)
+    // }()
+
+    // - function test(){
+    //   console.log(2)
+    // }()
+
+    // 1 && function test(){
+    //   console.log(3)
+    // }()
+
+    // Top END
+    // 以下两个例子证明立即执行函数执行完就被销毁
+    // var test = function(){
+    //   console.log(1)
+    // }
+    // var test1 = function(){
+    //   console.log(2)
+    // }()
+    // console.log(test1)
+    // Top END
+
+    // function test() {
+    //   var arr = [];
+    //   for (var i = 0; i < 10; i++) {
+    //     (function(j){
+    //       arr[i] = function (i) {
+    //         console.log(j + ' ')
+    //       }
+    //     }(i))
+    //   }
+    //   return arr;
+    // }
+    // var myArr = test();
+    // myArr[2]()
+    // for (var j = 0; j < 10; j++) {
+    //   myArr[j]()
+    // }
+
+    // var a = 10;
+    // if(function b(){}) { //(function b(){}) 表达式，b被忽略
+    //   a += typeof(b) // typeof(b) undefined
+    // }
+    // console.log(a)
+
+    // 累加器，执行一次+1
+    // function test() {
+    //   var i = 0
+    //   return function () {
+    //     i++
+    //     console.log(i)
+    //   }
+    // }
+    // var test1 = test()
+    // test1()
+    // test1()
+
+    // 一个班级，学生名字保存在一个数组里，两个方法写在函数中的一个对象中
+    // 第一个方法加入班级，第二个方法离开班级，每次加入或离开，都需要打印新的学生名单
+    // var arr = ['a', 'b', 'c']
+    // var obj = {
+    //   add: function (n) {
+    //     arr.push(n)
+    //     console.log(n + '加入了班级，班级成员：' + arr.toString())
+    //   },
+    //   remove: function (n) {
+    //     let index = arr.indexOf(n)
+    //     arr.splice(index, 1)
+    //     console.log(n + '离开了班级，班级成员：' + arr.toString())
+    //   }
+    // }
+    // obj.add('d')
+    // obj.add('e')
+    // obj.remove('a')
+
+    // var obj1 = {
+    //   name: '小熊',
+    //   age: 18,
+    //   son: {
+    //     name: '熊大'
+    //   }
+    // }
+    // var obj2 = { ...obj1 }
+    // obj2.name = '小明'
+    // obj2.son.name = '熊二'
+    // console.log(obj1, obj2) // {name: "小熊", age: 18}, {name: "小明", age: 18}
+
+    // var arr1 = [1, 2, 3]
+    // // var arr2 = [...arr1]
+    // // var arr2 = [].concat(arr1)
+    // var arr2 = arr1.splice(0,)
+    // arr2.push(4)
+    // console.log(arr1, arr2)
+
+
+    // Object.prototype.num = 1
+    // var obj1 = {
+    //   name: '小熊',
+    //   age: 18,
+    //   son: {
+    //     first: {
+    //       name: '熊大',
+    //       age: 8
+    //     },
+    //     second: {
+    //       name: '熊二',
+    //       age: 5
+    //     }
+    //   },
+    //   car: ['Benz', 'MZD', 'BMW'],
+    //   eat: function () {
+    //     console.log('南方人不喜欢吃面食')
+    //   }
+    // }
+
+    // var obj2 = deepClone(obj1)
+    // obj2.son.thrid = {
+    //   name: '熊三',
+    //   age: 2
+    // }
+    // obj2.eat = function () {
+    //   console.log('我爱吃热干面')
+    // }
+    // obj1.eat()
+    // obj2.eat()
+    // console.log(obj1, obj2)
+    // // var str = JSON.stringify(obj1)
+    // // var obj2 = JSON.parse(str)
+
+    // function deepClone(origin, target) {
+    //   var target = target || {}
+    //   var toStr = Object.prototype.toString;
+    //   var arrType = '[object Array]';
+    //   for (var key in origin) {
+    //     if (origin.hasOwnProperty(key)) {
+    //       if (typeof (origin[key]) === 'object' && origin[key] !== null) {
+    //         toStr.call(origin[key]) === arrType ? target[key] = [] : target[key] = {};
+    //         deepClone(origin[key], target[key])
+    //       } else {
+    //         target[key] = origin[key]
+    //       }
+    //     }
+    //   }
+    //   return target
+    // }
+
+
+    /************** 立即执行函数、闭包深入 END ************/
+
+
+    /************** 对象、构造函数 Begin ************/
+    // var obj = new Object()
+    // obj.name = 'xiaoxiong'
+    // obj.age = 18
+
+    // var arr = new Array()
+    // arr[0] = 'a'
+    // arr[1] = 'b'
+    // arr[2] = 'c'
+
+    // var fn = function () {
+    //   console.log(1)
+    // }
+    // fn.a = 10
+    // fn.b = function () {
+    //   console.log(2)
+    // }
+    // fn.c = {
+    //   name: 'xiaoxiong',
+    //   age: 18
+    // }
+    // console.log(fn)
+
+    // function Car () {
+    //   this.color = 'red'
+    //   this.brand = 'Benz'
+    //   return function () {
+    //     console.log(123)
+    //   }
+    // }
+    // var car = new Car()
+    // console.log(car)
+
+    // function Test(a, b, c) {
+    //   var d = 1
+    //   this.a = a
+    //   this.b = b
+    //   this.c = c
+    //   function f() {
+    //     d++;
+    //     console.log(d)
+    //   }
+    //   this.g = f
+    // }
+    // var test1 = new Test();
+    // test1.g();
+    // test1.g();
+    // var test2 = new Test();
+    // test2.g();
+
+    // var x = 1,
+    //     y = z = 0;
+    // function add(n) {
+    //   return n = n + 1
+    // }
+    // y = add(x)
+    // function add(n){
+    //   return n = n + 3
+    // }
+    // z = add(x);
+    // console.log(x, y, z)
+
+    // function foo(x) {
+    //   console.log(arguments)
+    //   return x
+    // }
+    // foo(1,2,3,4,5)
+
+    // function foo(x) {
+    //   console.log(arguments)
+    //   return x
+    // }(1,2,3,4,5)
+
+    // (function foo(x) {
+    //   console.log(arguments)
+    //   return x
+    // })(1,2,3,4,5)
+
+    // function b(x, y, a) {
+    //   a = 10;
+    //   console.log(arguments[2])
+    // }
+    // b(1, 2, 3)
+
+    // ASCII码 表1: 0-127 表2: 128-255 // 占一个字符
+    // UNICODE 包含ASCII码， 256以上 // 占两个字符
+    // var str = 'a'
+    // var pos = str.charCodeAt(0)
+    // console.log(pos)
+
+    // var getBytes = function (str) {
+    //   var byte = 0
+    //   for (var i = 0; i < str.length; i++) {
+    //     if (str.charCodeAt(i) <= 255) {
+    //       byte += 1
+    //     } else {
+    //       byte += 2
+    //     }
+    //   }
+    //   return byte
+    // }
+    // console.log(getBytes('a哈b'))
+
+    /**************** 对象、构造函数 END ************/
+
+    /**************** 经典面试题 Begin ************/
+    // var foo = 'AAA', self = window
+    // var a = {
+    //   foo: 'BBB',
+    //   fn: function(){
+    //     var self = this, foo = 'CCC'
+    //     setTimeout(() => {
+    //       console.log('0', this.foo) // BBB
+    //     }, 1000);
+    //     return function(){
+    //       console.log('1', self.foo) // BBB
+    //       console.log('2', this.foo) // AAA
+    //     }(
+    //       (function(){
+    //         console.log('3', self.foo) // BBB
+    //         console.log('4', this.foo) // AAA
+    //       })()
+    //     )
+    //   }
+    // }
+    // a.fn()
+
+    // var name = '222';
+    // var a = {
+    //   name: '111',
+    //   say: function () {
+    //     console.log(this.name)
+    //   }
+    // }
+    // var fun = a.say;
+    // // 解读
+    // // {
+    // //   var fun = function () {
+    // //     console.log(this.name)
+    // //   }
+    // // }
+    // fun(); // 222
+    // a.say(); // 111
+    // var b = {
+    //   name: '333',
+    //   say: function (fun) {
+    //     fun();
+    //     // fun() =>
+    //     // + function(){
+    //     //   console.log(this.name)
+    //     // }() => 834 行的fun
+    //   }
+    // }
+    // b.say(a.say); // 222
+    // b.say = a.say;
+    // // b.say => 
+    // // function(fun) {
+    // //   fun();
+    // // } ->
+    // // function () {
+    // //   console.log(this.name) this => b
+    // // }
+    // b.say(); // 333
+
+    // function test() {
+    //   var marty = {
+    //     name: 'marty',
+    //     printName: function(){
+    //       console.log(this.name)
+    //     }
+    //   }
+    //   var test1 = {
+    //     name: 'test1'
+    //   }
+    //   var test2 = {
+    //     name: 'test2'
+    //   }
+    //   var test3 = {
+    //     name: 'test3'
+    //   }
+    //   test3.printName = marty.printName;
+    //   // test3 = {
+    //   //   name: 'test3',
+    //   //   printName: function(){
+    //   //     console.log(this.name)
+    //   //   }
+    //   // }
+    //   marty.printName.call(test1); // test1
+    //   marty.printName.apply(test2); // test2
+    //   marty.printName(); // marty
+    //   test3.printName(); // test3
+    // }
+    // test()
+
+    // var bar = {
+    //   a: '1'
+    // }
+    // function test() {
+    //   bar.a = 'a'
+    //   Object.prototype.b = 'b'
+    //   return function inner(){
+    //     console.log(bar.a) // a
+    //     console.log(bar.b) // b
+    //   }
+    // }
+    // test()()
+
+    // function Foo(){
+    //   getName = function() {
+    //     console.log(1)
+    //   }
+    //   return this;
+    // }
+
+    // Foo.getName = function(){
+    //   console.log(2)
+    // }
+    // Foo.prototype.getName = function(){
+    //   console.log(3)
+    // }
+    // var getName = function(){
+    //   console.log(4)
+    // }
+    // function getName(){
+    //   console.log(5)
+    // }
+    // Foo.getName(); // 2
+    // getName(); // 4
+    // Foo().getName(); // 1
+    // getName(); // 1
+    // new Foo.getName(); // 2
+    // new Foo().getName(); // 3
+    // new new Foo().getName(); // 3
+
+    // function foo() {
+    //   bar.apply(null, arguments)
+    // }
+    // function bar() {
+    //   console.log(arguments);
+    // }
+    // foo(1, 2, 3, 4, 5)
+
+    // js的typeof可能返回的值有哪些？
+    // object/boolean/number/string/undefined/function
+
+    // var obj = {
+    //   '2': 3,
+    //   '3': 4,
+    //   'length': 2,
+    //   'splice': Array.prototype.splice,
+    //   'push': Array.prototype.push
+    // }
+    // obj.splice(1, 0, 5)
+    // // obj.push(2)
+    // console.log(obj)
+
+
+    /***************** 经典面试题 END *************/
+
+    /*************** 原型与原型链 Begin *************/
+    // Test.prototype.name = '123'
+    // function Test(){
+    //   this.name = '小熊'
+    // }
+    // console.log(Test.name)
+
+    // var str = '123'
+    // str.length = 1
+    // console.log(str.length, str)
+
+    /***************** 原型与原型链 END *************/
+
+    /***************** 错误类型 Begin *************/
+    // 1、SyntaxError 语法错误
+    // 2、ReferenceError: 引用错误
+    // 3、RangeError： 范围错误
+    // 数组长度赋值负数
+    // 对象方法参数超出可行范围
+    // 4、TypeeError: 类型错误
+    // 5、URIError：URI错误
+    // URI： 统一资源标识符 -> encodeURI(http://www.baidu.com/123)
+    // URL： 统一资源定位符 -> http://www.baidu.com/123
+    // URN： 统一资源名称 -> www.baidu.com/123，href="tel:1359209000"，href="mailto：3436345@qq.com"
+    // 6、EvalError eval函数执行错误
+    // ECMA3.0 已经不建议使用；使用不规范；可读性，安全性都不行。
+
+    /****************** 错误类型 END **************/
+
+
+    /**************** DOM文档解析原理 Begin ************/
+    // 时间线
+    // 定义：在浏览器加载页面开始的那一刻到页面加载完全结束的这个过程中，按顺序发生的每一件事的总流程。
+
+    // 1、document对象 -> js就起作用了 DOM
+    // 2、解析文档，构建DOM树
+    //    document.readyState = 'loading' 加载中
+    // 3、link 开新线程 -> 异步加载css外部文件 style -> CSSOM
+    // 4、没有设置异步加载的script，阻塞文档解析，等待js脚本加载并且执行完成后，继续解析文档
+    // 5、异步加载script，异步加载js脚本，不阻塞解析文档。（不能使用document.write）
+    // 6、解析文档遇到img 先解析这个节点，src=""  创建加载线程 异步加载图片资源，不阻塞解析文档
+    // 7、文档解析完成 document.readyState = 'interactive' 解析完成
+    // 8、文档解析完成：defer script JS脚本开始按照顺序执行
+    // 9、文档解析完成：触发DOMContentLoaded事件
+    //    程序：同步的脚本执行阶段 -> 事件驱动阶段
+    // 10、async script 加载并执行完毕，img等资源加载完毕，window对象中的onload事件才触发
+    //    document.readyState = 'complete' 加载完成
+
+    // console.log(doucment.readyState)
+    // document.onreadystatechange = function () {
+    //   console.log(document.readyState)
+    // }
+
+    /***************** DOM文档解析原理 END *************/
+
+
+    /****************** 正则表达式 Begin ***************/
+
+    // toLocaleUpperCase() lowerCase() 针对一些比较特殊的语言，比如土耳其等语言中有特殊的大小写字母，这些语言的大小写转换要用locale
+    // 针对英文字母，家locale与否都能实现大小写转换功能
+
+    // valueOf与toString的区别
+    // 1、toString 一定返回字符串， valueOf 返回原本的值
+    // 2、Date toString 表示时间的特有字符串
+    //         valueOf 13位毫秒时间戳
+    // 3、数组 toString 数组元素用,分割的字符串
+    //        valueOf 数组原本的值
+    // 4、对象 toString 对象的类型字符串表示 '[object Object]'
+    //        valueOf 独享原本的值
+    // 5、toString function 通过[native code] 区分js内置函数和自定义
+    // 6、toString 接收一个参数-基数(radix) valueOf 没有参数
+
+    // let date = new Date()
+    // console.log('date toString: ' + date.toString())
+    
+    // 类型检测
+    // Object.prototype.toString.call()
+    // typeof 1 => 'number'
+    // typeof '1' => 'string'
+    // typeof false => 'boolean'
+    // typeof function () {} => 'function'
+    // typeof null => 'object'
+    // typeof {} => 'object'
+    // typeof [] => 'object'
+    // typeof new Date() => 'object'
+    // typeof new RegExp() => 'object'
+    // typeof new Number() => 'object'
+    // typeof new String() => 'object'
+    // typeof new Boolean() => 'object'
+    // function myTypeOf(val) {
+    //   var type = typeof (val),
+    //     toStr = Object.prototype.toString;
+    //   var resSet = {
+    //     '[object Object]': 'object',
+    //     '[object Array]': 'array',
+    //     '[object Number]': 'obj_number',
+    //     '[object String]': 'obj_string',
+    //     '[object Boolean]': 'obj_boolean',
+    //     '[object Date]': 'date',
+    //     '[object RegExp]': 'regexp'
+    //   };
+    //   if (val === null) {
+    //     return 'null'
+    //   } else if (type === 'object') {
+    //     var res = toStr.call(val);
+    //     return resSet[res];
+    //   } else {
+    //     return type;
+    //   }
+    // }
+
+    // var reg = /\na/g
+    // var str = '\nabc'
+    // console.log(str.match(reg))
+
+    // var str = 'abcabc'
+    // var reg = /ab/g;
+    // // reg.lastIndex = 3
+    // var res = str.match(reg)
+    // // console.log(reg.lastIndex)
+    // console.log(res)
+
+    // exec 机械式循环匹配(加g)
+    // g 执行一次匹配一次，自动增加匹配位置开头的下标，知道返回null以后再回到最开始，然后从新匹配
+    // 非g 只匹配第一个可匹配的片段，且值匹配一次
+    // 无论加g与否，都返回子表达式中字符串的片段
+    // match 自动循环匹配（加g）
+    // 非g 返回第一个被匹配的片段，并返回子表达式中的字符串
+    // g 返回所有可被匹配的片段，但不返回子表达式中的字符串
+
+    // 正向预查
+    // var str = '1231231';
+    // // var reg = /1(?=2)/g; // 1后面紧跟2
+    // var reg = /1(?!2)/g; // 1后面不为2
+    // console.log(str.match(reg))
+
+    // 贪婪模式（默认）和非贪婪模式
+    // var str = 'abcd{{efg}}abcd{{xyz}}'
+    // var reg = /{{.*}}/g;  // str.match(reg) => {{efg}}abcd{{xyz}}，贪婪模式
+    // var reg1 = /{{.*?}}/g; // str.match(reg) => ['{{efg}}', '{{xyz}}'] 非贪婪模式
+    
+    // var str = 'aaa';
+    // var reg = /\w?/g; // str.match(reg) => ['a', 'a', 'a', ''] ，贪婪模式
+    // var reg1 = /\w??/g; // str.match(reg1) =>  ["", "", "", ""]
+
+    // replace用法
+    // var str = 'JSplusplus',
+    //     reg = /plus/g
+    // var str1 = str.replace(reg, '+')
+    // console.log(str1)
+
+    // xxyy -> yyxx
+    // var str = 'aabbccdd'
+    //     reg = /(\w)\1(\w)\2/g;
+    // var str1 = str.replace(reg, '$2$2$1$1')
+    // var str1 = str.replace(reg, function($, $1, $2){
+    //   return $2 + $2 + $1 + $1;
+    // })
+    // console.log(str1)
+
+    // js-plus-plus -> jsPlusPlus
+    // var str = 'js-plus-plus',
+    //     reg = /-(\w)/g;
+    // var str1 = str.replace(reg, function ($, $1) {
+    //   return $1.toUpperCase();
+    // })
+    // console.log(str1)
+
+
+    // jsPlusPlus -> js_plus_plus
+    // var str = 'jsPlusPlus',
+    //     reg = /([A-Z])/g;
+    // var str1 = str.replace(reg, function ($, $1) {
+    //   return '_' + $1.toLowerCase();
+    // })
+    // console.log(str1)
+
+    // xxyyzz -> XxYyZz
+    // var str = 'xxyyzz',
+    //   reg = /([a-z])\1([a-z])\2([a-z])\3/g;
+    // var str1 = str.replace(reg, function ($, $1, $2, $3) {
+    //   return $1.toUpperCase() + $1 + $2.toUpperCase() + $2 + $3.toUpperCase() + $3
+    // })
+    // console.log(str1)
+
+    // aabbcc -> a$b$c$ -> 不能使用function
+    // var str = 'aabbcc',
+    //     reg = /(\w)\1(\w)\2(\w)\3/
+    // var str1 = str.replace(reg, '$1$$$2$$$3$$')
+    // console.log(str1)
+
+    // var str = 'aa\\bb\\cc',
+    //     reg = /\\/g;
+
+    // var str = 'aabbcc', // -> abc
+    //     reg = /(\w)\1(\w)\2(\w)\3/g;
+    // var str1 = str.replace(reg, '$1$2$3')
+    // console.log(str1)
+
+    // var str = 'aaaaabbbcccccc', // -> abc
+    //     reg = /(\w)\1+/g;
+    // var str1 = str.replace(reg, '$1')
+    // console.log(str1)
+
+    // var str = '1000000000000'; // -> 1,000,000,000,000
+    //     reg = /(?=(\B)(\d{3})+$)/g
+    // console.log(str.match(reg))
+    // var str1 = str.replace(reg, ',')
+    // console.log(str1)
+
+    // 模板字符串，替换{{}}里面的内容
+    // var str = 'My name is {{name}}. I\'m {{age}} years';
+    // var reg = /{{(.*?)}}/g;
+    // var str1 = str.replace(reg, function($, $1){
+    //   console.log($, $1)
+    // })
+
+function renderTemplateHtml (tpl, opt) {
+  return tpl.replace(/{{(.*?)}}/gim, function(node, key){
+    return opt[key]
+  })
+}
+
+let data = [
+  {
+    name: '熊大',
+    age: 20,
+    province: '上海',
+    city: '上海市',
+    area: '闵行区'
+  },
+  {
+    name: '熊二',
+    age: 18,
+    province: '湖北省',
+    city: '武汉市',
+    area: '江汉区'
+  }
+]
+
+let tpl = document.getElementById('tpl').innerHTML
+let listHtml = ''
+for (let i=0;i<data.length;i++) {
+  let people = data[i];
+  listHtml += renderTemplateHtml(tpl, people)
+}
+document.body.innerHTML = listHtml
+
+    /******************** 正则表达式 END ***************/
+
+  </script>
+</body>
+
+</html>

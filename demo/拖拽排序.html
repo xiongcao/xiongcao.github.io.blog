@@ -101,8 +101,8 @@
     // 鼠标滑过列表其他元素时，判断是否进入元素内部，如若是，则重新排序
     document.onmouseover = function (e) {
       if (drag) {
-        let current_p_margin = computedStyle(current_p).margin
         if (!document.getElementById('task2')) {
+          let current_p_margin = computedStyle(current_p).margin
           task2.style.width = current_p_w + 'px'
           task2.style.height = current_p_h + 'px'
           task2.style.margin = current_p_margin

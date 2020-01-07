@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
   <title>Document</title>
 </head>
 <style>
-  #box1 {
+  #box1,
+  #box2 {
     width: 200px;
     height: 200px;
     border: 1px solid red;
@@ -17,7 +19,9 @@
     left: 50%;
     margin-left: -100px;
   }
-  #box1 #child_box {
+
+  #box1 #child_box,
+  #box2 #child_box2 {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -25,10 +29,24 @@
     cursor: move;
     box-sizing: border-box;
   }
+
+  #box2 {
+    top: 30px;
+  }
+
+  #box2 #child_box2 {
+    background: orange;
+  }
 </style>
+
 <body>
   <div id="box1">
+    <p># Demo1</p>
     <div id="child_box" draggable="false">我是被拖动的块</div>
+  </div>
+  <div id="box2">
+    <p># Demo2</p>
+    <div id="child_box2" draggable="false">我是被拖动的块</div>
   </div>
   <script>
     let child_box = document.getElementById('child_box')
@@ -43,39 +61,210 @@
       drag = true
       start_offsetX = e.clientX
       start_offsetY = e.clientY
-    }
 
-    /**
+      /**
     * 目标正在被拖拽，将此时光标的坐标减初始光标的坐标即可得到div移动的x,y的距离
     */
-    document.onmousemove = function (e) {
-      if (drag) {
-        let mouse_left = 0, mouse_top = 0 // 鼠标移动的距离
-        mouse_left = end_target_x + e.clientX - start_offsetX // 横向位移
-        mouse_top = end_target_y + e.clientY - start_offsetY // 纵向位移
-        if (mouse_left > container.clientWidth - child_box.clientWidth) { // 横向溢出
-          mouse_left = container.clientWidth - child_box.clientWidth
-        } else if (mouse_left < 0) {
-          mouse_left = 0
+      document.onmousemove = function (e) {
+        if (drag) {
+          let mouse_left = 0, mouse_top = 0 // 鼠标移动的距离
+          mouse_left = end_target_x + e.clientX - start_offsetX // 横向位移
+          mouse_top = end_target_y + e.clientY - start_offsetY // 纵向位移
+          if (mouse_left > container.clientWidth - child_box.clientWidth) { // 横向溢出
+            mouse_left = container.clientWidth - child_box.clientWidth
+          } else if (mouse_left < 0) {
+            mouse_left = 0
+          }
+          if (mouse_top > container.clientHeight - child_box.clientHeight) { // 横向溢出
+            mouse_top = container.clientHeight - child_box.clientHeight
+          } else if (mouse_top < 0) {
+            mouse_top = 0
+          }
+          child_box.style.left = mouse_left + 'px'
+          child_box.style.top = mouse_top + 'px'
         }
-        if (mouse_top > container.clientHeight - child_box.clientHeight) { // 横向溢出
-          mouse_top = container.clientHeight - child_box.clientHeight
-        } else if (mouse_top < 0) {
-          mouse_top = 0
-        }
-        child_box.style.left = mouse_left + 'px'
-        child_box.style.top = mouse_top + 'px'
+      }
+
+      /**
+      * 鼠标松开，禁止元素被拖拽
+      **/
+      document.onmouseup = function (e) {
+        end_target_x = child_box.offsetLeft
+        end_target_y = child_box.offsetTop
+        drag = false
       }
     }
 
-    /**
-    * 鼠标松开，禁止元素被拖拽
-    **/
-    document.onmouseup = function (e) {
-      end_target_x = child_box.offsetLeft
-      end_target_y = child_box.offsetTop
-      drag = false
+
+  </script>
+  <script>
+    // 1. clientX、clientY: 鼠标位置相对于当前可视区域的坐标（不包括滚动条的距离）
+
+    // 2. layerX、layerY: 同pageX/Y相等，IE11以下同clientX/Y
+
+    // 3. screenX、screenY: 鼠标位置相对于屏幕的坐标
+
+    // 4. X、Y: 同clientX/Y相等, FF不支持（火狐浏览器不支持）
+
+    // 5. pageX、pageY: 鼠标位置相对于当前文档的坐标（包括滚动条的距离），IE9以下不支持
+
+    // 6. offsetX、offsetY: 鼠标位置相对于块元素(目标元素)的坐标，包含边框（Safari不包括）
+
+    // 1. clientWidth、clientHeight: width + padding；
+
+    // 2. clientLeft、clientTop: 边框宽度；
+
+    // 3. offsetWidth、offsetHeight: width + padding + border；
+
+    // 4. scrollWidth、scrollHeight: 可视宽度 + 不可视宽度
+
+    // 5. document.documentElement.clientWidth: 浏览器文档的可视高度
+
+    // 封装pageX/Y的兼容方法
+    function pagePos(e) {
+      var sLeft = getScrollOffset().left;
+      var sTop = getScrollOffset().top;
+      // document.documentElement.clientLeft IE8的文档偏移，IE8以上有可能为undefined
+      var cLeft = document.documentElement.clientLeft || 0;
+      var cTop = document.documentElement.clientTop || 0;
+      return {
+        X: e.clientX + sLeft - cLeft,
+        Y: e.clientY + sTop - cTop
+      }
     }
+
+    // 获取滚动条坐标
+    function getScrollOffset() {
+      if (window.pageXOffset) {
+        return {
+          left: window.pageXOffset,
+          top: window.pageYOffset
+        }
+      } else {
+        // 在所有浏览器中document.body.scrollLeft、document.documentElement.scrollLeft只会出现一个，另一个一定为0
+        return {
+          left: document.body.scrollLeft + document.documentElement.scrollLeft,
+          top: document.body.scrollTop + document.documentElement.scrollTop
+        }
+      }
+    }
+
+    // 获取样式
+    function getStyles(ele, prop) {
+      if (window.getComputedStyle) {
+        if (prop) {
+          return parseInt(window.getComputedStyle(ele, null)[prop])
+        } else {
+          return window.getComputedStyle(ele, null)
+        }
+      } else {
+        if (prop) {
+          return parseInt(ele.currentStyle[prop]);
+        } else {
+          return ele.currentStyle;
+        }
+      }
+    }
+
+    // 添加事件
+    function addEvent(el, type, fn) {
+      if (el.addEventListener) {
+        el.addEventListener(type, fn, false)
+      } else if (el.attachEvent) {
+        el.attachEvent('on' + type, function () {
+          fn.call(el);
+        })
+      } else {
+        el['on' + type] = fn;
+      }
+    }
+
+    // 删除事件
+    function removeEvent(el, type, fn) {
+      if (el.addEventListener) {
+        el.removeEventListener(type, fn, false);
+      } else if (el.attachEvent) {
+        el.detachEvent('on' + type, fn);
+      } else {
+        el['on' + type] = null;
+      }
+    }
+
+    // 阻止事件冒泡
+    function cancelBubble(e) {
+      var e = e || window.event;
+      if (e.stopPropagation) {
+        e.stopPropagation();
+      } else {
+        e.cancelBubble = true;
+      }
+    }
+
+    // 取消事件默认行为 
+    function preventDefaultEvent(e) {
+      var e = e || window.event;
+      if (e.preventDefault) {
+        e.preventDefault();
+      } else {
+        e.returnValue = false;
+      }
+    }
+
+    var container2 = document.getElementById('box2');
+    var child_box2 = document.getElementById('child_box2');
+    var x, y // 目标元素的位移(坐标)
+
+    function elemDrag(elem, containerElem) {
+      var x, y;
+      addEvent(elem, 'mousedown', function (e) {
+        var e = e || window.event;
+        x = pagePos(e).X - getStyles(elem, 'left');
+        y = pagePos(e).Y - getStyles(elem, 'top');
+        addEvent(document, 'mousemove', mouseMove);
+        addEvent(document, 'mouseup', mouseUp);
+        cancelBubble(e);
+        preventDefaultEvent(e);
+      })
+
+      function mouseMove(e) {
+        var e = e || window.event;
+        var mouse_y = pagePos(e).Y - y; // 偏移量
+        var mouse_x = pagePos(e).X - x;
+        var max_x, max_y; // 允许移动的最大偏移量
+        if (!containerElem || containerElem.tagName == 'BODY') {
+          containerElem = document.body
+          max_x = document.documentElement.clientWidth - getStyles(elem, 'width')
+          max_y = document.documentElement.clientHeight - getStyles(elem, 'height')
+        } else {
+          max_x = getStyles(containerElem, 'width') - getStyles(elem, 'width') // 平移的最大值
+          max_y = getStyles(containerElem, 'height') - getStyles(elem, 'height')
+        }
+        console.log(max_y)
+        if (mouse_x < 0) {
+          mouse_x = 0
+        } else if (mouse_x > max_x) {
+          mouse_x = max_x
+        }
+        if (mouse_y < 0) {
+          mouse_y = 0
+        } else if (mouse_y > max_y) {
+          mouse_y = max_y
+        }
+        elem.style.top = mouse_y + 'px';
+        elem.style.left = mouse_x + 'px';
+      }
+
+      function mouseUp(e) {
+        var e = e || window.event;
+        removeEvent(document, 'mousemove', mouseMove);
+        removeEvent(document, 'mouseup', mouseUp);
+      }
+    }
+
+    elemDrag(child_box2, container2);
+
+
   </script>
 </body>
+
 </html>

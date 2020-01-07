@@ -1,82 +1,205 @@
-<!DOCTYPE html>
+<!-- <!doctype html>
 <html>
 
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>放大镜</title>
   <style>
-    .box, .box1 {
-      /* position: absolute; */
-      width: 200px;
-      height: 200px;
-      /* float: left; */
-      /* background: red; */
+    * {
+      margin: 0;
+      padding: 0
     }
-    .box {
-       border: 1px solid red;
-       margin-bottom: 10px;
-       margin-right: 10px;
+
+    #demo {
+      display: block;
+      width: 400px;
+      height: 255px;
+      margin: 50px;
+      position: relative;
+      border: 1px solid #ccc;
     }
-    .box1 {
-      border: 1px solid blue;
-      margin-top: 10px;
-      margin-left: 10px;
+
+    #small-box {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+    }
+
+    #small-box img {
+      height: 100%;
+      width: 100%;
+    }
+
+    #float-box {
+      display: none;
+      width: 160px;
+      height: 120px;
+      position: absolute;
+      background: #ffffcc;
+      border: 1px solid #ccc;
+      filter: alpha(opacity=50);
+      opacity: 0.5;
+    }
+
+    #mark {
+      /*应该是把图片放在这个上面，它的透明度为0，是个block*/
+      position: absolute;
+      display: block;
+      width: 400px;
+      height: 255px;
+      background-color: #fff;
+      filter: alpha(opacity=0);
+      /*过滤器，目前只有少数浏览器支持*/
+      opacity: 0;
+      z-index: 10;
+    }
+
+    #big-box {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 460px;
+      width: 400px;
+      height: 300px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      z-index: 1;
+      ;
+    }
+
+    #big-box img {
+      position: absolute;
+      z-index: 5
     }
   </style>
-</head>
-
-<body>
-  <div class="box"></div>
-  <div class="box1"></div>
   <script>
-    var box = document.getElementsByClassName("box")[0]; //获取元素
-    var x, y; //鼠标相对与div左边，上边的偏移
-    var isDrop = false; //移动状态的判断鼠标按下才能移动
-    box.onmousedown = function (e) {
-      var e = e || window.event; //要用event这个对象来获取鼠标的位置
-      x = e.clientX - box.offsetLeft;
-      y = e.clientY - box.offsetTop;
-      isDrop = true; //设为true表示可以移动
-    }
 
-    document.onmousemove = function (e) {
-      //是否为可移动状态                　　　　　　　　　　　 　　　　　　　
-      if (isDrop) {
-        var e = e || window.event;
-        var moveX = e.clientX - x; //得到距离左边移动距离                    　　
-        var moveY = e.clientY - y; //得到距离上边移动距离
-        //可移动最大距离
-        var maxX = document.documentElement.clientWidth - box.offsetWidth;
-        var maxY = document.documentElement.clientHeight - box.offsetHeight;
+    //页面加载完毕后执行
+    window.onload = function () {
+      //找六个个元素：demo，smallBox,foatBox,mark,bigfloatBox,imgs,
+      var objDemo = document.getElementById("demo");
+      var objSmallBox = document.getElementById("small-box");
+      var objMarkBox = document.getElementById("mark");
+      var objFloatBox = document.getElementById("float-box");
+      var objBigBox = document.getElementById("big-box");
+      var objBigBoxImg = objBigBox.getElementsByTagName("img")[0];
 
-        //范围限定  当移动的距离最小时取最大  移动的距离最大时取最小
-        //范围限定方法一
-        /*if(moveX < 0) {
-            moveX = 0
-        } else if(moveX > maxX) {
-            moveX = maxX;
-        }
+      //给小盒子添加事件，移入和移出
+      //移入：浮动的box和和bigBox显示
+      objSmallBox.onmouseover = function () {
+        objFloatBox.style.display = "block";
+        objBigBox.style.display = "block";
+      }
+      //移除：浮动的box和bigBox隐藏
+      objSmallBox.onmouseout = function () {
+        objFloatBox.style.display = "none";
+        objBigBox.style.display = "none";
+      }
 
-        if(moveY < 0) {
-            moveY = 0;
-        } else if(moveY > maxY) {
-            moveY = maxY;
-        }　*/
-        //范围限定方法二　
-        moveX = Math.min(maxX, Math.max(0, moveX));
+      //给小盒子添加鼠标移动事件
+      objMarkBox.onmousemove = function (ev) {
+        var _event = ev || window.event;//做兼容性，兼容IE
+        //1计算值：
+        var left = _event.clientX - objDemo.offsetLeft - objSmallBox.offsetLeft - objFloatBox.offsetWidth / 2;
+        var top = _event.clientY - objDemo.offsetTop - objSmallBox.offsetTop - objFloatBox.offsetHeight / 2;
 
-        moveY = Math.min(maxY, Math.max(0, moveY));
-        box.style.left = moveX + "px";
-        box.style.top = moveY + "px";
-      } else {
-        return;
+        //5.优化，在前面加判断,不让其溢出，加判断
+        if (left < 0) left = 0;
+        if (top < 0) top = 0;
+        if (left > objSmallBox.offsetWidth - objFloatBox.offsetWidth)
+          left = objSmallBox.offsetWidth - objFloatBox.offsetWidth;
+        if (top > objSmallBox.offsetHeight - objFloatBox.offsetHeight)
+          top = objSmallBox.offsetHeight - objFloatBox.offsetHeight;
+
+        //2把值赋值给放大镜
+        objFloatBox.style.left = left + "px";
+        objFloatBox.style.top = top + "px";
+
+        //3计算比例
+        var percentX = left / (objMarkBox.offsetWidth - objFloatBox.offsetWidth);
+        var percentY = top / (objMarkBox.offsetHeight - objFloatBox.offsetHeight);
+
+        //4利用这个比例计算距离后赋值给右侧的图片
+        objBigBoxImg.style.left = -percentX * (objBigBoxImg.offsetWidth - objBigBox.offsetWidth) + "px";
+        objBigBoxImg.style.top = -percentY * (objBigBoxImg.offsetHeight - objBigBox.offsetHeight) + "px";
       }
 
     }
+  </script>
+</head>
 
-    document.onmouseup = function () {
-      isDrop = false; //设置为false不可移动
-    }
+<body>
+  <div id="demo">
+    <div id="small-box">
+      <div id="mark"></div>
+      <div id="float-box"></div>
+      <img src="./images/swipe/4.jpg" />
+    </div>
+    <div id="big-box">
+      <img src="./images/swipe/4.jpg" />
+    </div>
+  </div>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax</title>
+  <script src="./js/jquery.js"></script>
+</head>
+
+<body>
+  <button id="login">登录</button>
+  <script>
+    $("#login").click(function () {
+      let url = 'http://192.168.1.24/admin/signIn?username=unq&password=123456'
+      // let url = 'https://api.wantianqing.com/admin/signIn?username=unq&password=2019'
+      // $.post({
+      //   url: url,
+      //   method: 'post',
+      //   dataType: "json",
+      //   crossDomain: true, //设置跨域为true
+      //   xhrFields: {
+      //     withCredentials: true //默认情况下，标准的跨域请求是不会发送cookie的
+      //   },
+      //   success: (res) => {
+      //     console.log(res)
+      //     alert(JSON.stringify(res))
+      //   },
+      //   error: (err) => {
+      //     console.log(err)
+      //     alert(JSON.stringify(err))
+      //   }
+      // })
+
+      fetch(url, {
+        method: 'POST',
+        mode:"cors",
+        credentials:"include",
+        headers: {
+          'Origin': location.origin,
+          'cache': "force-cache",
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }).then(response => {
+        alert(response + 0000)
+        return response.json()
+      })
+        .then(res => {
+          alert(JSON.stringify(res) + 1111)
+          console.log(res)
+        })
+        .catch(e => {
+          alert(JSON.stringify(e)+ 2222)
+          console.log("Oops, error", e)
+        })
+    })
   </script>
 </body>
 

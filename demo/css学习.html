@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    pre {
+      font-size: 16px;
+      /* font-weight: bold; */
+    }
+  </style>
+</head>
+<body>
+  <pre>
+    浏览器
+      组成部分：
+        shell(界面)   内核
+      种类：
+        Chrom       webkit/blink
+        Safari      webkit
+        Firefox     gecko
+        IE          trident
+        Opera       presto(被360和昆仑万维收购)
+
+      内核：
+        渲染引擎(rendering)    JS引擎
+
+    CSS
+      选择器权重：
+      !important > ID > class | 属性 > 标签 > 通配符(*)
+
+
+    font-style:
+      italic    斜体    ->  使用了文字本身的斜体属
+      oblique   倾斜    ->  让没有斜体属性的文字做倾斜处
+      normal    清除样式
+
+    font-family:
+      "Times New Roman",Georgia,serif;
+      回退处理，向后兼容
+      中文字体或有空格的字体要使用引号
+
+    三原色RGB：
+      red     green   blue
+      00-ff   00-ff   00-ff   -> 十六进制 0-9 + a-f
+
+      缩写
+      00      ff      00
+      #00ff00   ->   #0f0   两位相等的可被缩写
+
+            red     green   blue
+            0-255   0-255   0-255
+      红色   255     0       0
+      绿色   0       255     0
+      蓝色   0       0       255
+
+      rgb(0, 255, 255) -> 最大值为255，大于255会被处理为255
+
+    文本缩进：
+      text-indent: 5px;
+    
+    文本修饰：
+      text-decoration:
+        underline     ->  下划线
+        line-through  ->  中划线
+        overline      ->  上划线
+        none          ->  清除所有
+
+    单行文本截断和显示省略号
+      white-space: nowrap;        // 不换行
+      overflow: hidden;           // 超出隐藏
+      text-overflow: ellipsis     // 超出显示省略号
+
+    行内块和行内元素文本对齐
+      vertical-align: 行内块中有文本，则上对齐，否则下对齐
+
+    容器内多行文本居中
+      容器(div)       display: table;
+      容器文本(sapn)   dispaly: table-cell;
+                      vertical-align: middle;
+
+    相对定位(非relative)
+      子元素相对于父元素定位，相对于最近的父元素，并且父元素的定位不限
+    
+    浮动
+      浮动以后元素变成内联块元素了  ->  inline-block
+      清除浮动： 
+        1.在块元素上使用clear: both
+        2.::after { content: ""; dispaly: block;clear: both;}
+
+    伪类
+      :before、:after   一个冒号为伪类，两个冒号为伪元素
+      :before {
+        content: attr(data-name); // 能获取标签内属性值
+      }
+    
+    box-shadow
+      box-shadow: 10px 8px 6px 5px #f40 inset
+        10px      ->  水平位置，正数 -> 右边，负数 -> 左边
+        8px       ->  垂直位置，正数 -> 下变，负数 -> 上边
+        6px       ->  横向模糊距离，清晰度
+        5px       ->  阴影尺寸，可累加到偏移量
+        #f40      ->  阴影颜色
+        inset     ->  种类：向内、向外
+    
+    BFC
+      block formating content -> 块级格式化上下文
+      具有以下任一属性的为BFC
+        1、浮动
+        2、定位     ->  absolute、fixed
+        3、display  ->  block、inline-block、table-cell
+        4、overflow ->  hidden、auto、scroll
+
+      解决问题：
+        1、maring合并 ->  同级的盒子，上下margin被合并
+        2、margin塌陷 ->  嵌套盒子，子元素margin-top会影响父容器(BFC之外的方法：父元素设置border: 1px solid transparent;)
+        3、容器坍塌    ->  浮动元素的父容器高度塌陷
+        4、浮动覆盖(如：文字环绕) ->  浮动元素覆盖其他元素，可设置其他元素为BFC
+
+    CSS书写顺序
+      1、显示属性：dispaly、position、float、clear
+      2、自身属性：width、height、margin、padding、border、background
+      3、文本属性：color、font、text-align、vertical-align、white-space
+
+    简写
+      font: italic bold 12px/20px  "微软雅黑"
+        1、font-style
+        2、font-weight
+        3、font-size
+        4、line-height
+        5、font-family
+
+    选择器命名
+      1、选择器复合单词     ->  中横线
+      2、JS钩子ID 复合单词  ->  下划线
+      3、尽量全英文，小写
+    
+    
+
+  </pre>
+</body>
+</html>

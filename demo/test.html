@@ -188,18 +188,40 @@
           'Content-Type': 'application/json'
         }
       }).then(response => {
-        alert(response + 0000)
         return response.json()
       })
-        .then(res => {
-          alert(JSON.stringify(res) + 1111)
-          console.log(res)
-        })
-        .catch(e => {
-          alert(JSON.stringify(e)+ 2222)
-          console.log("Oops, error", e)
-        })
+      .then(res => {
+        console.log(res)
+      })
+      .catch(e => {
+        console.log("Oops, error", e)
+      })
     })
+
+    function timeout() { // ajax
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(1)
+        }, 1000);
+      });
+    }
+
+    async function asyncPrint() {
+      return await timeout().then(async res => {
+        console.log(res, 'aaa')
+        return await 2
+      });
+    }
+
+    (async function(){
+      let flag = false
+      await asyncPrint().then(res => {
+        console.log(res, 'bbb')
+        flag = res
+      });
+      console.log(flag, 'ccc')
+    })()
+
   </script>
 </body>
 

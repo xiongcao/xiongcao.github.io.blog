@@ -1290,36 +1290,36 @@
     //   console.log($, $1)
     // })
 
-function renderTemplateHtml (tpl, opt) {
-  return tpl.replace(/{{(.*?)}}/gim, function(node, key){
-    return opt[key]
-  })
-}
+    // function renderTemplateHtml (tpl, opt) {
+    //   return tpl.replace(/{{(.*?)}}/gim, function(node, key){
+    //     return opt[key]
+    //   })
+    // }
 
-let data = [
-  {
-    name: '熊大',
-    age: 20,
-    province: '上海',
-    city: '上海市',
-    area: '闵行区'
-  },
-  {
-    name: '熊二',
-    age: 18,
-    province: '湖北省',
-    city: '武汉市',
-    area: '江汉区'
-  }
-]
+    // let data = [
+    //   {
+    //     name: '熊大',
+    //     age: 20,
+    //     province: '上海',
+    //     city: '上海市',
+    //     area: '闵行区'
+    //   },
+    //   {
+    //     name: '熊二',
+    //     age: 18,
+    //     province: '湖北省',
+    //     city: '武汉市',
+    //     area: '江汉区'
+    //   }
+    // ]
 
-let tpl = document.getElementById('tpl').innerHTML
-let listHtml = ''
-for (let i=0;i<data.length;i++) {
-  let people = data[i];
-  listHtml += renderTemplateHtml(tpl, people)
-}
-document.body.innerHTML = listHtml
+    // let tpl = document.getElementById('tpl').innerHTML
+    // let listHtml = ''
+    // for (let i=0;i<data.length;i++) {
+    //   let people = data[i];
+    //   listHtml += renderTemplateHtml(tpl, people)
+    // }
+    // document.body.innerHTML = listHtml
 
     /******************** 正则表达式 END ***************/
 

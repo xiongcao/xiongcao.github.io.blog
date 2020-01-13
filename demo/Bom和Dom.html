@@ -12,7 +12,9 @@
   <span>111<span>222</span></span>
   <a>hhhh<a>xxxx</a></a>
   <div><a href="">333</a><span>444</span></div>
-  <div><h2>555</h2><span>666</span></div>
+  <div>
+    <h2>555</h2><span>666</span>
+  </div>
   <script>
     /****************** DOM 对象 Begin ***************/
     // DOM -> Document Object Model 文档对象模型
@@ -35,7 +37,79 @@
 
     // 浏览器对象windwo(BOM)和document(BOM) -> w3c -> DOM: 通过浏览器提供的这一套方法表示或者操作HTML和XML
 
+    // querySelector  querySelectorAll
+    // 都使用css选择器，前者匹配最开始的一个，后者匹配一组元素
+    // 1、性能差  2、不实时
+
+    // 遍历节点树 Begin
+    // 节点包含元素 -> 元素节点 = DOM元素
+    // parentNode ->  最顶层为document
+    // childNodes
+    //    1.元素节点  = 1
+    //    2.属性节点  = 2
+    //    3.文本节点  text  = 3
+    //    4.注释节点  comment = 8
+    //    5.document  = 9
+    //    6.DocumentFragment  = 11
+    // firstChild lastChild
+    // nextSibling  previousSibling
+    // 上一个兄弟节点 下一个兄弟节点
+    // nodeName ->  元素节点的nodeName 大写，只读
+    // nodeValue  可写  属性、注释、文本可用
+    // getAttributeNode('id') ->  获取属性节点
+    // nodeType 对应上面的编号
+
+    //封装获取资源子元素节点集合的方法
+    // function elemChild(node) {
+    //   var arr = [];
+    //   var temp = {
+    //     'length': 0,
+    //     'push': Array.prototype.push,
+    //     'splice': Array.prototype.splice
+    //   },
+    //       len = node.childNodes.length;
+    //   for (let i = 0; i < len; i++) {
+    //     var childItem = node.childNodes[i];
+
+    //     if (childItem.nodeType === 1) {
+    //       // temp[temp['length']] = childItem;
+    //       // temp['length']++;
+    //       arr.push(childItem)
+    //     }
+    //   }
+    //   // return temp;
+    //   return arr;
+    // }
+
+    // dom.attributes -> 获取元素属性集合
+    // dom.hasChildNode() -> 是否含有子节点
+
+    // 遍历元素节点树 Begin
+    // parentElement  ->  最顶层元素为HTML  IE9及以下不支持
+    // children IE7及以下不支持
+    // childElementCount  ->  children.length IE9及以下不支持
+    // firstElementChild  lastElementChild  IE9及以下不支持
+    // nextElementSibling previousElementSibling  IE9及以下不支持
+
+    // 创建元素节点 ->  createElement('div')
+    // 创建文本节点 ->  createTextNode('hello world')
+    // 创建注释节点 ->  createComment('我是注释君')
+
+    // appentdChild  ->  Node.prototype
+    // 1、添加子节点  添加到父元素里最后面
+    // 2、剪切节点    将已有的元素移动到父元素里最后面
+
+    // c.insertBefore(a, b)
+    // 插入节点：在父级c节点下的子节点b之前插入a节点
+
+    // removeChild
+    // 删除节点 父节点.removeChild(子节点)  返回删除的节点
+    // 目标节点.remove()  自杀，无返回值
+
+
+
     /******************** DOM 对象 End ***************/
+
 
     /********************* BOM 事件 Begin ***************/
     // 事件绑定 -> 元素本身具有事件属性，绑定事件的处理函数
@@ -56,7 +130,7 @@
     // div.addEventListener('click', function () {
     //   console.log(1)
     // }, false)
-    
+
     // 打印一个‘1’
     // 此种方式绑定的是同一个事件处理函数
     // div.addEventListener('click', test, false)
@@ -103,6 +177,8 @@
     // Netscape 提出了 事件捕获流 (Event Capturing)
 
     // index = Array.prototype.indexOf.call(oLi, target) Array.prototype.indexOf.call(DOM对象集合, 事件源)
+
+
 
     /********************** BOM 事件 End ***************/
   </script>

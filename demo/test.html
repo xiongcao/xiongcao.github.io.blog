@@ -207,19 +207,19 @@
     }
 
     async function asyncPrint() {
-      return await timeout().then(async res => {
-        console.log(res, 'aaa')
-        return await 2
-      });
+      if (1) {
+        return await timeout().then(async res => {
+          return res
+        });
+      } else {
+        return 0
+      }
     }
 
     (async function(){
-      let flag = false
-      await asyncPrint().then(res => {
-        console.log(res, 'bbb')
-        flag = res
-      });
-      console.log(flag, 'ccc')
+      let flag
+      flag = await asyncPrint()
+      console.log(flag)
     })()
 
   </script>

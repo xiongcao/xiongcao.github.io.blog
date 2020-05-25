@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>轮播</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      border: none;
+    }
+
+    .swipe {
+      position: relative;
+      margin: 0 auto;
+      width: 300px;
+      height: 150px;
+      border: 1px solid burlywood;
+      overflow: hidden;
+    }
+
+    .swipe .arrow {
+      display: none;
+      position: absolute;
+      top: 50px;
+      width: 20px;
+      height: 40px;
+      z-index: 1;
+      cursor: pointer;
+      background: rgba(0, 0, 0, .3);
+      text-align: center;
+      color: #ffffff;
+      font-weight: bold;
+      line-height: 38px;
+    }
+
+    .swipe .arrow-r {
+      right: 0px;
+    }
+
+    .swipe .box {
+      position: relative;
+      height: 150px;
+      width: 1500px;
+    }
+
+    .swipe .box img {
+      float: left;
+      width: 300px;
+      height: 150px;
+    }
+
+    .swipe .circle {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .swipe .circle i {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      background: darkgrey;
+      cursor: pointer;
+      font-size: 12px;
+      color: #ffffff;
+      text-align: center;
+      margin-left: 5px;
+    }
+
+    .swipe .circle .current {
+      background: darkred;
+    }
+  </style>
+  <script src="./js/animate.js"></script>
+</head>
+
+<body>
+  <div class="swipe"> <!-- focus -->
+    <div class="arrow arrow-l"><</div>
+    <div class="arrow arrow-r">></div>
+    <div class="box"> <!-- ul -->
+      <img class="swipe-img" src="./images/swipe/4.jpg" />
+      <img class="swipe-img" src="./images/swipe/5.jpg" />
+      <img class="swipe-img" src="./images/swipe/6.jpg" />
+      <img class="swipe-img" src="./images/swipe/7.jpg" />
+    </div>
+    <div class="circle"> <!-- circle -->
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  let timer // 计时器id
+  let index = 0 // 当前轮播图的索引
+  let flag = true // 节流阀，阻止快速点击轮播
+  // 箭头
+  let arrow_l = document.getElementsByClassName('arrow-l')[0]
+  let arrow_r = document.getElementsByClassName('arrow-r')[0]
+  let swipe = document.getElementsByClassName('swipe')[0]
+
+  // 轮播图盒子
+  let box = document.getElementsByClassName('box')[0]
+  let circle = document.getElementsByClassName('circle')[0]
+  let imgs = box.children
+
+  window.addEventListener('load', () => {
+    // 箭头的显示隐藏
+    swipe.addEventListener('mouseenter', () => {
+      arrow_l.style.display = 'block'
+      arrow_r.style.display = 'block'
+      clearInterval(timer)
+      
+    })
+    swipe.addEventListener('mouseleave', () => {
+      arrow_l.style.display = 'none'
+      arrow_r.style.display = 'none'
+      handleInterval()
+    })
+
+    // 创建 角标 索引
+    for (let i = 0; i < imgs.length; i++) {
+      // 创建一个 i 标签
+      let i_node = document.createElement('i')
+      i_node.innerHTML = i + 1
+      // 把 i标签 插入到 div.circle 中
+      circle.appendChild(i_node)
+      i_node.addEventListener('mouseenter', function () {
+        index = i
+        renderCricleHtml(index)
+        animate(box, -i * swipe.clientWidth)
+      }, false)
+    }
+    circle.children[0].className = 'dot current'
+
+    // 克隆第一张图片放到最后面
+    let firstImgNode = imgs[0].cloneNode(true)
+    box.appendChild(firstImgNode)
+
+    arrow_r.addEventListener('click', () => {
+      if (flag) {
+        flag = false
+        if (index === imgs.length - 1) {
+          box.style.left = 0
+          index = 0
+        }
+        index++;
+        animate(box, -index * swipe.clientWidth, function () {
+          flag = true
+        })
+        renderCricleHtml(index)
+      }
+    })
+
+    arrow_l.addEventListener('click', () => {
+      if (flag) {
+        flag = false
+        if (index === 0) {
+          box.style.left = -(imgs.length-1) * swipe.clientWidth + 'px'
+          index = imgs.length - 1
+        }
+        index--;
+        animate(box, -index * swipe.clientWidth, function () {
+          flag = true
+        })
+        renderCricleHtml(index)
+      }
+    })
+
+    handleInterval()
+
+  })
+
+  /**
+   * @num 指示器索引
+  */
+  function renderCricleHtml(num) {
+    if (num === circle.children.length) {
+      num = 0
+    }
+    for (let j = 0; j < circle.children.length; j++) {
+      circle.children[j].className = ''
+    }
+    circle.children[num].className = 'current'
+  }
+
+  function handleInterval () {
+    // 自动轮播
+    timer = setInterval(function () {
+      arrow_r.click()
+    }, 2000)
+  }
+</script>
+
+</html>

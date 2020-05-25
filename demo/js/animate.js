@@ -1,5 +1,4 @@
 function animate (element = {}, target, callback) {
-
   // 清除之前的计时器，只保留当前一个定时器
   clearInterval(element.timer)
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>缓动动画</title>
+  <style>
+    div {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+    }
+  </style>
+  <script src="./js/animate.js"></script>
+</head>
+<body>
+  <button class="btn500">点击夏雨荷到500</button>
+  <button class="btn800">点击夏雨荷到800</button>
+  <div>夏雨荷</div>
+  <script>
+    const btn500 = document.querySelector('.btn500')
+    const btn800 = document.querySelector('.btn800')
+    const div = document.querySelector('div')
+
+    btn500.addEventListener('click', function () {
+      animate(div, 500, function () {
+        div.style.backgroundColor = 'pink'
+      })
+    })
+
+    btn800.addEventListener('click', function () {
+      animate(div, 800)
+    })
+  </script>
+</body>
+</html>

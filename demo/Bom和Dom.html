@@ -15,6 +15,10 @@
   <div>
     <h2>555</h2><span>666</span>
   </div>
+  <pre>
+    
+
+  </pre>
   <script>
     /****************** DOM 对象 Begin ***************/
     // DOM -> Document Object Model 文档对象模型
@@ -178,7 +182,86 @@
 
     // index = Array.prototype.indexOf.call(oLi, target) Array.prototype.indexOf.call(DOM对象集合, 事件源)
 
+    // 封装滚动条距离方法
+    // function getScrollOffset() {
+    //   if (window.pageXOffset) {
+    //     return {
+    //       left: window.pageXOffset,
+    //       top: window.pageYOffset
+    //     }
+    //   } else {
+    //     return {
+    //       left: document.body.scrollLeft + document.documentElement.scrollLeft,
+    //       top: document.body.scrollTop + document.documentElement.scrollTop
+    //     }
+    //   }
+    // }
 
+    // 浏览器的怪异模式和标准模式
+    // document.compatMode  怪异模式     标准模式
+    //                      BackCompat  CSS1Compat
+
+    // 获取浏览器可视区域宽高
+    // function getViewportSize() {
+    //   if (window.innerWidth) { //包含滚动条距离
+    //     return {
+    //       width: window.innerWidth,
+    //       height: window.innerHeight
+    //     }
+    //   } else {
+    //     if (document.compatMode === 'Back') { // 包含滚动条距离
+    //       return {
+    //         width: document.body.clientWidth,
+    //         height: document.body.clientHeight
+    //       }
+    //     } else {
+    //       return {  // 不包含滚动条距离
+    //         width: document.documentElement.clientWidth,
+    //         height: document.documentElement.clientHeight
+    //       }
+    //     }
+    //   }
+    // }
+
+    // document.body.scrollWidth = window.innerWidth + window.pageXOffset
+    // 获取文档总宽高
+    // function getScrollSize() {
+    //   if (document.body.scrollWidth) {
+    //     return {
+    //       width: document.body.scrollWidth,
+    //       height: document.body.scrollHeight
+    //     }
+    //   } else {
+    //     return {
+    //       width: document.documentElement.scrollWidth,
+    //       height: document.documentElement.scrollHeight
+    //     }
+    //   }
+    // }
+
+    // getBoundingClientReact() 获取盒子宽高，定位，坐标等属性
+
+    // offsetLeft/offsetTop 相对于定位的父元素的坐标
+    // offsetParent 返回有定位的父级元素，找不动则为body
+    // 封装盒子的绝对坐标
+    // function getElemDocPosition(el) {
+    //   var parent = el.offsetParent,
+    //     offsetLeft = el.offsetLeft,
+    //     offsetTop = el.offsetTop;
+
+    //   while (parent) {
+    //     offsetLeft += parent.offsetLeft;
+    //     offsetTop += parent.offsetTop;
+    //     parent = parent.offsetParent
+    //   }
+
+    //   return {
+    //     left: offsetLeft,
+    //     top: offsetTop
+    //   }
+    // }
+
+    // 设置滚动条距离 window.scroll(x, y) => window.scrollTo(x, y) => window.scrollBy(x, y)
 
     /********************** BOM 事件 End ***************/
   </script>

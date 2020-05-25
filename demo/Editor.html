@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>富文本编辑器</title>
+</head>
+<body>
+  <div id="box">富文本编辑器富文本编辑器富文本编辑器富文本编辑器富文本编辑器富文本编辑器富文本编辑器富文本编辑器富文本编辑器</div>
+
+  <script>
+    let box = document.getElementById("box")
+    box.addEventListener('click', () => {
+      console.log(window.getSelection().toString())
+    })
+  </script>
+</body>
+</html>

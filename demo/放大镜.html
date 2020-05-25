@@ -5,8 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>放大镜</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+ 
+    .preview {
+      position: relative;
+      padding: 0;
+      width: 452px;
+      height: 452px;
+      border: 1px solid #eee;
+    }
+
+    .preview > img {
+      width: 100%;
+    }
+
+    .mask {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 217, 110, 0.65);
+      cursor: move;
+    }
+
+    .big {
+      display: none;
+      position: absolute;
+      left: 455px;
+      top: 0;
+      width: 540px;
+      height: 540px;
+      z-index: 2;
+      border: 1px solid #eee;
+      overflow: hidden;
+    }
+
+    .bigImg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+  </style>
 </head>
+
 <body>
-  
+  <div class="preview">
+    <img src="http://img12.360buyimg.com/n1/s450x450_jfs/t1/80220/18/9892/163090/5d78089cEda2f9674/da3b18358e68cfca.jpg"
+      alt="放大镜">
+      <div class="mask"></div>
+      <div class="big">
+        <img class="bigImg" src="http://img12.360buyimg.com//n0/jfs/t1/80220/18/9892/163090/5d78089cEda2f9674/da3b18358e68cfca.jpg" alt="放大镜">
+      </div>
+  </div>
+  <script>
+    const RATE = 2
+    const preview = document.querySelector('.preview')
+    const mask = document.querySelector('.mask')
+    const big = document.querySelector('.big')
+    const bigImg = document.querySelector('.bigImg')
+
+    // 盒子宽、高
+    let previewWidth = preview.offsetWidth,
+        previewHeight = preview.offsetHeight;
+
+    // 根据倍率计算 遮罩层大小 
+    // 设置 遮罩层默认大小为 300， 300 : previewWidth = 1: RATE
+    if (RATE === 1) {
+      mask.style.width = '300px'
+      mask.style.height = '300px'
+    } else {
+      mask.style.width = previewWidth / RATE + 'px'
+      mask.style.height = previewHeight / RATE + 'px'
+    }
+
+    console.log(mask.style.width)
+
+    // 1. 当我们鼠标经过 preview 就显示和隐藏 mask 遮罩层 和 big 大盒子
+    preview.addEventListener('mouseover', () => {
+      mask.style.display = 'block'
+      big.style.display = 'block'
+    })
+
+    preview.addEventListener('mouseout', () => {
+      mask.style.display = 'none'
+      big.style.display = 'none'
+    })
+
+    preview.addEventListener('mousemove', function (e) {
+      
+      // 遮罩层宽、高
+      let maskWidth = mask.offsetWidth
+      let maskHeight = mask.offsetHeight
+
+      // 鼠标 在盒子内的 坐标
+      let mouseX = e.pageX - this.offsetLeft
+      let mouseY = e.pageY - this.offsetTop
+
+      // 遮罩层移动的 距离
+      let maskLeft, maskTop
+      maskLeft = mouseX - maskWidth / 2
+      maskTop = mouseY - maskHeight / 2
+
+      // 计算遮罩层移动的临界值
+      let maskLeftMax = previewWidth - maskWidth
+      let maskTopMax = previewHeight - maskHeight
+
+      if (maskLeft <= 0) {
+        maskLeft = 0
+      } else if (maskLeft >= maskLeftMax) {
+        maskLeft = maskLeftMax
+      }
+
+      if (maskTop <= 0) {
+        maskTop = 0 
+      } else if (maskTop >= maskTopMax) {
+        maskTop = maskTopMax
+      }
+
+      // 移动遮罩层
+      mask.style.left = maskLeft + 'px'
+      mask.style.top = maskTop + 'px'
+
+      // 计算 放大镜 移动距离 maskLeft : maskLeftMax = bigLeft : bigLeftMax
+      let bigWidth = big.offsetWidth,
+          bigHeight = big.offsetHeight;
+
+      // 放大倍率 maskWidth : previewWidth = bigWidth : bigImgWidth      
+      bigImg.width = previewWidth * bigWidth / maskWidth
+      bigImg.height = previewHeight * bigHeight / maskHeight
+
+      let bigImgWidth = bigImg.offsetWidth,
+          bigImgHeight = bigImg.offsetHeight;
+
+      let bigLeftMax = bigImgWidth - bigWidth,
+          bigTopMax = bigImgHeight - bigHeight;
+
+      let bigLeft = maskLeft * bigLeftMax / maskLeftMax,
+          bigTop = maskTop * bigTopMax / maskTopMax;
+
+      bigImg.style.left = -bigLeft + 'px'
+      bigImg.style.top = -bigTop + 'px'
+    })
+  </script>
 </body>
 </html>

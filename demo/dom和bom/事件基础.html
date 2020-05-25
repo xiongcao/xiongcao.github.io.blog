@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件基础</title>
+</head>
+<body>
+  <pre>
+    // 事件三要素：
+    1. 事件源
+    2. 事件类型
+    3. 事件处理程序
+
+    // 注册事件的两种方式
+    一、传统注册事件
+    1. 使用on开头的事件onclick
+    2. 注册事件的唯一性：同一个元素，同一个事件只能设置一个处理函数，最后注册的处理函数将会覆盖前面注册的处理函数
+
+    二、方法监听注册方式
+    1. w3c 标准推荐方式
+    2. 使用addEventListener()方法，IE9之前不支持此方法，可使用attachEvent()方法代替
+    3. 同一个元素，同一个事件可以注册多个监听器
+
+    // 事件流
+    概念：事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即dom事件流
+
+    3个阶段：
+    1. 捕获阶段  最顶层 -> 底层
+    2. 当前目标阶段
+    3. 冒泡阶段  底层 -> 最顶层
+
+    事件冒泡：IE最早提出，事件开始时由最具体的元素接收，然后逐级向上传播到DOM最顶层节点的过程
+    事件捕获：网景最早提出，有DOM最顶层节点开始，然后逐级向下传播到最具体的元素接收的过程
+    
+    document.addEventListener('eventType', fn, flag);
+    flag: true，处于捕获阶段；false，处理冒泡阶段；默认是false。
+
+    兼容性：
+    1、事件对象：e || window.event
+    2、触发事件的对象：e.target || e.srcElement
+    3、取消默认行为：e.preventDefault() || e.returnValue
+    4、阻止时间冒泡：e.stopPropagation() || e.cancelBubble = true
+
+  </pre>
+</body>
+</html>

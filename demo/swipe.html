@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>轮播</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      border: none;
+    }
+
+    ul, li {
+      list-style: none;
+    }
+
+    .swipe {
+      width: 100%;
+      height: 150px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .swipe .box {
+      height: 150px;
+      width: 500%;
+      margin-left: -100%;
+    }
+
+    .swipe .box li {
+      width: 20%;
+      float: left;
+    }
+
+    .swipe .box img {
+      width: 100%;
+      height: 150px;
+    }
+
+    .swipe .circle {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .swipe .circle i {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: darkgrey;
+      cursor: pointer;
+      color: #ffffff;
+      border-radius: 50%;
+    }
+
+    .swipe .circle .current {
+      background: darkred;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="swipe">
+    <ul class="box">
+      <li><img class="swipe-img" src="./images/swipe/6.jpg" /></li>
+      <li><img class="swipe-img" src="./images/swipe/4.jpg" /></li>
+      <li><img class="swipe-img" src="./images/swipe/5.jpg" /></li>
+      <li><img class="swipe-img" src="./images/swipe/6.jpg" /></li>
+      <li><img class="swipe-img" src="./images/swipe/4.jpg" /></li>
+    </ul>
+    <div class="circle">
+      <i class="current"></i>
+      <i></i>
+      <i></i>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  const swipe = document.querySelector('.swipe')
+  const ul = swipe.children[0]
+  const li = ul.children
+  const circle = swipe.children[1]
+
+  // 获取swipe 宽度
+  let swipeW = swipe.offsetWidth;
+
+  let index = 0 // 轮播索引
+  let timer
+
+  let moveFlag = false // 是否拖动
+  handleInterval()
+
+  // 动画过度完成事件监听
+  ul.addEventListener('transitionend', function (e) {
+    let translateX
+    if (index >= li.length - 2) {
+      index = 0
+    } else if (index < 0) {
+      index = 2
+    }
+
+    ul.style.transition = 'none'
+    translateX = - index * swipeW
+    ul.style.transform = 'translateX('+ translateX +'px)'
+
+    // 小圆点跟随变化
+    circle.querySelector('.current').classList.remove('current')
+    circle.children[index].classList.add('current')
+  })
+
+  // 手指滑动轮播图
+  let startX = 0; // 手指初始坐标
+  let moveX = 0; // 移动距离
+  ul.addEventListener('touchstart', function (e) {
+    moveX = 0
+    clearInterval(timer)
+    startX = e.targetTouches[0].pageX;
+  })
+
+  ul.addEventListener('touchmove', function (e) {
+    moveFlag = true
+    let translateX = - index * swipeW
+    moveX = e.targetTouches[0].pageX - startX;
+    // 盒子移动距离
+    ul.style.transition = 'none';
+    ul.style.transform = 'translateX('+ (translateX + moveX) +'px)'
+  })
+
+  // 手指离开 根据移动距离判断是回弹还是播放上一张、下一张
+  ul.addEventListener('touchend', function (e) {
+    if (moveFlag) {
+      let translateX
+      // 移动距离大于50px播放
+      if (Math.abs(moveX) > 50) {
+        // 右滑， 播放上一张 moveX > 0
+        if (moveX > 0) {
+          index--
+        } else { // 左滑， 播放下一张 moveX < 0
+          index++
+        }
+      }
+      moveFlag = false
+      translateX = - index * swipeW
+      ul.style.transition = 'all .3s';
+      ul.style.transform = 'translateX('+ translateX +'px)'
+    }
+
+    // 重启计时器
+    clearInterval(timer)
+    handleInterval()
+  })
+
+  function handleInterval () {
+    timer = setInterval(function (e) {
+      let translateX = 0 // 滚动距离
+      index++
+      translateX = - index * swipeW
+      ul.style.transition = 'all .3s'
+      ul.style.transform = 'translateX('+ translateX +'px)'
+    }, 3000)
+  }
+
+
+</script>
+
+</html>

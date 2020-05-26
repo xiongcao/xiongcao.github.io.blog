@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>移动端拖动</title>
+  <style>
+    div {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+
+  <script>
+    const div = document.querySelector('div')
+    let startX = 0,
+        startY = 0; // 手指的初始坐标
+    let x = 0,
+        y = 0 // 盒子的初始左边
+
+    div.addEventListener('touchstart', function (e) {
+      startX = e.targetTouches[0].pageX
+      startY = e.targetTouches[0].pageY
+      x = this.offsetLeft
+      y = this.offsetTop
+    })
+    
+    div.addEventListener('touchmove', function (e) {
+      // 获取手指移动的距离
+      let moveX = e.targetTouches[0].pageX - startX
+      let moveY = e.targetTouches[0].pageY - startY
+      // 移动盒子
+      this.style.left = x + moveX + 'px'
+      this.style.top = y + moveY + 'px'
+      e.preventDefault();
+    })
+
+  </script>
+</body>
+</html>

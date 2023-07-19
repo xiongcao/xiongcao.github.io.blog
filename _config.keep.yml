@@ -1,0 +1,125 @@
+
+# keep theme config
+base_info:
+  title: XChao's Blog
+  author: Chao
+  url: https://xiongcao.github.io/
+
+style:
+  primary_color: "#0066cc"
+  logo: /images/avatar.jpg
+  favicon: /images/avatar.jpg
+  avatar: /images/avatar.jpg
+  font_size:
+  font_family:
+
+  hover:
+    shadow: true
+    scale: true
+
+  first_screen:
+    enable: true
+    header_transparent: true
+    background_img: /images/bg.svg
+    description: 黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。
+    font_color:
+    hitokoto: true
+
+  scroll:
+    progress_bar: true
+    percent: true
+
+menu:
+  Home: /                         # 首页
+  Archives: /archives             # 归档
+  Tags: /tags                   # 标签
+  Categories: /categories       # 分类
+  Links: /links                 # 链接
+  About: /about                 # 关于
+
+social_contact:
+  enable: true
+  links:
+    github: https://github.com/xiongcao 
+    qq: http://wpa.qq.com/msgrd?v=3&uin=1359209000&site=qq&menu=yes
+    # weixin:          
+    email: 1359209000@qq.com
+    # weibo:           # WeiBo
+    # zhihu:           # ZhiHu
+    # twitter:         # Twitter
+    # facebook:        # Facebook
+  
+
+home_article:
+  category:
+    enable: true
+    limit: 3
+  tag:
+    enable: true
+    limit: 5
+
+
+post:
+  author_label:
+    enable: true  # Option values: true | false
+    auto: false    # Option values: true | false
+    custom_label_list: ["实习生", "工程师", "架构师", "程序鼓励师"]
+
+  word_count:
+    enable: true       # Option values: true | false
+    wordcount: true    # Word count, one article. Option values: true | false
+    min2read: true     # Time to read, one article. Option values: true | false
+
+  img_align: left  # Option values: left | center
+
+  copyright_info: true  # Option values: true | false
+
+
+code_block:
+  tools:
+    enable: true
+    style: mac   # Option values: default | mac
+  highlight_theme: default   # Option values: default | obsidian
+
+
+toc:
+  enable: true
+  number: true
+  expand_all: true
+  init_open: true
+
+website_count:
+  busuanzi_count:
+    enable: true
+    site_uv: true
+    site_pv: true
+    page_pv: true
+
+
+local_search:
+  enable: true
+  preload: true     # Preload the search data when the page loads
+
+comment:
+  enable: true
+  use: waline  # values: valine | gitalk | twikoo | waline
+  waline:
+    version: 2
+    reaction: true
+    server_url: https://bear-blog-comment-8yis8zzwo-xiongcao.vercel.app
+    # server_url: https://bear-blog-comment-8yis8zzwo-xiongcao.vercel.app/?vercelToolbarCode=LpzZ3FSro234VZ4
+
+lazyload:
+  enable: true  # Option values: true | false
+cdn:
+  enable: false       # Option values: true | false
+  provider: jsdelivr  # Option values: jsdelivr | unpkg
+pjax:
+  enable: true  
+footer:
+  since: 2017
+  icp: 鄂ICP证000000001号
+  # site_deploy:
+  #   enable: false
+  #   provider: github # github | vercel | netlify | gitee | aliyun | tencent_cloud | upyun
+  #   url:

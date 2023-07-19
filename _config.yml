@@ -124,3 +124,8 @@ search:
   content: true
   format: striptags
 
+
+admin:
+  username: xiongchao
+  password_hash: $2a$10$8jz4crgICSbsAc0PfmopE.wWHJRUj3RjFMG4HEBks6tM3Rf1KbJ5y
+  secret: my super secret phrase

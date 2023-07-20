@@ -3,7 +3,7 @@ author: 熊 超
 tags:
   - ES6
 categories:
-  - ES6
+  - 源码
 date: 2020-09-27 13:15:00
 ---
 <!--more-->
@@ -67,7 +67,57 @@ removeLoadingIndicator();
 
 
 
+### Promise的实现原理
 
+```js
+function MyPromise(constructor) {
+  const that = this;
+  this.status = 'pending';  // 定义状态改变前的初始状态
+  this.value;  // 定义状态为resolved的时候的状态
+  this.reason; // 定义状态为rejected的时候的状态
+
+  function resolev(value) {
+    // 两个 === "pending"，保证了状态的改变是不可逆的
+    if (that.status === 'pending') {
+      that.status = 'resolved';
+      that.value = value;
+    }
+  }
+
+  function reject(reason) {
+    if (that.status === 'pending') {
+      that.status = 'resolved';
+      that.reason = reason;
+    }
+  }
+
+  // 捕获构造异常
+  try {
+    constructor(resolev, reject);
+  } catch (error) {
+    reject(err)
+  }
+}
+
+MyPromise.prototype.then = function (onFullfilled, onRejected) {
+  switch (this.status) {
+    case "resolved":
+      onFullfilled(this.value);
+      break;
+    case "rejected":
+      onRejected(this.reason)
+      break;
+  }
+}
+```
+
+上述就是一个初始版本的myPromise，在myPromise里发生状态改变，然后在相应的then方法里面根据不同的状态可以执行不同的操作。
+
+```js
+var p=new myPromise(function(resolve,reject){resolve(1)});
+p.then(function(x){console.log(x)})
+//输出1
+```
 
 
 
